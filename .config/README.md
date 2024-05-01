@@ -1,6 +1,4 @@
-# My dotfiles
-
-Here are some configurations of my macos....
+## Screenshot
 
 ![vscode screenshot](./images/vscode-screenshot.png)
 
