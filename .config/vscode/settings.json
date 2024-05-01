@@ -1,0 +1,843 @@
+{
+  /*
+   * Workbench settings
+   */
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Material Theme Ocean",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.list.smoothScrolling": true,
+  "workbench.editor.wrapTabs": true,
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#29B6F6",
+    "editorCursor.background": "#29B6F6",
+    "terminalCursor.foreground": "#29B6F6",
+    "terminalCursor.background": "#29B6F6",
+    "sideBar.border": "#00000000",
+    "statusBar.border": "#00000000",
+    "terminal.border": "#00000000",
+    "panel.border": "#00000000",
+    "activityBar.border": "#00000000",
+    "activityBar.activeBorder": "#00000000",
+    "list.focusAndSelectionOutline": "#00000000",
+    "editorGroupHeader.tabsBackground": "#00000000",
+    "sideBarSectionHeader.border": "#00000000",
+    "sideBarSectionHeader.background": "#00000000",
+    "peekViewEditor.background": "#00000000",
+    "peekViewEditorGutter.background": "#00000000",
+    "peekViewTitle.background": "#00000000",
+    "peekViewResult.background": "#00000000",
+    "tab.border": "#00000000",
+    "tab.activeModifiedBorder": "#00000000",
+    "tab.inactiveModifiedBorder": "#00000000",
+    "tab.activeBackground": "#00000000",
+    "tab.inactiveBackground": "#00000000",
+    "tab.lastPinnedBorder": "#00000000",
+    "editorOverviewRuler.border": "#00000000",
+    "statusBar.debuggingBackground": "#00000000",
+    "statusBar.noFolderBackground": "#00000000",
+    "statusBar.focusBorder": "#00000000",
+    "statusBarItem.activeBackground": "#00000000",
+    "widget.shadow": "#00000000",
+    "focusBorder": "#00000000",
+    "tree.indentGuidesStroke": "#00000000",
+    "panel.background": "#00000000",
+    "activityBar.dropBorder": "#00000000",
+    "peekViewEditor.matchHighlightBackground": "#00000000",
+    "peekViewEditor.matchHighlightBorder": "#00000000",
+    "titleBar.activeBackground": "#0C1125",
+    "titleBar.inactiveBackground": "#0C1125",
+    "activityBarBadge.background": "#0C1125",
+    "editorWidget.background": "#0C1125",
+    "settings.dropdownBackground": "#0C1125",
+    "input.background": "#0C1125",
+    "badge.background": "#0C1125",
+    "activityBar.inactiveForeground": "#01589b99",
+    "button.background": "#01589b99",
+    "panelTitle.inactiveForeground": "#01589b99",
+    "editorLineNumber.foreground": "#01589b99",
+    "editorSuggestWidget.border": "#01589b99",
+    "list.hoverBackground": "#01589b99",
+    "list.inactiveSelectionBackground": "#01589b99",
+    "list.activeSelectionBackground": "#01589b99",
+    "input.border": "#01589b99",
+    "editorLineNumber.activeForeground": "#1979c2",
+    "editorWidget.border": "#1979c2",
+    "peekView.border": "#1979c2",
+    "statusBar.foreground": "#1979c2",
+    "activityBar.foreground": "#29B6F6",
+    "activityBarBadge.foreground": "#29B6F6",
+    "sideBarSectionHeader.foreground": "#29B6F6",
+    "sideBarTitle.foreground": "#29B6F6",
+    "tab.activeBorder": "#29B6F6",
+    "icon.foreground": "#29B6F6",
+    "badge.foreground": "#29B6F6",
+    "panelTitle.activeForeground": "#29B6F6",
+    "panelTitle.activeBorder": "#29B6F6",
+    "titleBar.activeForeground": "#29B6F6",
+    "sideBar.foreground": "#81bae6",
+    "gitDecoration.modifiedResourceForeground": "#81bae6",
+    "gitDecoration.untrackedResourceForeground": "#81bae6",
+    "gitDecoration.ignoredResourceForeground": "#81bae6",
+    "gitDecoration.addedResourceForeground": "#81bae6",
+    "gitDecoration.renamedResourceForeground": "#81bae6",
+    "tab.activeBorderTop": "#00000000",
+    "editorGroupHeader.tabsBorder": "#00000000"
+  },
+
+  /*
+   * Editor settings
+   */
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.lineNumbers": "relative",
+  "editor.fontSize": 18,
+  "editor.fontFamily": "MonaspiceRn Nerd Font Propo,JetBrains Mono,Menlo, Monaco, 'Courier New', monospace,MesloLGS NF",
+  "editor.fontLigatures": true,
+  "editor.unicodeHighlight.allowedLocales": {
+    "zh-hans": true,
+    "zh-hant": true
+  },
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.minimap.enabled": false,
+  "editor.minimap.autohide": true,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.renderLineHighlight": "line",
+  "editor.wordWrap": "on",
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.suggestSelection": "recentlyUsed",
+  "editor.smoothScrolling": true,
+  "editor.fontWeight": "bold",
+  "editor.tabSize": 2,
+  "editor.tabCompletion": "on",
+  "editor.inlineSuggest.enabled": true,
+  "editor.snippetSuggestions": "bottom",
+  "editor.stickyScroll.enabled": true,
+  "editor.inlayHints.enabled": "on",
+  "editor.inlayHints.padding": false,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "Default",
+        "scope": [
+          "",
+          "support.type.property-name.json",
+          "meta.attribute.unrecognized",
+          "support.type.property-name.css",
+          "meta.field.declaration",
+          "meta.template.expression"
+        ],
+        "settings": {
+          "foreground": "#ddd"
+        }
+      },
+      {
+        "name": "Grey - comments",
+        "scope": ["comment"],
+        "settings": {
+          "foreground": "#455A64"
+        }
+      },
+      {
+        "name": "Green - string",
+        "scope": [
+          "string.quoted.single",
+          "string.quoted.double",
+          "string.template",
+          "punctuation.definition.string.template",
+          "variable.parameter.url.css"
+        ],
+        "settings": {
+          "foreground": "#98c379"
+        }
+      },
+      {
+        "name": "Purple - number",
+        "scope": [
+          "constant.numeric",
+          "keyword.other.unit",
+          "constant.other.color.rgb-value.hex"
+        ],
+        "settings": {
+          "foreground": "#c678dd"
+        }
+      },
+      {
+        "name": "Yellow - Keywords",
+        "scope": [
+          "keyword.control",
+          "keyword.operator",
+          "variable.language",
+          "constant.language",
+          "storage.modifier",
+          "entity.other.ng-binding-name.template.html",
+          "source.css meta.property-value",
+          "string.regexp",
+          "punctuation.definition.template-expression.begin",
+          "support.type.object.module",
+          "punctuation.separator.statement.and.shell"
+        ],
+        "settings": {
+          "foreground": "#FFD14A"
+        }
+      },
+      {
+        "name": "blue",
+        "scope": [
+          "storage.type",
+          "meta.definition.method",
+          "meta.definition.function",
+          "entity.name.type.class",
+          "meta.function-call",
+          "entity.name.tag",
+          "entity.name.tag",
+          "entity.other.attribute-name.id.css",
+          "entity.other.attribute-name.class.css",
+          "meta.at-rule.keyframes",
+          "support.function.misc",
+          "support.class.component",
+          "support.function.builtin.shell",
+          "entity.name.command.shell"
+        ],
+        "settings": {
+          "foreground": "#00AEFF"
+        }
+      },
+      {
+        "name": "Cyan 200",
+        "scope": [
+          "meta.attribute",
+          "entity.other.attribute-name.tsx",
+          "entity.other.attribute-name.jsx",
+          "entity.other.attribute-name.pseudo-class",
+          "entity.other.attribute-name.pseudo-element",
+          "storage.type.function",
+          "storage.type.class",
+          "entity.other.ng-binding-name.event.html",
+          "entity.other.ng-binding-name.property"
+        ],
+        "settings": {
+          "foreground": "#80DEEA"
+        }
+      },
+      {
+        "name": "[CSS] - Keyword",
+        "scope": [
+          "source.css punctuation.definition.keyword",
+          "source.css keyword",
+          "entity.name.tag.reference",
+          "keyword.other.important",
+          "string.unquoted.heredoc.expanded.shell",
+          "keyword.control.at-rule",
+          "punctuation.definition.tag.end",
+          "punctuation.definition.tag.begin"
+          //
+        ],
+        "settings": {
+          "foreground": "#f6b"
+        }
+      },
+      {
+        "name": "types",
+        "scope": [
+          "entity.name.type",
+          "support.type.primitive",
+          "meta.interface",
+          "storage.type.class.jsdoc",
+          "variable.other.normal.shell",
+          "variable.parameter.positional.shell",
+          "variable.other.assignment.shell",
+          // "support.type.builtin.tsx"
+          "support.type.builtin"
+        ],
+        "settings": {
+          "foreground": "#4DB6AC"
+        }
+      },
+      {
+        "name": "red test",
+        "scope": [
+          "storage.type.string",
+          "meta.toc-list.id.html",
+          "storage.identifier",
+          "function.support",
+          "function.support.builtin",
+          "function.support.core" //
+        ],
+        "settings": {
+          "foreground": "#F00"
+        }
+      }
+    ]
+  },
+
+  /*
+   * Terminal Settings
+   */
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.env.osx": {},
+  "terminal.integrated.defaultProfile.windows": "zsh",
+
+  /*
+   * Window Settings
+   */
+  "window.title": "${folderName}-Cat Zhang",
+  "window.openFilesInNewWindow": "on",
+  "window.titleBarStyle": "native",
+  "window.customTitleBarVisibility": "never",
+
+  /*
+   * File Settings
+   */
+  "files.autoGuessEncoding": true,
+
+  /*
+   * Other Settings
+   */
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "breadcrumbs.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+
+  /*
+   * Extension Settings
+   */
+
+  // ----------- Vim Settings -----------
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.timeout": 500,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "enter"],
+      "commands": [":nohlsearch"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["J"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": [";"],
+      "commands": ["workbench.action.showCommands"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["leader", "f"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["leader", "a"],
+      "commands": ["workbench.action.toggleActivityBarVisibility"]
+    },
+    {
+      "before": ["leader", "b"],
+      "commands": ["workbench.action.toggleStatusbarVisibility"]
+    },
+    {
+      "before": ["leader", "g", "g"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["leader", "g", "f"],
+      "commands": ["workbench.view.search"]
+    },
+    {
+      "before": ["leader", "g", "n"],
+      "commands": ["workbench.view.extensions"]
+    },
+    {
+      "before": ["leader", "g", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "u"],
+      "commands": ["editor.action.referenceSearch.trigger"]
+    },
+    {
+      "before": ["<leader>", "U"],
+      "commands": ["references-view.findReferences"]
+    },
+    {
+      "before": ["<leader>", "i", "n"],
+      "commands": ["references-view.showCallHierarchy"]
+    },
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["workbench.action.files.save", "workbench.action.debug.run"]
+    },
+    {
+      "before": ["<leader>", "d", "r"],
+      "commands": [
+        "workbench.action.files.save",
+        "workbench.action.debug.start"
+      ]
+    },
+    {
+      "before": ["<leader>", "d", "b"],
+      "commands": ["editor.debug.action.toggleBreakpoint"]
+    },
+    {
+      "before": ["<leader>", "d", "c"],
+      "commands": ["editor.debug.action.conditionalBreakpoint"]
+    },
+    {
+      "before": ["<leader>", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "d", "k"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["<leader>", "d", "j"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["s"],
+      "after": ["<nop>"]
+    },
+    {
+      "before": ["s", "j"],
+      "commands": [":split"]
+    },
+    {
+      "before": ["s", "l"],
+      "commands": [":vsplit"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "after": ["<C-w>", "k"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "after": ["<C-w>", "j"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "after": ["<C-w>", "h"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["<C-w>", "l"]
+    },
+    {
+      "before": ["t", "u"],
+      "commands": [":tabe"]
+    },
+    {
+      "before": ["t", "l"],
+      "commands": [":tabnext"]
+    },
+    {
+      "before": ["t", "h"],
+      "commands": [":tabprev"]
+    },
+    {
+      "before": ["t", "m", "l"],
+      "commands": [":tabmove+"]
+    },
+    {
+      "before": ["t", "m", "h"],
+      "commands": [":tabmove-"]
+    },
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
+      "before": ["<leader>", "m"],
+      "commands": ["workbench.actions.view.problems"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "commands": ["workbench.action.output.toggleOutput"]
+    },
+    {
+      "before": ["<leader>", "y"],
+      "commands": ["workbench.debug.action.toggleRepl"]
+    },
+    {
+      "before": ["<leader>", "a", "a"],
+      "commands": ["editor.toggleFold"]
+    },
+    {
+      "before": ["<leader>", "o"],
+      "commands": ["editor.action.organizeImports"]
+    },
+    {
+      "before": ["<leader>", "L"],
+      "commands": ["turboConsoleLog.displayLogMessage"]
+    },
+    {
+      "before": ["<leader>", "D"],
+      "commands": ["turboConsoleLog.deleteAllLogMessages"]
+    },
+    {
+      "before": ["<leader>", "C"],
+      "commands": ["turboConsoleLog.commentAllLogMessages"]
+    },
+    {
+      "before": ["<leader>", "C", "C"],
+      "commands": ["turboConsoleLog.uncommentAllLogMessages"]
+    },
+    {
+      "before": ["<leader>", "r", "f", "n"],
+      "commands": ["fileutils.renameFile"]
+    },
+    {
+      "before": ["<leader>", "d", "f"],
+      "commands": ["fileutils.removeFile"]
+    },
+    {
+      "before": ["<leader>", "n", "f"],
+      "commands": ["fileutils.newFile"]
+    },
+    {
+      "before": ["<leader>", "n", "f", "r"],
+      "commands": ["fileutils.newFileAtRoot"]
+    },
+    {
+      "before": ["<leader>", "n", "o"],
+      "commands": ["fileutils.newFolder"]
+    },
+    {
+      "before": ["<leader>", "n", "o", "r"],
+      "commands": ["fileutils.newFolderAtRoot"]
+    },
+    {
+      "before": ["<leader>", "m", "t"],
+      "commands": ["fileutils.moveFile"]
+    },
+    {
+      "before": ["<leader>", "p", "f"],
+      "commands": ["fileutils.duplicateFile"]
+    },
+    {
+      "before": ["<leader>", "g", "p"],
+      "commands": ["workbench.view.extension.project-manager"]
+    },
+    {
+      "before": ["<leader>", "p", "m"],
+      "commands": ["projectManager.listProjects"]
+    },
+    {
+      "before": ["<leader>", "p", "a"],
+      "commands": ["projectManager.listAnyProjects#sideBarAny"]
+    },
+    {
+      "before": ["<leader>", "m", "f"],
+      "commands": ["projectManager.listFavoriteProjects#sideBarFavorites"]
+    },
+    {
+      "before": ["<leader>", "p", "g"],
+      "commands": ["projectManager.listGitProjects#sideBarGit"]
+    },
+    {
+      "before": ["<leader>", "s", "p"],
+      "commands": ["projectManager.saveProject"]
+    },
+    {
+      "before": ["<leader>", "v", "i"],
+      "commands": ["vite.showCommands"]
+    },
+    {
+      "before": ["<leader>", "r", "m"],
+      "commands": ["workbench.action.remote.showMenu"]
+    },
+    {
+      "before": ["t", "o"],
+      "commands": ["workbench.view.extension.todo-tree-container"]
+    },
+    {
+      "before": ["t", "e"],
+      "commands": ["todo-tree.showTreeView"]
+    },
+    {
+      "before": ["<leader>", "n", "a"],
+      "commands": ["console-ninja.start"]
+    },
+    {
+      "before": ["<leader>", "s", "o"],
+      "commands": ["console-ninja.showOutput"]
+    },
+    {
+      "before": ["<leader>", "n", "v"],
+      "commands": ["console-ninja.watchLocationValue"]
+    },
+    {
+      "before": ["<leader>", "n", "e"],
+      "commands": ["console-ninja.goToLatestErrorSource"]
+    },
+    {
+      "before": ["<leader>", "s", "s"],
+      "commands": ["console-ninja.searchLogs"]
+    },
+    {
+      "before": ["<leader>", "g", "l"],
+      "commands": ["workbench.view.extension.gitlens"]
+    },
+    {
+      "before": ["<leader>", "g", "h"],
+      "commands": ["gitlens.toggleGraph"]
+    },
+    {
+      "before": ["<leader>", "g", "m"],
+      "commands": ["gitlens.gitCommands"]
+    },
+    {
+      "before": ["<leader>", "t", "f"],
+      "commands": ["gitlens.toggleFileChanges"]
+    },
+    {
+      "before": ["<leader>", "r", "e"],
+      "commands": ["gitlens.diffWithRevision"]
+    },
+    {
+      "before": ["<leader>", "f", "p"],
+      "commands": ["gitlens.diffWithPrevious"]
+    },
+    {
+      "before": ["<leader>", "f", "n"],
+      "commands": ["gitlens.diffWithNext"]
+    },
+    {
+      "before": ["<leader>", "g", "s"],
+      "commands": ["git.stageAll"]
+    },
+    {
+      "before": ["<leader>", "o", "c"],
+      "commands": ["git.openChange"]
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["git.commitMessageAccept"]
+    },
+    {
+      "before": ["<leader>", "c", "d"],
+      "commands": ["git.commitMessageDiscard"]
+    },
+    {
+      "before": ["<leader>", "d", "p"],
+      "commands": [
+        "workbench.action.editor.previousChange",
+        "editor.action.dirtydiff.previous"
+      ]
+    },
+    {
+      "before": ["<leader>", "d", "n"],
+      "commands": [
+        "workbench.action.editor.nextChange",
+        "editor.action.dirtydiff.next"
+      ]
+    },
+    {
+      "before": ["<leader>", "p", "c"],
+      "commands": ["workbench.action.openQuickChat.copilot"]
+    },
+    {
+      "before": ["<leader>", "c", "s"],
+      "commands": ["workbench.panel.chat.view.copilot.focus"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["n"],
+      "commands": ["editor.action.moveSelectionToNextFindMatch"],
+      "silent": true
+    },
+    {
+      "before": ["M"],
+      "commands": ["cursorUndo"],
+      "silent": true
+    },
+    {
+      "before": ["K"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["J"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["<leader>", "n"],
+      "commands": ["editor.action.codeAction"]
+    },
+    {
+      "before": ["<leader>", "L"],
+      "commands": ["turboConsoleLog.displayLogMessage"]
+    },
+    {
+      "before": ["<leader>", "D"],
+      "commands": ["turboConsoleLog.deleteAllLogMessages"]
+    },
+    {
+      "before": ["<leader>", "C"],
+      "commands": ["turboConsoleLog.commentAllLogMessages"]
+    },
+    {
+      "before": ["<leader>", "C", "C"],
+      "commands": ["turboConsoleLog.uncommentAllLogMessages"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+
+  // ----------- Power Mode Settings-----------
+  "powermode.enabled": true,
+  "powermode.combo.location": "off",
+  "powermode.combo.counterEnabled": "hide",
+  "powermode.shake.enabled": false,
+
+  // ----------- Apc Settings -----------
+  "apc.activityBar": {
+    "position": "bottom",
+    "hideSettings": true,
+    "size": 24,
+    "itemMargin": 9
+  },
+  "apc.statusBar": {
+    "position": "editor-bottom",
+    "height": 20,
+    "fontSize": 10
+  },
+  "apc.header": {
+    "height": 35,
+    "fontSize": 15
+  },
+  "apc.electron": {
+    "frame": false,
+    "vibrancy": "ultra-dark",
+    "visualEffectState": "active"
+    // "titleBarStyle": "customButtonsOnHover",
+  },
+  "apc.sidebar.titlebar": {
+    "height": 35,
+    "fontSize": 13
+  },
+  "apc.listRow": {
+    "height": 30,
+    "fontSize": 14
+  },
+  "apc.menubar.compact": false,
+  "apc.imports": [
+    "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.2/dist/updateHandler.js"
+  ],
+
+  // ----------- Error Lens Settings -----------
+  "errorLens.statusBarIconsEnabled": true,
+  "errorLens.gutterIconsEnabled": true,
+  "errorLens.gutterIconSet": "emoji",
+  "errorLens.gutterEmoji": {
+    "error": "🤡",
+    "warning": "🫥",
+    "info": "🔅",
+    "hint": "🤖"
+  },
+  "errorLens.enabledDiagnosticLevels": ["warning", "error", "hint"],
+  "errorLens.gutterIconSize": "auto",
+  "errorLens.delay": 500,
+  "errorLens.fontWeight": "bold",
+  "errorLens.fontStyleItalic": true,
+
+  // ----------- Project Manager Settings -----------
+  "projectManager.git.baseFolders": ["~/Github"],
+
+  // ----------- Vite Settings -----------
+  "vite.autoStart": false,
+  "vite.devCommand": "yarn dev",
+  "vite.buildCommand": "yarn build",
+  "vite.https": true,
+  "vite.port": 5173,
+
+  // ----------- Code Runner Settings -----------
+  "code-runner.runInTerminal": true,
+  "code-runner.saveAllFilesBeforeRun": true,
+  "code-runner.saveFileBeforeRun": true,
+
+  // ----------- Indent Rainbow Settings -----------
+  "indentRainbow.indicatorStyle": "light",
+  "indentRainbow.lightIndicatorStyleLineWidth": 1,
+  "indentRainbow.colors": [
+    "rgba(255,255,64,0.3)",
+    "rgba(127,255,127,0.3)",
+    "rgba(255,127,255,0.3)",
+    "rgba(79,236,236,0.3)"
+  ],
+
+  // ----------- Better Comments Settings -----------
+  "better-comments.highlightPlainText": true,
+
+  // ----------- Animations Settings -----------
+  "animations.Enabled": true,
+  "animations.Command-Palette": "Scale",
+  "animations.Install-Method": "Apc Customize UI++",
+  "animations.CursorAnimation": true,
+  "animations.CursorAnimationOptions": {
+    "Color": "#29B6F6",
+    "CursorStyle": "line"
+  },
+
+  // ----------- Git Settings -----------
+  "git.autofetch": true,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.changes.toggleMode": "window",
+  "gitlens.heatmap.toggleMode": "window",
+  "gitlens.fileAnnotations.dismissOnEscape": false,
+  "update.mode": "default",
+  "console-ninja.featureSet": "Community",
+
+  // ----------- Markdown Preview Settings -----------
+  "markdown-preview-enhanced.previewColorScheme": "editorColorScheme",
+  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+
+  "workbench.statusBar.visible": false
+}

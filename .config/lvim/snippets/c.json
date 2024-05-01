@@ -1,0 +1,363 @@
+{
+  "main": {
+    "prefix": "main",
+    "body": ["int main(int argc, char *argv[])", "{", "\t${0}", "}"],
+    "description": "Main function with arguments"
+  },
+  "mainn": {
+    "prefix": "mainn",
+    "body": ["int main(void)", "{", "\t${0}", "}"],
+    "description": "Main function without arguments"
+  },
+  "inc": {
+    "prefix": "inc",
+    "body": ["#include <${1:stdio}.h>"],
+    "description": "Include system library"
+  },
+  "Inc": {
+    "prefix": "Inc",
+    "body": ["#include \"${1:`vim_snippets#Filename(\"$1.h\")`}\""],
+    "description": "Include user library"
+  },
+  "ndef": {
+    "prefix": "ndef",
+    "body": [
+      "#ifndef $1",
+      "#define ${1:SYMBOL} ${2:value}",
+      "#endif /* ifndef $1 */"
+    ],
+    "description": "If not defined"
+  },
+  "def": {
+    "prefix": "def",
+    "body": ["#define"],
+    "description": "Define macro"
+  },
+  "ifdef": {
+    "prefix": "ifdef",
+    "body": ["#ifdef ${1:FOO}", "\t${2:#define }", "#endif"],
+    "description": "If defined"
+  },
+  "#if": {
+    "prefix": "#if",
+    "body": ["#if ${1:FOO}", "\t${0:${VISUAL}}", "#endif"],
+    "description": "If condition"
+  },
+  "once": {
+    "prefix": "once",
+    "body": [
+      "#ifndef ${1:`toupper(vim_snippets#Filename('$1_H', 'UNTITLED_H'))`}",
+      "",
+      "#define $1",
+      "",
+      "${0}",
+      "",
+      "#endif /* end of include guard: $1 */"
+    ],
+    "description": "Header include guard"
+  },
+  "nocxx": {
+    "prefix": "nocxx",
+    "body": [
+      "#ifdef __cplusplus",
+      "extern \"C\" {",
+      "#endif",
+      "",
+      "${0}",
+      "",
+      "#ifdef __cplusplus",
+      "} /* extern \"C\" */",
+      "#endif"
+    ],
+    "description": "Disable C++ name mangling in C headers"
+  },
+  "if": {
+    "prefix": "if",
+    "body": ["if (${1:true}) {", "\t${0:${VISUAL}}", "}"],
+    "description": "If statement"
+  },
+  "ife": {
+    "prefix": "ife",
+    "body": ["if (${1:true}) {", "\t${2:${VISUAL}}", "} else {", "\t${0}", "}"],
+    "description": "If-Else statement"
+  },
+  "el": {
+    "prefix": "el",
+    "body": ["else {", "\t${0:${VISUAL}}", "}"],
+    "description": "Else statement"
+  },
+  "elif": {
+    "prefix": "elif",
+    "body": ["else if (${1:true}) {", "\t${0:${VISUAL}}", "}"],
+    "description": "Else If statement"
+  },
+  "ifi": {
+    "prefix": "ifi",
+    "body": ["if (${1:true}) ${0};"],
+    "description": "Inline if statement"
+  },
+  "t": {
+    "prefix": "t",
+    "body": ["$1 ? $2 : $0"],
+    "description": "Ternary: `condition ? true : false`"
+  },
+  "switch": {
+    "prefix": "switch",
+    "body": [
+      "switch (${1:/* variable */}) {",
+      "\tcase ${2:/* variable case */}:",
+      "\t\t${3}",
+      "\t\t${4:break;}${5}",
+      "\tdefault:",
+      "\t\t${6}",
+      "}"
+    ],
+    "description": "Switch statement"
+  },
+  "switchndef": {
+    "prefix": "switchndef",
+    "body": [
+      "switch (${1:/* variable */}) {",
+      "\tcase ${2:/* variable case */}:",
+      "\t\t${3}",
+      "\t\t${4:break;}${5}",
+      "}"
+    ],
+    "description": "Switch statement without default case"
+  },
+  "case": {
+    "prefix": "case",
+    "body": ["case ${1:/* variable case */}:", "\t${2}", "\t${3:break;}"],
+    "description": "Case statement"
+  },
+  "ret": {
+    "prefix": "ret",
+    "body": ["return ${0};"],
+    "description": "Return statement"
+  },
+  "ex": {
+    "prefix": "ex",
+    "body": ["exit($0);"],
+    "description": "Exit statement"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {",
+      "\t${4}",
+      "}"
+    ],
+    "description": "For loop"
+  },
+  "forr": {
+    "prefix": "forr",
+    "body": [
+      "for (int ${1:i} = ${2:0}; ${3:$1 < 10}; $1${4:++}) {",
+      "\t${5}",
+      "}"
+    ],
+    "description": "For loop with custom initialization"
+  },
+  "wh": {
+    "prefix": "wh",
+    "body": ["while (${1:1}) {", "\t${0:${VISUAL}}", "}"],
+    "description": "While loop"
+  },
+  "wht": {
+    "prefix": "wht",
+    "body": ["while (true) {", "\t${0:${VISUAL}}", "}"],
+    "description": "Infinite while loop"
+  },
+  "do": {
+    "prefix": "do",
+    "body": ["do {", "\t${0:${VISUAL}}", "} while ($1);"],
+    "description": "Do-While loop"
+  },
+  "fun": {
+    "prefix": "fun",
+    "body": ["${1:void} ${2:function_name}(${3})", "{", "\t${4}", "}"],
+    "description": "Function definition"
+  },
+  "fun0": {
+    "prefix": "fun0",
+    "body": ["${1:void} ${2:function_name}()", "{", "\t${3}", "}"],
+    "description": "Function definition with zero parameters"
+  },
+  "fun1": {
+    "prefix": "fun1",
+    "body": [
+      "${1:void} ${2:function_name}(${3:Type} ${4:Parameter})",
+      "{",
+      "\t${5}",
+      "}"
+    ],
+    "description": "Function definition with one parameter"
+  },
+  "fun2": {
+    "prefix": "fun2",
+    "body": [
+      "${1:void} ${2:function_name}(${3:Type} ${4:Parameter}, ${5:Type} ${6:Parameter})",
+      "{",
+      "\t${7}",
+      "}"
+    ],
+    "description": "Function definition with two parameters"
+  },
+  "fun3": {
+    "prefix": "fun3",
+    "body": [
+      "${1:void} ${2:function_name}(${3:Type} ${4:Parameter}, ${5:Type} ${6:Parameter}, ${7:Type} ${8:Parameter})",
+      "{",
+      "\t${9}",
+      "}"
+    ],
+    "description": "Function definition with three parameters"
+  },
+  "fund": {
+    "prefix": "fund",
+    "body": ["${1:void} ${2:function_name}(${3});"],
+    "description": "Function declaration"
+  },
+  "td": {
+    "prefix": "td",
+    "body": ["typedef ${1:int} ${2:MyCustomType};"],
+    "description": "Typedef for custom type"
+  },
+  "st": {
+    "prefix": "st",
+    "body": [
+      "struct ${1:`vim_snippets#Filename('$1_t', 'name')`} {",
+      "\t${2:Data} /*!< ${4:Description} */",
+      "}${5: /* optional variable list */};"
+    ],
+    "description": "Struct definition"
+  },
+  "tds": {
+    "prefix": "tds",
+    "body": [
+      "typedef struct ${2:_$1}{",
+      "\tm_${3:Data} /*!< ${4:Description} */",
+      "} ${1:`vim_snippets#Filename('$1_t', 'name')`};"
+    ],
+    "description": "Typedef for a struct"
+  },
+  "enum": {
+    "prefix": "enum",
+    "body": ["enum ${1:name} { ${0} };"],
+    "description": "Enum definition"
+  },
+  "tde": {
+    "prefix": "tde",
+    "body": [
+      "typedef enum {",
+      "\t${1:Data} /*!< ${3:Description} */",
+      "} ${2:foo};"
+    ],
+    "description": "Typedef for an enum"
+  },
+  "pr": {
+    "prefix": "pr",
+    "body": ["printf(\"${1:%s}\\n\"${2});"],
+    "description": "Print formatted data to stdout"
+  },
+  "fpr": {
+    "prefix": "fpr",
+    "body": ["fprintf(${1:stderr}, \"${2:%s}\\n\"${3});"],
+    "description": "Print formatted data to a stream"
+  },
+  "getopt": {
+    "prefix": "getopt",
+    "body": [
+      "int choice;",
+      "while (1)",
+      "{",
+      "\tstatic struct option long_options[] =",
+      "\t{",
+      "\t\t{\"version\", no_argument,\t0,\t'v'},",
+      "\t\t{\"help\",\tno_argument,\t0,\t'h'},",
+      "\t\t${1}",
+      "\t\t{0,0,0,0}",
+      "\t};",
+      "",
+      "\tint option_index = 0;",
+      "",
+      "\tchoice = getopt_long( argc, argv, \"vh\",",
+      "\t\t\t\tlong_options, &option_index);",
+      "",
+      "\tif (choice == -1)",
+      "\t\tbreak;",
+      "",
+      "\tswitch( choice )",
+      "\t{",
+      "\t\tcase 'v':",
+      "\t\t\t${2}",
+      "\t\t\tbreak;",
+      "\t\tcase 'h':",
+      "\t\t\t${3}",
+      "\t\t\tbreak;",
+      "\t\tcase '?':",
+      "\t\t\t/* getopt_long will have already printed an error */",
+      "\t\t\tbreak;",
+      "\t\tdefault:",
+      "\t\t\t/* Not sure how to get here... */",
+      "\t\t\treturn EXIT_FAILURE;",
+      "\t}",
+      "",
+      "\t/* Deal with non-option arguments here */",
+      "\tif ( optind < argc )",
+      "\t{",
+      "\t\twhile ( optind < argc )",
+      "\t\t{",
+      "\t\t\t${0}",
+      "\t\t}",
+      "\t}",
+      "}"
+    ],
+    "description": "Parse command line options using getopt"
+  },
+  "asr": {
+    "prefix": "asr",
+    "body": ["assert($1);"],
+    "description": "Assert condition"
+  },
+  "anl": {
+    "prefix": "anl",
+    "body": ["assert(${1:ptr} != NULL);"],
+    "description": "Assert pointer is not NULL"
+  },
+  "mlc": {
+    "prefix": "mlc",
+    "body": ["${1:ptr} = (${2:type}*) malloc(sizeof($2));"],
+    "description": "Malloc with type casting"
+  },
+  "clc": {
+    "prefix": "clc",
+    "body": ["${1:ptr} = (${2:type}*) calloc(${3:size}, sizeof($2));"],
+    "description": "Calloc with type casting"
+  },
+  "rlc": {
+    "prefix": "rlc",
+    "body": ["${1:ptr} = realloc($1, ${2:size} * sizeof(${3:type}));"],
+    "description": "Realloc with size calculation"
+  },
+  "mlcd": {
+    "prefix": "mlcd",
+    "body": ["${1:type} ${2:ptr} = ($1*) malloc(sizeof($1));"],
+    "description": "Malloc with type declaration and casting"
+  },
+  "clcd": {
+    "prefix": "clcd",
+    "body": ["${1:type} ${2:ptr} = ($1*) calloc(${3:size}, sizeof($1));"],
+    "description": "Calloc with type declaration and casting"
+  },
+  "fre": {
+    "prefix": "fre",
+    "body": ["free(${1:ptr});"],
+    "description": "Free allocated memory"
+  },
+  "todo": {
+    "prefix": "todo",
+    "body": ["/*! TODO: ${1:Todo description here}", " *  \\todo $1", " */"],
+    "description": "Mark a TODO in the code"
+  }
+}

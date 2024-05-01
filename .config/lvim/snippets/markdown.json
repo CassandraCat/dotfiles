@@ -1,0 +1,19 @@
+{
+  "th": {
+    "prefix": "th",
+    "body": [
+      "| ${1:Key} | ${2:Value} |",
+      "|-|-|",
+      "${0}"
+    ],
+    "description": "Table Heading"
+  },
+  "tr": {
+    "prefix": "tr",
+    "body": [
+      "| ${1:Term} | ${2:Definition} |",
+      "${0}"
+    ],
+    "description": "Table Row"
+  }
+}

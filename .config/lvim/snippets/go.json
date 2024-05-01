@@ -1,0 +1,102 @@
+{
+  "checke": {
+    "prefix": "checke",
+    "body": ["if err != nil {", "\treturn err", "}", "${0}"],
+    "description": "Check Error"
+  },
+  "no": {
+    "prefix": "no",
+    "body": ["if utils.NoError(err) {", "\t${0}", "}"],
+    "description": "utils.NoError"
+  },
+  "forr": {
+    "prefix": "forr",
+    "body": ["for _, ${1:thing} := range ${2:things} {", "\t${3://TODO}", "}"],
+    "description": "For loop range"
+  },
+  "fori": {
+    "prefix": "fori",
+    "body": ["for i := 0; i < n; i++ {", "\t${1://TODO}", "}"],
+    "description": "For loop i"
+  },
+  "re": {
+    "prefix": "re",
+    "body": ["if err != nil {", "\treturn err", "}", "${0}"],
+    "description": "Return Error if any"
+  },
+  "iep": {
+    "prefix": "iep",
+    "body": ["if err != nil {", "\tpanic(err)", "}", "${0}"],
+    "description": "Panic if error"
+  },
+  "iel": {
+    "prefix": "iel",
+    "body": ["if err != nil {", "\tlog.Println(err)", "}", "${0}"],
+    "description": "Log if error"
+  },
+  "ier": {
+    "prefix": "ier",
+    "body": ["if err != nil {", "\treturn err", "}", "${0}"],
+    "description": "Return if error"
+  },
+  "st": {
+    "prefix": "st",
+    "body": ["fmt.Println(${1})${0}"],
+    "description": "Println"
+  },
+  "lt": {
+    "prefix": "lt",
+    "body": ["log.Println(${1})${0}"],
+    "description": "Log Println"
+  },
+  "sf": {
+    "prefix": "sf",
+    "body": ["fmt.Printf(\"${1}\\n\")${0}"],
+    "description": "Printf"
+  },
+  "lf": {
+    "prefix": "lf",
+    "body": ["log.Printf(\"${1}\\n\")${0}"],
+    "description": "Log Printf"
+  },
+  "fn": {
+    "prefix": "fn",
+    "body": ["func ${1:function}() {", "\t${0: // todo}", "}"],
+    "description": "Function"
+  },
+  "start": {
+    "prefix": "start",
+    "body": [
+      "package main",
+      "",
+      "import (",
+      "\t\"fmt\"",
+      ")",
+      "",
+      "func main() {",
+      "\tfmt.Println(\"hello\")",
+      "}"
+    ],
+    "description": "Starting code"
+  },
+  "cq": {
+    "prefix": "cq",
+    "body": ["app.result.questions[app.curResultIndex]${0}"],
+    "description": "Current Question"
+  },
+  "fa": {
+    "prefix": "fa",
+    "body": ["// FIXTYPE"],
+    "description": "fix add type"
+  },
+  "gof": {
+    "prefix": "gof",
+    "body": ["go func() {", "\t${0}", "}()"],
+    "description": "go func() {} ()"
+  },
+  "df": {
+    "prefix": "df",
+    "body": ["defer func() {", "\t${0}", "}()"],
+    "description": "defer func() {} ()"
+  }
+}

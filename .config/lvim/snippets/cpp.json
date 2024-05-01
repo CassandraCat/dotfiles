@@ -1,0 +1,361 @@
+{
+  "Main": {
+    "mainn": {
+      "prefix": "mainn",
+      "body": ["int main()", "{", "\t${0}", "\treturn 0;", "}"],
+      "description": "Main function"
+    }
+  },
+  "Preprocessor": {
+    "incc": {
+      "prefix": "incc",
+      "body": ["#include <${1:iostream}>"],
+      "description": "#include <...> for C++ standard library"
+    },
+    "binc": {
+      "prefix": "binc",
+      "body": ["#include <boost/${1:shared_ptr}.hpp>"],
+      "description": "#include <...> for Boost library"
+    }
+  },
+  "STL Collections": {
+    "array": {
+      "prefix": "array",
+      "body": ["std::array<${1:T}, ${2:N}> ${3};"],
+      "description": "std::array"
+    },
+    "vector": {
+      "prefix": "vector",
+      "body": ["std::vector<${1:T}> ${2};"],
+      "description": "std::vector"
+    },
+    "deque": {
+      "prefix": "deque",
+      "body": ["std::deque<${1:T}> ${2};"],
+      "description": "std::deque"
+    },
+    "flist": {
+      "prefix": "flist",
+      "body": ["std::forward_list<${1:T}> ${2};"],
+      "description": "std::forward_list"
+    },
+    "list": {
+      "prefix": "list",
+      "body": ["std::list<${1:T}> ${2};"],
+      "description": "std::list"
+    },
+    "set": {
+      "prefix": "set",
+      "body": ["std::set<${1:T}> ${2};"],
+      "description": "std::set"
+    },
+    "map": {
+      "prefix": "map",
+      "body": ["std::map<${1:Key}, ${2:T}> ${3};"],
+      "description": "std::map"
+    },
+    "mset": {
+      "prefix": "mset",
+      "body": ["std::multiset<${1:T}> ${2};"],
+      "description": "std::multiset"
+    },
+    "mmap": {
+      "prefix": "mmap",
+      "body": ["std::multimap<${1:Key}, ${2:T}> ${3};"],
+      "description": "std::multimap"
+    },
+    "uset": {
+      "prefix": "uset",
+      "body": ["std::unordered_set<${1:T}> ${2};"],
+      "description": "std::unordered_set"
+    },
+    "umap": {
+      "prefix": "umap",
+      "body": ["std::unordered_map<${1:Key}, ${2:T}> ${3};"],
+      "description": "std::unordered_map"
+    },
+    "umset": {
+      "prefix": "umset",
+      "body": ["std::unordered_multiset<${1:T}> ${2};"],
+      "description": "std::unordered_multiset"
+    },
+    "ummap": {
+      "prefix": "ummap",
+      "body": ["std::unordered_multimap<${1:Key}, ${2:T}> ${3};"],
+      "description": "std::unordered_multimap"
+    },
+    "stack": {
+      "prefix": "stack",
+      "body": ["std::stack<${1:T}> ${2};"],
+      "description": "std::stack"
+    },
+    "queue": {
+      "prefix": "queue",
+      "body": ["std::queue<${1:T}> ${2};"],
+      "description": "std::queue"
+    },
+    "pqueue": {
+      "prefix": "pqueue",
+      "body": ["std::priority_queue<${1:T}> ${2};"],
+      "description": "std::priority_queue"
+    }
+  },
+  "STL smart pointers": {
+    "msp": {
+      "prefix": "msp",
+      "body": ["std::shared_ptr<${1:T}> ${2} = std::make_shared<$1>(${3});"],
+      "description": "std::shared_ptr with make_shared"
+    },
+    "amsp": {
+      "prefix": "amsp",
+      "body": ["auto ${1} = std::make_shared<${2:T}>(${3});"],
+      "description": "auto variable for std::shared_ptr with make_shared"
+    },
+    "mup": {
+      "prefix": "mup",
+      "body": ["std::unique_ptr<${1:T}> ${2} = std::make_unique<$1>(${3});"],
+      "description": "std::unique_ptr with make_unique"
+    },
+    "amup": {
+      "prefix": "amup",
+      "body": ["auto ${1} = std::make_unique<${2:T}>(${3});"],
+      "description": "auto variable for std::unique_ptr with make_unique"
+    }
+  },
+  "Access Modifiers": {
+    "pri": {
+      "prefix": "pri",
+      "body": ["private"],
+      "description": "private access modifier"
+    },
+    "pro": {
+      "prefix": "pro",
+      "body": ["protected"],
+      "description": "protected access modifier"
+    },
+    "pub": {
+      "prefix": "pub",
+      "body": ["public"],
+      "description": "public access modifier"
+    },
+    "fr": {
+      "prefix": "fr",
+      "body": ["friend"],
+      "description": "friend class or function"
+    },
+    "mu": {
+      "prefix": "mu",
+      "body": ["mutable"],
+      "description": "mutable keyword"
+    }
+  },
+  "Class": {
+    "cl": {
+      "prefix": "cl",
+      "body": [
+        "/*! \\class $1",
+        " *  \\brief ${3:Brief class description}",
+        " *",
+        " *  ${4:Detailed description}",
+        " */",
+        "class ${1:`vim_snippets#Filename('$1', 'name')`}",
+        "{",
+        "public:",
+        "\t$1(${2});",
+        "\tvirtual ~$1();",
+        "",
+        "protected:",
+        "\tm_${5}; /*!< ${6:Member description} */",
+        "};"
+      ],
+      "description": "Class definition"
+    },
+    "mfun": {
+      "prefix": "mfun",
+      "body": [
+        "${4:void} ${1:`vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}(${3}) {",
+        "\t${0}",
+        "}"
+      ],
+      "description": "Member function implementation"
+    },
+    "dmfun0": {
+      "prefix": "dmfun0",
+      "body": [
+        "/*! \\brief ${4:Brief function description here}",
+        " *",
+        " *  ${5:Detailed description}",
+        " *",
+        " * \\return ${6:Return parameter description}",
+        " */",
+        "${3:void} ${1:`vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}() {",
+        "\t${0}",
+        "}"
+      ],
+      "description": "Member function implementation without parameters"
+    },
+    "dmfun1": {
+      "prefix": "dmfun1",
+      "body": [
+        "/*! \\brief ${6:Brief function description here}",
+        " *",
+        " *  ${7:Detailed description}",
+        " *",
+        " * \\param $4 ${8:Parameter description}",
+        " * \\return ${9:Return parameter description}",
+        " */",
+        "${5:void} ${1:`vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}(${3:Type} ${4:Parameter}) {",
+        "\t${0}",
+        "}"
+      ],
+      "description": "Member function implementation with one parameter"
+    },
+    "dmfun2": {
+      "prefix": "dmfun2",
+      "body": [
+        "/*! \\brief ${8:Brief function description here}",
+        " *",
+        " *  ${9:Detailed description}",
+        " *",
+        " * \\param $4 ${10:Parameter description}",
+        " * \\param $6 ${11:Parameter description}",
+        " * \\return ${12:Return parameter description}",
+        " */",
+        "${7:void} ${1:`vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}(${3:Type} ${4:Parameter},${5:Type} ${6:Parameter}) {",
+        "\t${0}",
+        "}"
+      ],
+      "description": "Member function implementation with two parameters"
+    }
+  },
+  "namespace": {
+    "ns": {
+      "prefix": "ns",
+      "body": [
+        "namespace ${1:`vim_snippets#Filename('', 'my')`} {",
+        "\t${0}",
+        "} /* namespace $1 */"
+      ],
+      "description": "Namespace definition"
+    },
+    "ans": {
+      "prefix": "ans",
+      "body": ["namespace {", "\t${0}", "}"],
+      "description": "Anonymous namespace"
+    }
+  },
+  "Input/Output": {
+    "cout": {
+      "prefix": "cout",
+      "body": ["std::cout << ${1} << std::endl;"],
+      "description": "Output to standard output using std::cout"
+    },
+    "cin": {
+      "prefix": "cin",
+      "body": ["std::cin >> ${1};"],
+      "description": "Input from standard input using std::cin"
+    }
+  },
+  "Casts": {
+    "sca": {
+      "prefix": "sca",
+      "body": ["static_cast<${1:unsigned}>(${2:expr})${3}"],
+      "description": "Static cast"
+    },
+    "dca": {
+      "prefix": "dca",
+      "body": ["dynamic_cast<${1:unsigned}>(${2:expr})${3}"],
+      "description": "Dynamic cast"
+    },
+    "rca": {
+      "prefix": "rca",
+      "body": ["reinterpret_cast<${1:unsigned}>(${2:expr})${3}"],
+      "description": "Reinterpret cast"
+    },
+    "cca": {
+      "prefix": "cca",
+      "body": ["const_cast<${1:unsigned}>(${2:expr})${3}"],
+      "description": "Const cast"
+    }
+  },
+  "Iteration": {
+    "fori": {
+      "prefix": "fori",
+      "body": [
+        "for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {",
+        "\t${4}",
+        "}"
+      ],
+      "description": "For loop with index"
+    },
+    "fore": {
+      "prefix": "fore",
+      "body": ["for (${1:auto} ${2:i} : ${3:container}) {", "\t${4}", "}"],
+      "description": "Range-based for loop"
+    },
+    "iter": {
+      "prefix": "iter",
+      "body": [
+        "for (${1:std::vector}<${2:type}>::${3:const_iterator} ${4:i} = ${5:container}.begin(); $4 != $5.end(); ++$4) {",
+        "\t${6}",
+        "}"
+      ],
+      "description": "For loop with iterator"
+    },
+    "itera": {
+      "prefix": "itera",
+      "body": [
+        "for (auto ${1:i} = ${2:container}.begin(); $1 != $2.end(); ++$1) {",
+        "\t${3:std::cout << *$1 << std::endl;}",
+        "}"
+      ],
+      "description": "For loop with auto iterator"
+    }
+  },
+  "Lambdas": {
+    "ld": {
+      "prefix": "ld",
+      "body": ["[${1}](${2}){${3}};"],
+      "description": "Lambda expression (one line)"
+    },
+    "lld": {
+      "prefix": "lld",
+      "body": ["[${1}](${2}){", "\t${3}", "};"],
+      "description": "Lambda expression (multi-line)"
+    }
+  },
+  "Tests": {
+    "gtemain": {
+      "prefix": "gtemain",
+      "body": [
+        "int main(int argc, char **argv) {",
+        "\ttesting::InitGoogleTest(&argc, argv);",
+        "\treturn RUN_ALL_TESTS();",
+        "}"
+      ],
+      "description": "GTest: add main function"
+    },
+    "gtetest": {
+      "prefix": "gtetest",
+      "body": ["TEST(${1:SuiteName}, ${2:TestName}) {", "\t${0}", "}"],
+      "description": "GTest: add test"
+    },
+    "gtefix": {
+      "prefix": "gtefix",
+      "body": ["TEST_F(${1:SuiteName}, ${2:TestName}) {", "\t${0}", "}"],
+      "description": "GTest: add fixture"
+    },
+    "gtepar": {
+      "prefix": "gtepar",
+      "body": ["TEST_P(${1:SuiteName}, ${2:TestName}) {", "\t${0}", "}"],
+      "description": "GTest: add parameterized test"
+    },
+    "gteparins": {
+      "prefix": "gteparins",
+      "body": [
+        "INSTANTIATE_TEST_SUITE_P(${1:InstantiationName}, ${2:SuiteName}, ${0});"
+      ],
+      "description": "GTest: instantiate parameterized test"
+    }
+  }
+}

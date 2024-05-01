@@ -1,0 +1,339 @@
+{
+  "po": {
+    "prefix": "po",
+    "body": ["protected ${0}"],
+    "description": "Access Modifier: protected"
+  },
+  "pu": {
+    "prefix": "pu",
+    "body": ["public ${0}"],
+    "description": "Access Modifier: public"
+  },
+  "pr": {
+    "prefix": "pr",
+    "body": ["private ${0}"],
+    "description": "Access Modifier: private"
+  },
+  "before": {
+    "prefix": "before",
+    "body": ["@Before", "static void ${1:intercept}(${2:args}) { ${0} }"],
+    "description": "Annotations: Before"
+  },
+  "mm": {
+    "prefix": "mm",
+    "body": ["@ManyToMany", "${0}"],
+    "description": "Annotations: ManyToMany"
+  },
+  "mo": {
+    "prefix": "mo",
+    "body": ["@ManyToOne", "${0}"],
+    "description": "Annotations: ManyToOne"
+  },
+  "om": {
+    "prefix": "om",
+    "body": ["@OneToMany${1:(cascade=CascadeType.ALL)}", "${0}"],
+    "description": "Annotations: OneToMany"
+  },
+  "oo": {
+    "prefix": "oo",
+    "body": ["@OneToOne", "${1}"],
+    "description": "Annotations: OneToOne"
+  },
+  "im": {
+    "prefix": "im",
+    "body": ["import ${0}"],
+    "description": "Basic Java packages and import"
+  },
+  "j.b": {
+    "prefix": "j.b",
+    "body": ["java.beans."],
+    "description": "Java package for beans"
+  },
+  "j.i": {
+    "prefix": "j.i",
+    "body": ["java.io."],
+    "description": "Java package for IO"
+  },
+  "j.m": {
+    "prefix": "j.m",
+    "body": ["java.math."],
+    "description": "Java package for math"
+  },
+  "j.n": {
+    "prefix": "j.n",
+    "body": ["java.net."],
+    "description": "Java package for net"
+  },
+  "j.u": {
+    "prefix": "j.u",
+    "body": ["java.util."],
+    "description": "Java package for util"
+  },
+  "cl": {
+    "prefix": "cl",
+    "body": ["class ${1:`vim_snippets#Filename(\"$1\", \"untitled\")`} ${0}"],
+    "description": "Class"
+  },
+  "pcl": {
+    "prefix": "pcl",
+    "body": [
+      "public class ${1:`vim_snippets#Filename(\"$1\", \"untitled\")`} ${0}"
+    ],
+    "description": "Public class"
+  },
+  "in": {
+    "prefix": "in",
+    "body": [
+      "interface ${1:`vim_snippets#Filename(\"$1\", \"untitled\")`} ${2:extends Parent}"
+    ],
+    "description": "Interface"
+  },
+  "tc": {
+    "prefix": "tc",
+    "body": [
+      "public class ${1:`vim_snippets#Filename(\"$1\")`} extends ${0:TestCase}"
+    ],
+    "description": "Test case class"
+  },
+  "ext": {
+    "prefix": "ext",
+    "body": ["extends ${0}"],
+    "description": "Class Enhancements: extends"
+  },
+  "imp": {
+    "prefix": "imp",
+    "body": ["implements ${0}"],
+    "description": "Class Enhancements: implements"
+  },
+  "/*": {
+    "prefix": "/*",
+    "body": ["/*", " * ${0}", " */"],
+    "description": "Comments"
+  },
+  "co": {
+    "prefix": "co",
+    "body": ["static public final ${1:String} ${2:var} = ${3};"],
+    "description": "Constants"
+  },
+  "cos": {
+    "prefix": "cos",
+    "body": ["static public final String ${1:var} = \"${2}\";"],
+    "description": "String constants"
+  },
+  "case": {
+    "prefix": "case",
+    "body": ["case ${1}:", "\t${0}"],
+    "description": "Control Statements: case"
+  },
+  "def": {
+    "prefix": "def",
+    "body": ["default:", "\t${0}"],
+    "description": "Control Statements: default"
+  },
+  "el": {
+    "prefix": "el",
+    "body": ["else"],
+    "description": "Control Statements: else"
+  },
+  "eif": {
+    "prefix": "eif",
+    "body": ["else if (${1}) ${0}"],
+    "description": "Control Statements: else if"
+  },
+  "if": {
+    "prefix": "if",
+    "body": ["if (${1}) ${0}"],
+    "description": "Control Statements: if"
+  },
+  "sw": {
+    "prefix": "sw",
+    "body": ["switch (${1}) {", "\t${0}", "}"],
+    "description": "Control Statements: switch"
+  },
+  "m": {
+    "prefix": "m",
+    "body": ["${1:void} ${2:method}(${3}) ${4:throws }"],
+    "description": "Create a Method"
+  },
+  "v": {
+    "prefix": "v",
+    "body": ["${1:String} ${2:var}${3: = null}${4};"],
+    "description": "Create a Variable"
+  },
+  "d.al": {
+    "prefix": "d.al",
+    "body": ["List<${1:Object}> ${2:list} = new ArrayList<$1>();${0}"],
+    "description": "Declaration for ArrayList"
+  },
+  "d.hm": {
+    "prefix": "d.hm",
+    "body": [
+      "Map<${1:Object}, ${2:Object}> ${3:map} = new HashMap<$1, $2>();${0}"
+    ],
+    "description": "Declaration for HashMap"
+  },
+  "d.hs": {
+    "prefix": "d.hs",
+    "body": ["Set<${1:Object}> ${2:set} = new HashSet<$1>();${0}"],
+    "description": "Declaration for HashSet"
+  },
+  "d.st": {
+    "prefix": "d.st",
+    "body": ["Stack<${1:Object}> ${2:stack} = new Stack<$1>();${0}"],
+    "description": "Declaration for Stack"
+  },
+  "singlet": {
+    "prefix": "singlet",
+    "body": [
+      "private static class Holder {",
+      "\tprivate static final ${1:`vim_snippets#Filename(\"$1\")`} INSTANCE = new $1();",
+      "}",
+      "",
+      "private $1() { }",
+      "",
+      "public static $1 getInstance() {",
+      "\treturn Holder.INSTANCE;",
+      "}"
+    ],
+    "description": "Singleton Pattern"
+  },
+  "ab": {
+    "prefix": "ab",
+    "body": ["abstract ${0}"],
+    "description": "Enhancements: abstract"
+  },
+  "fi": {
+    "prefix": "fi",
+    "body": ["final ${0}"],
+    "description": "Enhancements: final"
+  },
+  "st": {
+    "prefix": "st",
+    "body": ["static ${0}"],
+    "description": "Enhancements: static"
+  },
+  "sy": {
+    "prefix": "sy",
+    "body": ["synchronized ${0}"],
+    "description": "Enhancements: synchronized"
+  },
+  "err": {
+    "prefix": "err",
+    "body": ["System.err.print(\"${0:Message}\");"],
+    "description": "Error Methods: print error message"
+  },
+  "errf": {
+    "prefix": "errf",
+    "body": ["System.err.printf(\"${1:Message}\", ${0:exception});"],
+    "description": "Error Methods: printf error message"
+  },
+  "errln": {
+    "prefix": "errln",
+    "body": ["System.err.println(\"${0:Message}\");"],
+    "description": "Error Methods: println error message"
+  },
+  "as": {
+    "prefix": "as",
+    "body": ["assert ${1:test} : \"${2:Failure message}\";"],
+    "description": "Exception Handling: assert"
+  },
+  "ae": {
+    "prefix": "ae",
+    "body": [
+      "assertEquals(\"${1:Failure message}\", ${2:expected}, ${3:actual});"
+    ],
+    "description": "Exception Handling: assertEquals"
+  },
+  "aae": {
+    "prefix": "aae",
+    "body": [
+      "assertArrayEquals(\"${1:Failure message}\", ${2:expecteds}, ${3:actuals});"
+    ],
+    "description": "Exception Handling: assertArrayEquals"
+  },
+  "af": {
+    "prefix": "af",
+    "body": ["assertFalse(\"${1:Failure message}\", $2);"],
+    "description": "Exception Handling: assertFalse"
+  },
+  "at": {
+    "prefix": "at",
+    "body": ["assertTrue(\"${1:Failure message}\", $2);"],
+    "description": "Exception Handling: assertTrue"
+  },
+  "an": {
+    "prefix": "an",
+    "body": ["assertNull(\"${1:Failure message}\", ${2:object});"],
+    "description": "Exception Handling: assertNull"
+  },
+  "ann": {
+    "prefix": "ann",
+    "body": ["assertNotNull(\"${1:Failure message}\", ${2:object});"],
+    "description": "Exception Handling: assertNotNull"
+  },
+  "ass": {
+    "prefix": "ass",
+    "body": [
+      "assertSame(\"${1:Failure message}\", ${2:expected}, ${3:actual});"
+    ],
+    "description": "Exception Handling: assertSame"
+  },
+  "asns": {
+    "prefix": "asns",
+    "body": [
+      "assertNotSame(\"${1:Failure message}\", ${2:expected}, ${3:actual});"
+    ],
+    "description": "Exception Handling: assertNotSame"
+  },
+  "fa": {
+    "prefix": "fa",
+    "body": ["fail(\"${1:Failure message}\");"],
+    "description": "Exception Handling: fail"
+  },
+  "ca": {
+    "prefix": "ca",
+    "body": ["catch(${1:Exception} ${2:e}) ${0}"],
+    "description": "Exception Handling: catch"
+  },
+  "thr": {
+    "prefix": "thr",
+    "body": ["throw ${0}"],
+    "description": "Exception Handling: throw"
+  },
+  "ths": {
+    "prefix": "ths",
+    "body": ["throws ${0}"],
+    "description": "Exception Handling: throws"
+  },
+  "try": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "\t${0:${VISUAL}}",
+      "} catch(${1:Exception} ${2:e}) {",
+      "}"
+    ],
+    "description": "Exception Handling: try catch"
+  },
+  "tryf": {
+    "prefix": "tryf",
+    "body": [
+      "try {",
+      "\t${0:${VISUAL}}",
+      "} catch(${1:Exception} ${2:e}) {",
+      "} finally {",
+      "}"
+    ],
+    "description": "Exception Handling: try catch finally"
+  },
+  "findall": {
+    "prefix": "findall",
+    "body": ["List<${1:listName}> ${2:items} = $1.findAll();"],
+    "description": "Find Methods: findAll"
+  },
+  "findbyid": {
+    "prefix": "findbyid",
+    "body": ["${1:var} ${2:item} = $1.findById(${3});"],
+    "description": "Find Methods: findById"
+  }
+}

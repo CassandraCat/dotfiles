@@ -1,0 +1,727 @@
+{
+  "imat": {
+    "prefix": "imat",
+    "body": ["import 'package:flutter/material.dart';", ""],
+    "description": "Import Material"
+  },
+  "context": {
+    "prefix": "context",
+    "body": ["BuildContext context"],
+    "description": "BuildContext"
+  },
+  "fn": {
+    "prefix": "fn",
+    "body": ["void ${1:func}() {", "  ${0}", "}"],
+    "description": "Async Function"
+  },
+  "afn": {
+    "prefix": "afn",
+    "body": ["Future<void> ${1:func}() async {", "  ${0}", "}"],
+    "description": "Async Function"
+  },
+  "wfunc": {
+    "prefix": "wfunc",
+    "body": ["Widget build${1:Widget}() {", "  return ${0:Container()};", "}"],
+    "description": "Widget Function"
+  },
+  "el": {
+    "prefix": "el",
+    "body": ["} else {"],
+    "description": "} else {"
+  },
+  "elif": {
+    "prefix": "elif",
+    "body": ["} else if (${0}) {"],
+    "description": "} else if () {"
+  },
+  "msa": {
+    "prefix": "msa",
+    "body": ["MaterialStateProperty.all(${0}),"],
+    "description": "MaterialStateProperty.all"
+  },
+  "msr": {
+    "prefix": "msr",
+    "body": [
+      "MaterialStateProperty.resolveWith<${1}>((states) => states.contains(MaterialState.pressed) ? null : null),"
+    ],
+    "description": "MaterialStateProperty.resolveWith"
+  },
+  "wh": {
+    "prefix": "wh",
+    "body": ["width: ${1},", "height: ${0},"],
+    "description": "Width and height"
+  },
+  "iwh": {
+    "prefix": "iwh",
+    "body": ["width: double.infinity,", "height: double.infinity,"],
+    "description": "Infinity Width and height"
+  },
+  "oprs": {
+    "prefix": "oprs",
+    "body": ["final void Function() onPressed;"],
+    "description": "onPressed"
+  },
+  "pa": {
+    "prefix": "pa",
+    "body": [
+      "padding: EdgeInsets.only(${1:left: ${2:0}}${3:, right: ${4:0}}${5:, top: ${6:0}}${7:, bottom: ${8:0}}),"
+    ],
+    "description": "Padding"
+  },
+  "paa": {
+    "prefix": "paa",
+    "body": ["padding: EdgeInsets.all(${1:8.0}),"],
+    "description": "Padding All"
+  },
+  "paz": {
+    "prefix": "paz",
+    "body": ["padding: EdgeInsets.zero,"],
+    "description": "Padding Zero"
+  },
+  "pah": {
+    "prefix": "pah",
+    "body": ["padding: EdgeInsets.symmetric(horizontal: ${0:0}),"],
+    "description": "Padding Horizontal"
+  },
+  "pav": {
+    "prefix": "pav",
+    "body": ["padding: EdgeInsets.symmetric(vertical: ${0:0}),"],
+    "description": "Padding Vertical"
+  },
+  "pat": {
+    "prefix": "pat",
+    "body": ["padding: EdgeInsets.only(top: ${0:0}),"],
+    "description": "Padding Top"
+  },
+  "pab": {
+    "prefix": "pab",
+    "body": ["padding: EdgeInsets.only(bottom: ${0:0}),"],
+    "description": "Padding Bottom"
+  },
+  "pal": {
+    "prefix": "pal",
+    "body": ["padding: EdgeInsets.only(left: ${0:0}),"],
+    "description": "Padding Left"
+  },
+  "par": {
+    "prefix": "par",
+    "body": ["padding: EdgeInsets.only(right: ${0:0}),"],
+    "description": "Padding Right"
+  },
+  "mar": {
+    "prefix": "mar",
+    "body": [
+      "margin: EdgeInsets.only(left: ${2:0}, right: ${4:0}, top: ${6:0}, bottom: ${8:0}),"
+    ],
+    "description": "Margin"
+  },
+  "mara": {
+    "prefix": "mara",
+    "body": ["margin: EdgeInsets.all(${1:8.0}),"],
+    "description": "Margin All"
+  },
+  "marh": {
+    "prefix": "marh",
+    "body": ["margin: EdgeInsets.symmetric(horizontal: ${0:0}),"],
+    "description": "Margin Horizontal"
+  },
+  "marv": {
+    "prefix": "marv",
+    "body": ["margin: EdgeInsets.symmetric(vertical: ${0:0}),"],
+    "description": "Margin Vertical"
+  },
+  "mart": {
+    "prefix": "mart",
+    "body": ["margin: EdgeInsets.only(top: ${0:0}),"],
+    "description": "Margin Top"
+  },
+  "marb": {
+    "prefix": "marb",
+    "body": ["margin: EdgeInsets.only(bottom: ${0:0}),"],
+    "description": "Margin Bottom"
+  },
+  "marl": {
+    "prefix": "marl",
+    "body": ["margin: EdgeInsets.only(left: ${0:0}),"],
+    "description": "Margin Left"
+  },
+  "marr": {
+    "prefix": "marr",
+    "body": ["margin: EdgeInsets.only(right: ${0:0}),"],
+    "description": "Margin Right"
+  },
+  "marv": {
+    "prefix": "marv",
+    "body": ["margin: EdgeInsets.only(top: ${1:0}, bottom: ${1}),"],
+    "description": "Margin Vertical"
+  },
+  "br": {
+    "prefix": "br",
+    "body": ["borderRadius: BorderRadius.all(Radius.circular(${0})),"],
+    "description": "BorderRadius"
+  },
+  "sbr": {
+    "prefix": "sbr",
+    "body": [
+      "shape: RoundedRectangleBorder(",
+      "  borderRadius: BorderRadius.all(Radius.circular(${0})),",
+      "),"
+    ],
+    "description": "Shape with BorderRadius"
+  },
+  "dur": {
+    "prefix": "dur",
+    "body": ["duration: const Duration(milliseconds: ${0}),"],
+    "description": "Duration"
+  },
+  "dec": {
+    "prefix": "dec",
+    "body": ["decoration: BoxDecoration(", "  color: ${1},", "),"],
+    "description": "BoxDecoration"
+  },
+  "ba": {
+    "prefix": "ba",
+    "body": ["border: Border.all(", "  width: ${1},", "  color: ${2},", "),"],
+    "description": "BorderRadius"
+  },
+  "mai": {
+    "prefix": "mai",
+    "body": ["mainAxisAlignment: MainAxisAlignment.${0}"],
+    "description": "MainAxis"
+  },
+  "crs": {
+    "prefix": "crs",
+    "body": ["crossAxisAlignment: CrossAxisAlignment.${0}"],
+    "description": "CrossAxis"
+  },
+  "mainmin": {
+    "prefix": "mainmin",
+    "body": ["mainAxisSize: MainAxisSize.min"],
+    "description": "MainAxisSize.min"
+  },
+  "row": {
+    "prefix": "row",
+    "body": ["Row(children: [", "  ${0}", "]),"],
+    "description": "Row"
+  },
+  "rowa": {
+    "prefix": "rowa",
+    "body": [
+      "Row(",
+      "  mainAxisAlignment: MainAxisAlignment.${1:start},",
+      "  crossAxisAlignment: CrossAxisAlignment.${2:start},",
+      "  children: [",
+      "    ${0}",
+      "  ],",
+      "),"
+    ],
+    "description": "Row with alignment"
+  },
+  "col": {
+    "prefix": "col",
+    "body": ["Column(children: [", "  ${0}", "]),"],
+    "description": "Column"
+  },
+  "cola": {
+    "prefix": "cola",
+    "body": [
+      "Column(",
+      "  mainAxisAlignment: MainAxisAlignment.${1:start},",
+      "  crossAxisAlignment: CrossAxisAlignment.${2:start},",
+      "  children: [",
+      "    ${0}",
+      "  ],",
+      "),"
+    ],
+    "description": "Column with alignment"
+  },
+  "sta": {
+    "prefix": "sta",
+    "body": ["Stack(children: [", "  ${0}", "]),"],
+    "description": "Stack"
+  },
+  "cs": {
+    "prefix": "cs",
+    "body": ["const SizedBox()${0}"],
+    "description": "const SizedBox()"
+  },
+  "co": {
+    "prefix": "co",
+    "body": ["Container()${0}"],
+    "description": "Container"
+  },
+  "con": {
+    "prefix": "con",
+    "body": ["Container(", "  child: ${0},", ")"],
+    "description": "Container"
+  },
+  "exp": {
+    "prefix": "exp",
+    "body": ["Expanded(", "  child: ${0},", "),"],
+    "description": "Expanded"
+  },
+  "flx": {
+    "prefix": "flx",
+    "body": ["Flexible(", "  child: ${0},", "),"],
+    "description": "Flexible"
+  },
+  "cons": {
+    "prefix": "cons",
+    "body": [
+      "Container(",
+      "  width: ${1},",
+      "  height: ${2},",
+      "  child: ${0},",
+      ")"
+    ],
+    "description": "Container Sized"
+  },
+  "cen": {
+    "prefix": "cen",
+    "body": ["Center(child: ${0})"],
+    "description": "Center"
+  },
+  "t": {
+    "prefix": "t",
+    "body": ["Text(\"${1}\"),${0}"],
+    "description": "Text"
+  },
+  "ts": {
+    "prefix": "ts",
+    "body": ["Text(${1}, style: ${2}),${0}"],
+    "description": "Text with text style"
+  },
+  "rts": {
+    "prefix": "rts",
+    "body": [
+      "RichText(",
+      "  text: TextSpan(children: [",
+      "    TextSpan(text: ${1}, style: ${2}),${0}",
+      "  ]),",
+      "),"
+    ],
+    "description": "Rich Text with text style"
+  },
+  "ss": {
+    "prefix": "ss",
+    "body": ["TStyle(c: ${1}, s: ${2:14}, w: F.w${3:5})${0}"],
+    "description": "TextStyle"
+  },
+  "nbuilder": {
+    "prefix": "nbuilder",
+    "body": [
+      "NotifierBuilder(",
+      "  notifier: null,",
+      "  builder: (context) {",
+      "    return Container();",
+      "  },",
+      ")"
+    ],
+    "description": "NotifierBuilder"
+  },
+  "sw": {
+    "prefix": "sw",
+    "body": ["const SizedBox(width: ${1}),${0}"],
+    "description": "SizedBox with width"
+  },
+  "sh": {
+    "prefix": "sh",
+    "body": ["const SizedBox(height: ${1}),${0}"],
+    "description": "SizedBox with height"
+  },
+  "swh": {
+    "prefix": "swh",
+    "body": ["SizedBox(width: ${1}, height: ${2}),${0}"],
+    "description": "SizedBox with width and height"
+  },
+  "scaf": {
+    "prefix": "scaf",
+    "body": [
+      "Scaffold(",
+      "  appBar: AppBar(",
+      "    title: Text('${1:Title}'),",
+      "  ),",
+      "  body: ${2:Container()}${0},",
+      ");"
+    ],
+    "description": "Scaffold"
+  },
+  "sf": {
+    "prefix": "sf",
+    "body": [
+      "class ${1:name} extends StatefulWidget {",
+      "  $1({super.key});",
+      "  @override",
+      "  _$1State createState() => _$1State();",
+      "}",
+      "class _$1State extends State<$1> {",
+      "  @override",
+      "  Widget build(context) {",
+      "    return ${2:Container()};",
+      "  }",
+      "}"
+    ],
+    "description": "New Stateful Widget"
+  },
+  "sl": {
+    "prefix": "sl",
+    "body": [
+      "class ${1:name} extends StatelessWidget {",
+      "  $1({super.key});",
+      "  @override",
+      "  Widget build(context) {",
+      "    return ${2:Container()};",
+      "  }",
+      "}"
+    ],
+    "description": "New Stateless Widget"
+  },
+  "wt": {
+    "prefix": "wt",
+    "body": ["color: colorWhite,"],
+    "description": "Colors.white"
+  },
+  "inits": {
+    "prefix": "inits",
+    "body": [
+      "@override",
+      "void initState() {",
+      "  ${0}",
+      "  super.initState();",
+      "}"
+    ],
+    "description": "initState"
+  },
+  "dispose": {
+    "prefix": "dispose",
+    "body": [
+      "@override",
+      "void dispose() {",
+      "  ${0:}",
+      "  super.dispose();",
+      "}"
+    ],
+    "description": "dispose"
+  },
+  "listv": {
+    "prefix": "listv",
+    "body": [
+      "ListView.builder(",
+      "  itemCount: ${1:1},",
+      "  itemBuilder: (context, index) {",
+      "    return ${2:Container()};",
+      "  },",
+      ")"
+    ],
+    "description": "ListView.builder"
+  },
+  "future": {
+    "prefix": "future",
+    "body": [
+      "FutureBuilder(",
+      "  future: ${1:Future},",
+      "  initialData: ${2:InitialData},",
+      "  builder: (context, snapshot) {",
+      "    if (snapshot.connectionState == ConnectionState.done)",
+      "      return ${3:Container()};",
+      "    return ${4:Container()};",
+      "  },",
+      ")"
+    ],
+    "description": "Future Builder"
+  },
+  "stream": {
+    "prefix": "stream",
+    "body": [
+      "StreamBuilder<${1:dynamic}>(",
+      "  stream: ${2:yourStream},",
+      "  builder: (context, snapshot) {",
+      "    if (snapshot.hasData) {",
+      "      return ${3:Container()};",
+      "    } else if (snapshot.hasError) {",
+      "      return ${4:Text(snapshot.error.toString())};",
+      "    }",
+      "    return ${5:Center(child: CircularProgressIndicator())};",
+      "  },",
+      ")"
+    ],
+    "description": "Stream Builder"
+  },
+  "try": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "  ${0}",
+      "} catch (e, stack) {",
+      "  print(e);",
+      "  print(stack);",
+      "}"
+    ],
+    "description": "try catch"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for (var ${1:i} = 0; ${1:i} < ${2:n}; ++${1:i})",
+      "  ${3:// TODO}"
+    ],
+    "description": "standard for loop without brackets"
+  },
+  "forr": {
+    "prefix": "forr",
+    "body": [
+      "for (var ${1:i} = 0; ${1:i} < ${2:n}; ++${1:i}) {",
+      "  ${3:// TODO}",
+      "}"
+    ],
+    "description": "standard for loop"
+  },
+  "fori": {
+    "prefix": "fori",
+    "body": ["for (var ${1:item} in ${2:object}) {", "  ${3:// TODO}", "}"],
+    "description": "For in loop"
+  },
+  "ssm": {
+    "prefix": "ssm",
+    "body": ["setState(() {", "  ${1:// TODO}", "});"],
+    "description": "Multi-line Set State"
+  },
+  "sss": {
+    "prefix": "sss",
+    "body": ["setState(() => ${1:/* TODO */} );"],
+    "description": "Single-line Set State"
+  },
+  "sst": {
+    "prefix": "sst",
+    "body": ["setState(() {})"],
+    "description": "Empty Set State"
+  },
+  "rf": {
+    "prefix": "rf",
+    "body": ["FocusScope.of(context).requestFocus(${1:FocusNode()})"],
+    "description": "Request focus"
+  },
+  "rfn": {
+    "prefix": "rfn",
+    "body": ["FocusScope.of(context).requestFocus(FocusNode());"],
+    "description": "Request focusnode (new)"
+  },
+  "push": {
+    "prefix": "push",
+    "body": [
+      "Navigator.of(context).push(",
+      "  MaterialPageRoute(builder: (context) => ${1:Page()}),",
+      ")"
+    ],
+    "description": "Navigator push"
+  },
+  "pop": {
+    "prefix": "pop",
+    "body": ["Navigator.of(context).pop(${1})"],
+    "description": "Navigator pop"
+  },
+  "rmb": {
+    "prefix": "rmb",
+    "body": [
+      "RawMaterialButton(",
+      "  elevation: ${1:0},",
+      "  onPressed: () {},",
+      "  shape: RoundedRectangleBorder(",
+      "    borderRadius: BorderRadius.all(Radius.circular(${2:5})),",
+      "  ),",
+      "  fillColor: ${3:Colors.transparent},",
+      "  child: ${5:Container()},",
+      ")"
+    ],
+    "description": "RawMaterialButton"
+  },
+  "mo": {
+    "prefix": "mo",
+    "body": ["MediaQuery.of(context)"],
+    "description": "Get MediaQuery"
+  },
+  "st": {
+    "prefix": "st",
+    "body": ["print(${0});"],
+    "description": "print();"
+  },
+  "stb": {
+    "prefix": "stb",
+    "body": ["print(\"------------------------------------------------\");"],
+    "description": "print('-------');"
+  },
+  "sbj": {
+    "prefix": "sbj",
+    "body": [
+      "Stream<${1:int}> get ${2:my}Stream => _${2:my}Subject.stream;",
+      "BehaviorSubject<${1}> _${2:my}Subject;",
+      "_${2:my}Subject = BehaviorSubject<${1}>();"
+    ],
+    "description": "Behavior subject"
+  },
+  "f": {
+    "prefix": "f",
+    "body": ["() => "],
+    "description": "Function"
+  },
+  "adelay": {
+    "prefix": "adelay",
+    "body": ["await Future.delayed(const Duration(milliseconds: ${1:300}));"],
+    "description": "await Future.delayed"
+  },
+  "delay": {
+    "prefix": "delay",
+    "body": [
+      "Future.delayed(const Duration(milliseconds: ${1:300})).then((_) {",
+      "\t${2}",
+      "});"
+    ],
+    "description": "Future.delayed"
+  },
+  "now": {
+    "prefix": "now",
+    "body": ["DateTime.now()"],
+    "description": "DateTime.now()"
+  },
+  "rt": {
+    "prefix": "rt",
+    "body": ["required this.${1}, ${0}"],
+    "description": "required this."
+  },
+  "posr": {
+    "prefix": "posr",
+    "body": [
+      "Positioned(",
+      "  top: ${1:0},",
+      "  right: ${2:0},",
+      "  bottom: ${3:0},",
+      "  child: ${0:Container()},",
+      "),"
+    ],
+    "description": "Positioned right"
+  },
+  "posl": {
+    "prefix": "posl",
+    "body": [
+      "Positioned(",
+      "  top: ${1:0},",
+      "  left: ${2:0},",
+      "  bottom: ${3:0},",
+      "  child: ${0:Container()},",
+      "),"
+    ],
+    "description": "Positioned left"
+  },
+  "post": {
+    "prefix": "post",
+    "body": [
+      "Positioned(",
+      "  top: ${1:0},",
+      "  left: ${2:0},",
+      "  right: ${3:0},",
+      "  child: ${0:Container()},",
+      "),"
+    ],
+    "description": "Positioned top"
+  },
+  "posb": {
+    "prefix": "posb",
+    "body": [
+      "Positioned(",
+      "  bottom: ${1:0},",
+      "  left: ${2:0},",
+      "  right: ${3:0},",
+      "  child: ${0:Container()},",
+      "),"
+    ],
+    "description": "Positioned bottom"
+  },
+  "postr": {
+    "prefix": "postr",
+    "body": [
+      "Positioned(",
+      "  top: ${1:0},",
+      "  right: ${2:0},",
+      "  child: ${3:Container()},",
+      "),"
+    ],
+    "description": "Positioned top right"
+  },
+  "posbl": {
+    "prefix": "posbl",
+    "body": [
+      "Positioned(",
+      "  bottom: ${1:0},",
+      "  left: ${2:0},",
+      "  child: ${3:Container()},",
+      "),"
+    ],
+    "description": "Positioned bottom left"
+  },
+  "posbr": {
+    "prefix": "posbr",
+    "body": [
+      "Positioned(",
+      "  bottom: ${1:0},",
+      "  right: ${2:0},",
+      "  child: ${3:Container()},",
+      "),"
+    ],
+    "description": "Positioned bottom right"
+  },
+  "postl": {
+    "prefix": "postl",
+    "body": [
+      "Positioned(",
+      "  top: ${1:0},",
+      "  left: ${2:0},",
+      "  child: ${3:Container()},",
+      "),"
+    ],
+    "description": "Positioned top left"
+  },
+  "fa": {
+    "prefix": "fa",
+    "body": ["// FIXTYPE"],
+    "description": "fix add type"
+  },
+  ".f": {
+    "prefix": ".f",
+    "body": [".forEach((${1:item}) {", "\t${0:// TODO}", "});"],
+    "description": "For each",
+    "scope": "i"
+  },
+  "btn": {
+    "prefix": "btn",
+    "body": [
+      "TextButton(",
+      "\tchild: ${0:Text(\"Button\")},",
+      "\tonPressed: () {},",
+      "\tstyle: TextButton.styleFrom(",
+      "\t\tforegroundColor: Colors.black,",
+      "\t\tbackgroundColor: Colors.white,",
+      "\t),",
+      ")"
+    ],
+    "description": "Text Button",
+    "scope": "i"
+  },
+  "th": {
+    "prefix": "th",
+    "body": [
+      "try {",
+      "  throw \"${0:test}\";",
+      "} catch (e, stack) {",
+      "  print(e);",
+      "  print(stack);",
+      "}"
+    ],
+    "description": "try throw stack",
+    "scope": "i"
+  },
+  "tra": {
+    "prefix": "tra",
+    "body": ["await handleException(() async {", "  ${0}", "});"],
+    "description": "handleException"
+  }
+}
