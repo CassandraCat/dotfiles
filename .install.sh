@@ -295,6 +295,9 @@ rm -rf /tmp/SFMono_Nerd_Font/
 # zsh config
 source $HOME/.zshrc
 
+# Hidden Untracked Files
+git config --local status.showUntrackedFiles no
+
 # Installing helix language server
 git clone https://github.com/estin/simple-completion-language-server.git /tmp/simple-completion-language-server
 (cd /tmp/simple-completion-language-server && cargo install --path .)
@@ -348,3 +351,8 @@ brew services start yabai
 brew services start sketchybar
 brew services start borders
 brew services start svim
+
+csrutil status
+echo "(optional) Disable SIP for advanced yabai features."
+echo "(optional) Add sudoer manually:\n '$(whoami) ALL = (root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | awk "{print \$1;}") $(which yabai) --load-sa' to '/private/etc/sudoers.d/yabai'"
+echo "Installation complete...\n"
