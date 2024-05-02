@@ -7,7 +7,7 @@ My macOS configuration files playground...
 Most setup steps are in .install.sh
 
 ```bash
-    curl -L https://raw.githubusercontent.com/CrazyCatZhang/dotfiles/main/.install.sh | sh
+curl -L https://raw.githubusercontent.com/CrazyCatZhang/dotfiles/main/.install.sh | sh
 ```
 
 ## Screenshot
@@ -16,10 +16,11 @@ Most setup steps are in .install.sh
 ![vscode screenshot](./.config/images/vscode-screenshot.png)
 
 ### wezterm
-![wezterm screenshot](./config/images/wezterm-screenshot.png)
+![wezterm screenshot](./.config/images/wezterm-screenshot.png)
 
 ### tmux
 ![tmux screenshot](./.config/images/tmux-screenshot.png)
+![tmux-tab-screenshot](./.config/images/tmux-tab-screenshot.png)
 
 ### nvim
 ![nvim screenshot](./.config/images/nvim-screenshot.png)
