@@ -1,18 +1,38 @@
-#!/bin/zsh
+#!/bin/bash
+
+LOG_FILE="$HOME/install.log"
 
 log_message() {
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
+  local message="[$(date '+%Y-%m-%d %H:%M:%S')] $1"
+  echo $message | tee -a $LOG_FILE
+}
+
+check_dependency() {
+  local dependency=$1
+  if ! command -v $dependency &> /dev/null; then
+    log_message "Error: $dependency is not installed."
+    exit 1
+  fi
 }
 
 install_xcode_cli_tools() {
-  log_message "Installing commandline tools..."
-  xcode-select --install
+  check_dependency "xcode-select"
+  if ! xcode-select -p &> /dev/null;
+    log_message "Installing commandline tools..."
+    xcode-select --install
+  else
+    log_message "Xcode Command Line Tools already installed. Skipping..."
+  fi
 }
 
 install_homebrew() {
-  log_message "Installing Brew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  brew analytics off
+  if ! command -v brew &> /dev/null; then
+    log_message "Installing Brew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew analytics off
+  else
+    log_message "Homebrew already installed. Skipping..."
+  fi
 }
 
 tap_brew() {
@@ -30,9 +50,17 @@ tap_brew() {
     mongodb/brew
   )
 
+  local current_taps=$(brew tap)
+
   for tap in "${taps[@]}"; do
-    log_message "Tapping Brew tap: $tap"
-    brew tap "$tap"
+    if echo "$current_taps" | grep -q "^$tap\$"; then  # Check if tap is already tapped
+      log_message "Brew tap $tap already exists. Skipping..."
+    else
+      log_message "Tapping Brew tap: $tap"
+      if ! brew tap "$tap"; then
+        log_message "Failed to tap $tap. Continuing with next tap."
+      fi
+    fi
   done
 }
 
@@ -123,8 +151,14 @@ install_brew_formulae() {
   )
 
   for formula in "${formulae[@]}"; do
-    log_message "Installing Brew Formulae: $formula"
-    brew install "$formula"
+    if brew list --formula | grep -q "^$formula\$"; then  # Check if formula is already installed
+      log_message "Brew formula $formula already installed. Skipping..."
+    else
+      log_message "Installing Brew formula: $formula"
+      if ! brew install "$formula"; then
+        log_message "Failed to install $formula. Continuing with next formula."
+      fi
+    fi
   done
 }
 
@@ -199,8 +233,14 @@ install_brew_casks() {
   )
 
   for cask in "${casks[@]}"; do
-    log_message "Installing Brew Cask: $cask"
-    brew install --cask "$cask"
+    if brew list --cask | grep -q "^$cask\$"; then  # Check if cask is already installed
+      log_message "Brew cask $cask already installed. Skipping..."
+    else
+      log_message "Installing Brew cask: $cask"
+      if ! brew install --cask "$cask"; then
+        log_message "Failed to install $cask. Continuing with next cask."
+      fi
+    fi
   done
 }
 
@@ -361,25 +401,38 @@ start_services() {
 }
 
 main() {
-  install_xcode_cli_tools
-  install_homebrew
-  tap_brew
-  install_brew_formulae
-  install_brew_casks
-  install_mac_app_store_apps
-  change_macos_defaults
-  change_dotfiles
-  install_fonts
-  install_sbarlua
-  refresh_zsh_config
-  set_git_untracked_files
-  install_helix_language_servers
-  install_python_packages
-  install_rust_packages
-  install_lunarvim
-  setup_java_support_for_lunarvim
-  start_services
-  log_message "Installation complete."
+  touch $LOG_FILE
+  set -e
+  set -o pipefail
+
+  log_message "Starting installation..."
+
+  read -p "This script will install several applications and tools, and change some system settings. Are you sure you want to continue? (y/N) " -n 1 -r
+  echo # move to a new line
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    install_xcode_cli_tools
+    install_homebrew
+    tap_brew
+    install_brew_formulae
+    install_brew_casks
+    install_mac_app_store_apps
+    change_macos_defaults
+    clone_dotfiles
+    install_fonts
+    install_sbarlua
+    refresh_zsh_config
+    set_git_untracked_files
+    install_helix_language_servers
+    install_python_packages
+    install_rust_packages
+    install_lunarvim
+    setup_java_support_for_lunarvim
+    start_services
+    log_message "Installation complete."
+  else
+    log_message "Installation aborted by user."
+    exit 1
+  fi
 }
 
 main "$@"
