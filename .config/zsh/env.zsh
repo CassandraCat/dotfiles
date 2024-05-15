@@ -4,6 +4,8 @@ if [[ ":$PATH:" != *":/usr/local/opt/openjdk/bin:"* ]]; then
     export PATH="/usr/local/opt/openjdk/bin:$PATH"
 fi
 
+export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153
+
 export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 if [[ ":$PATH:" != *":/usr/local/opt/ruby@3.1/bin:"* ]]; then
