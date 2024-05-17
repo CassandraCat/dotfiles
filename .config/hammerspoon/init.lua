@@ -1,53 +1,143 @@
-local spaces = require("hs.spaces") -- https://github.com/asmagill/hs._asm.spaces
+local json = require("hs.json")
 
--- Switch wezterm
-hs.hotkey.bind(
-	_,
-	"f10",
-	function() -- change your own hotkey combo here, available keys could be found here:https://www.hammerspoon.org/docs/hs.hotkey.html#bind
-		local BUNDLE_ID = "com.github.wez.wezterm" -- more accurate to avoid mismatching on browser titles
-
-		function getMainWindow(app)
-			-- get main window from app
-			local win = nil
-			while win == nil do
-				win = app:mainWindow()
-			end
-			return win
-		end
-
-		function moveWindow(wezterm, space)
-			local win = getMainWindow(wezterm)
-			if win then
-				if win:isFullScreen() then
-					hs.eventtap.keyStroke({ "fn" }, "f", 0, wezterm)
-				end
-				win:move(hs.geometry.rect(8, 50, 1776, 1060))
-				spaces.moveWindowToSpace(win, space)
-				win:focus()
-			end
-		end
-
-		local wezterm = hs.application.get(BUNDLE_ID)
-		if wezterm ~= nil and wezterm:isFrontmost() then
-			wezterm:hide()
-		else
-			local space = spaces.activeSpaceOnScreen()
-			if wezterm == nil and hs.application.launchOrFocusByBundleID(BUNDLE_ID) then
-				local appWatcher = nil
-				appWatcher = hs.application.watcher.new(function(name, event, app)
-					if event == hs.application.watcher.launched and app:bundleID() == BUNDLE_ID then
-						getMainWindow(app):move(hs.geometry.rect(8, 50, 1776, 1060))
-						app:hide()
-						moveWindow(app, space)
-						appWatcher:stop()
+local function getCurrentSpaceIndex(callback)
+	hs.task
+		.new("/usr/local/bin/yabai", function(exitCode, stdOut, stdErr)
+			if exitCode == 0 then
+				print("Current space data:", stdOut)
+				local spacesData = json.decode(stdOut)
+				local foundSpace = false
+				for _, space in ipairs(spacesData) do
+					if space["has-focus"] then
+						foundSpace = true
+						callback(space["index"]) -- Now using index instead of id
+						break
 					end
-				end)
-				appWatcher:start()
+				end
+				if not foundSpace then
+					callback(spacesData[1]["index"]) -- Assume the first space's index as a fallback
+				end
+			else
+				print("Error getting space index:", stdErr)
 			end
-			if wezterm ~= nil then
-				moveWindow(wezterm, space)
+		end, { "-m", "query", "--spaces" })
+		:start()
+end
+
+local function getWezTermWindowID(callback)
+	hs.task
+		.new("/usr/local/bin/yabai", function(exitCode, stdOut, stdErr)
+			if exitCode == 0 then
+				local windowsData = json.decode(stdOut)
+				for _, window in ipairs(windowsData) do
+					-- Ensure the application name matches exactly what's reported by yabai
+					if window.app == "WezTerm" then
+						callback(window.id)
+						return
+					end
+				end
+				print("Error: Could not find WezTerm window")
+				callback(nil)
+			else
+				print("Error getting window ID:", stdErr)
+				callback(nil)
 			end
+		end, { "-m", "query", "--windows" })
+		:start()
+end
+
+local function focusWindowWithYabai(windowID)
+	hs.task
+		.new("/usr/local/bin/yabai", function(exitCode, stdOut, stdErr)
+			-- exitCode 为 0 表示成功，非 0 表示有错误发生
+			if exitCode ~= 0 then
+				print("yabai focus window command failed: " .. stdErr)
+			end
+		end, { "-m", "window", "--focus", tostring(windowID) })
+		:start()
+end
+
+local function moveWezTermToCurrentSpace()
+	getCurrentSpaceIndex(function(currentSpaceIndex)
+		if currentSpaceIndex then
+			getWezTermWindowID(function(windowID)
+				if windowID then
+					hs.task
+						.new("/usr/local/bin/yabai", function(exitCode, stdOut, stdErr)
+							if exitCode == 0 then
+								-- Make the WezTerm window visible
+								hs.task
+									.new(
+										"/usr/local/bin/yabai",
+										nil,
+										{ "-m", "window", tostring(windowID), "--toggle", "visible" }
+									)
+									:start()
+
+								-- Wait for the window to become visible
+								hs.timer.doAfter(0.1, function()
+									-- Now move the WezTerm window to the current space
+									hs.task
+										.new("/usr/local/bin/yabai", nil, {
+											"-m",
+											"window",
+											tostring(windowID),
+											"--space",
+											tostring(currentSpaceIndex),
+										})
+										:start()
+
+									-- Wait for the window to move, then set the size and position
+									hs.timer.doAfter(0.2, function()
+										local win = hs.window.find(windowID)
+										if win then
+											-- Set the WezTerm window frame
+											win:setFrame(hs.geometry.rect(8, 50, 1776, 1060))
+											focusWindowWithYabai(windowID)
+										else
+											print(
+												"Failed to resize and reposition WezTerm window: no window with the given ID found."
+											)
+										end
+									end)
+								end)
+							else
+								print("Error moving WezTerm window with yabai:", stdErr)
+							end
+						end, { "-m", "query", "--windows", "--window", tostring(windowID) })
+						:start()
+				else
+					print("Error: Could not extract WezTerm window ID")
+				end
+			end)
+		else
+			print("Error: Could not determine current space index")
 		end
+	end)
+end
+
+local function launchAndMoveWezTerm()
+	local wezterm = hs.application.get("WezTerm")
+	if not wezterm then
+		hs.application.launchOrFocusByBundleID("com.github.wez.wezterm")
+		-- Wait for WezTerm to launch and get its main window
+		hs.timer.doAfter(0.5, function() -- Wait a bit for the application to launch
+			moveWezTermToCurrentSpace()
+		end)
+	else
+		moveWezTermToCurrentSpace()
 	end
-)
+end
+
+hs.hotkey.bind({ "command" }, "escape", function()
+	local wezterm = hs.application.get("WezTerm")
+	if wezterm then
+		if wezterm:isHidden() then
+			moveWezTermToCurrentSpace()
+		else
+			wezterm:hide()
+		end
+	else
+		launchAndMoveWezTerm()
+	end
+end)
