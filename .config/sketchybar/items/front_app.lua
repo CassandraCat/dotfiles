@@ -20,7 +20,7 @@ local front_app = sbar.add("item", "front_app", {
 			family = settings.font.numbers,
 		},
 	},
-	position = "center",
+	position = "left",
 	update_freq = 30,
 	padding_left = 1,
 	padding_right = 1,
