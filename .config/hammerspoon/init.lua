@@ -1,5 +1,8 @@
-local json = require("hs.json")
 local yabaiPath = "/usr/local/bin/yabai"
+local spaces = require("hs.spaces")
+
+local BUNDLE_ID = "com.github.wez.wezterm"
+local cachedScreenUUID = hs.screen.mainScreen():getUUID()
 
 local function runYabaiCommand(args, callback)
 	hs.task
@@ -14,39 +17,18 @@ local function runYabaiCommand(args, callback)
 		:start()
 end
 
-local function getCurrentSpaceIndex(callback)
-	runYabaiCommand({ "-m", "query", "--spaces" }, function(success, output)
-		if success then
-			local spacesData = json.decode(output)
-			for _, space in ipairs(spacesData) do
-				if space["has-focus"] then
-					callback(space["index"])
-					return
-				end
-			end
-			callback(spacesData[1]["index"]) -- Fallback to the first space's index
-		else
-			callback(nil)
+local function getCurrentSpaceIndex()
+	local currentSpaceID = spaces.activeSpaceOnScreen()
+	local allSpaces = spaces.allSpaces()
+	local spaceIDsOnScreen = allSpaces[cachedScreenUUID]
+	local index = nil
+	for i, spaceID in ipairs(spaceIDsOnScreen) do
+		if spaceID == currentSpaceID then
+			index = i
+			break
 		end
-	end)
-end
-
-local function getWezTermWindowID(callback)
-	runYabaiCommand({ "-m", "query", "--windows" }, function(success, output)
-		if success then
-			local windowsData = json.decode(output)
-			for _, window in ipairs(windowsData) do
-				if window.app == "WezTerm" then
-					callback(window.id)
-					return
-				end
-			end
-			print("Error: Could not find WezTerm window")
-			callback(nil)
-		else
-			callback(nil)
-		end
-	end)
+	end
+	return index
 end
 
 local function focusWindowWithYabai(windowID)
@@ -77,47 +59,41 @@ local function setWindowFrame(windowID)
 	end
 end
 
-local function moveWezTermToCurrentSpace()
-	getCurrentSpaceIndex(function(currentSpaceIndex)
-		if currentSpaceIndex then
-			getWezTermWindowID(function(windowID)
-				if windowID then
-					hs.timer.doAfter(0.1, function()
-						moveWindowToSpace(windowID, currentSpaceIndex, function()
-							hs.timer.doAfter(0.2, function()
-								setWindowFrame(windowID)
-							end)
-						end)
-					end)
-				else
-					print("Error: Could not extract WezTerm window ID")
-				end
+local function moveAppToCurrentSpace()
+	local currentSpaceIndex = getCurrentSpaceIndex()
+	if currentSpaceIndex then
+		local windowID = hs.application.find(BUNDLE_ID):mainWindow():id()
+		if windowID then
+			moveWindowToSpace(windowID, currentSpaceIndex, function()
+				setWindowFrame(windowID)
 			end)
 		else
-			print("Error: Could not determine current space index")
+			print("Error: Could not extract WezTerm window ID")
 		end
-	end)
-end
-
-local function launchAndMoveWezTerm()
-	local wezterm = hs.application.get("WezTerm")
-	if not wezterm then
-		hs.application.launchOrFocusByBundleID("com.github.wez.wezterm")
-		hs.timer.doAfter(0.5, moveWezTermToCurrentSpace) -- Wait a bit for the application to launch
 	else
-		moveWezTermToCurrentSpace()
+		print("Error: Could not determine current space index")
 	end
 end
 
 hs.hotkey.bind({ "command" }, "escape", function()
-	local wezterm = hs.application.get("WezTerm")
-	if wezterm then
-		if wezterm:isHidden() then
-			moveWezTermToCurrentSpace()
-		else
-			wezterm:hide()
-		end
+	local wezterm = hs.application.get(BUNDLE_ID)
+	if wezterm ~= nil and wezterm:isFrontmost() then
+		wezterm:hide()
 	else
-		launchAndMoveWezTerm()
+		if wezterm == nil and hs.application.launchOrFocusByBundleID(BUNDLE_ID) then
+			local appWatcher = nil
+			appWatcher = hs.application.watcher.new(function(name, event, app)
+				if event == hs.application.watcher.launched and app:bundleID() == BUNDLE_ID then
+					app:mainWindow():move(hs.geometry.rect(8, 50, 1776, 1060))
+					moveAppToCurrentSpace()
+					appWatcher:stop()
+					appWatcher = nil
+				end
+			end)
+			appWatcher:start()
+		end
+		if wezterm ~= nil then
+			moveAppToCurrentSpace()
+		end
 	end
 end)
