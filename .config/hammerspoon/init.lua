@@ -31,14 +31,6 @@ local function getCurrentSpaceIndex()
 	return index
 end
 
-local function focusWindowWithYabai(windowID)
-	runYabaiCommand({ "-m", "window", "--focus", tostring(windowID) }, function(success, _)
-		if not success then
-			print("yabai focus window command failed")
-		end
-	end)
-end
-
 local function moveWindowToSpace(windowID, spaceIndex, callback)
 	runYabaiCommand({ "-m", "window", tostring(windowID), "--space", tostring(spaceIndex) }, function(success, _)
 		if success then
@@ -49,23 +41,13 @@ local function moveWindowToSpace(windowID, spaceIndex, callback)
 	end)
 end
 
-local function setWindowFrame(windowID)
-	local win = hs.window.find(windowID)
-	if win then
-		win:setFrame(hs.geometry.rect(8, 50, 1776, 1060))
-		focusWindowWithYabai(windowID)
-	else
-		print("Failed to resize and reposition WezTerm window: no window with the given ID found.")
-	end
-end
-
-local function moveAppToCurrentSpace()
+local function moveAppToCurrentSpace(win)
 	local currentSpaceIndex = getCurrentSpaceIndex()
 	if currentSpaceIndex then
-		local windowID = hs.application.find(BUNDLE_ID):mainWindow():id()
+		local windowID = win:id()
 		if windowID then
 			moveWindowToSpace(windowID, currentSpaceIndex, function()
-				setWindowFrame(windowID)
+				win:focus()
 			end)
 		else
 			print("Error: Could not extract WezTerm window ID")
@@ -82,18 +64,18 @@ hs.hotkey.bind({ "command" }, "escape", function()
 	else
 		if wezterm == nil and hs.application.launchOrFocusByBundleID(BUNDLE_ID) then
 			local appWatcher = nil
-			appWatcher = hs.application.watcher.new(function(name, event, app)
+			appWatcher = hs.application.watcher.new(function(_, event, app)
+				local win = app:mainWindow()
 				if event == hs.application.watcher.launched and app:bundleID() == BUNDLE_ID then
-					app:mainWindow():move(hs.geometry.rect(8, 50, 1776, 1060))
-					moveAppToCurrentSpace()
+					win:setFrame(hs.geometry.rect(8, 50, 1776, 1060))
+					moveAppToCurrentSpace(win)
 					appWatcher:stop()
-					appWatcher = nil
 				end
 			end)
 			appWatcher:start()
 		end
 		if wezterm ~= nil then
-			moveAppToCurrentSpace()
+			moveAppToCurrentSpace(wezterm:mainWindow())
 		end
 	end
 end)
