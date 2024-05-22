@@ -12,7 +12,7 @@ end
 M.show_line_sign = function()
   -- Check for code action capability
   local code_action_cap_found = false
-  for _, client in pairs(vim.lsp.buf_get_clients()) do
+  for _, client in pairs(vim.lsp.get_clients()) do
     if client then
       if client.supports_method("textDocument/codeAction") then
         code_action_cap_found = true

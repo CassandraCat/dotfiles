@@ -243,6 +243,7 @@ M.config = function()
         },
         {
           "filename",
+          path = 0,
           cond = conditions.buffer_not_empty and conditions.hide_in_width,
           color = { fg = colors.blue, gui = "bold" },
         },
@@ -343,9 +344,9 @@ M.config = function()
         end
       end
       local show_name = vim.fn.expand "%:t"
-      if #cwd > 0 and #ftype > 0 then
-        show_name = fname:sub(#cwd + 2)
-      end
+      -- if #cwd > 0 and #ftype > 0 then
+      --   show_name = fname:sub(#cwd + 2)
+      -- end
       local readonly = ""
       local modified = ""
       if vim.bo.readonly then
@@ -451,7 +452,7 @@ M.config = function()
   ins_right {
     function(msg)
       msg = msg or kind.icons.ls_inactive .. "LS Inactive"
-      local buf_clients = vim.lsp.buf_get_clients()
+      local buf_clients = vim.lsp.get_clients()
       if next(buf_clients) == nil then
         if type(msg) == "boolean" or #msg == 0 then
           return kind.icons.ls_inactive .. "LS Inactive"
@@ -486,15 +487,15 @@ M.config = function()
       end
       vim.list_extend(buf_client_names, supported_formatters)
 
-      -- add linter
-      local linters = require "lvim.lsp.null-ls.linters"
-      local supported_linters = {}
-      for _, lnt in pairs(linters.list_registered(buf_ft)) do
-        local _added_linter = lnt
-        _added_linter = string.sub(lnt, 1, 4)
-        table.insert(supported_linters, _added_linter)
-      end
-      vim.list_extend(buf_client_names, supported_linters)
+      -- -- add linter
+      -- local linters = require "lvim.lsp.null-ls.linters"
+      -- local supported_linters = {}
+      -- for _, lnt in pairs(linters.list_registered(buf_ft)) do
+      --   local _added_linter = lnt
+      --   _added_linter = string.sub(lnt, 1, 4)
+      --   table.insert(supported_linters, _added_linter)
+      -- end
+      -- vim.list_extend(buf_client_names, supported_linters)
 
       if conditions.hide_small() then
         return lsp_icon .. table.concat(buf_client_names, ", ")
@@ -514,31 +515,31 @@ M.config = function()
     color = { fg = colors.orange, bg = colors.bg },
   }
 
-  ins_right {
-    function()
-      local function format_file_size(file)
-        local size = vim.fn.getfsize(file)
-        if size <= 0 then
-          return ""
-        end
-        local sufixes = { "b", "k", "m", "g" }
-        local i = 1
-        while size > 1024 do
-          size = size / 1024
-          i = i + 1
-        end
-        return string.format("%.1f%s", size, sufixes[i])
-      end
+  -- ins_right {
+  --   function()
+  --     local function format_file_size(file)
+  --       local size = vim.fn.getfsize(file)
+  --       if size <= 0 then
+  --         return ""
+  --       end
+  --       local sufixes = { "b", "k", "m", "g" }
+  --       local i = 1
+  --       while size > 1024 do
+  --         size = size / 1024
+  --         i = i + 1
+  --       end
+  --       return string.format("%.1f%s", size, sufixes[i])
+  --     end
 
-      local file = vim.fn.expand "%:p"
-      if string.len(file) == 0 then
-        return ""
-      end
-      return format_file_size(file)
-    end,
-    color = { fg = colors.fg, bg = colors.bg },
-    cond = conditions.buffer_not_empty and conditions.hide_small,
-  }
+  --     local file = vim.fn.expand "%:p"
+  --     if string.len(file) == 0 then
+  --       return ""
+  --     end
+  --     return format_file_size(file)
+  --   end,
+  --   color = { fg = colors.fg, bg = colors.bg },
+  --   cond = conditions.buffer_not_empty and conditions.hide_small,
+  -- }
   table.insert(config.sections.lualine_y, {
     "fileformat",
     fmt = string.upper,
