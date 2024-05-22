@@ -16,6 +16,7 @@ local function get_theme()
 end
 
 return {
+   enable_wayland = false,
    animation_fps = 60,
    max_fps = 60,
    front_end = 'WebGpu',
@@ -37,7 +38,7 @@ return {
 
    -- window
    window_padding = {
-      left = "0.5cell",
+      left = '0.5cell',
       right = 0,
       top = 0,
       bottom = 0,
