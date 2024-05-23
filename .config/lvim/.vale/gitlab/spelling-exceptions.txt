@@ -5,6 +5,7 @@ Alertmanager
 Algolia
 Alibaba
 Aliyun
+Amcache
 Ansible
 Anthos
 Anycast
@@ -237,6 +238,7 @@ Piwik
 Poedit
 Ponzi
 PostgreSQL
+Prefetch
 Prettifier
 Pritaly
 Priyanka
@@ -270,6 +272,7 @@ Semgrep
 Sendmail
 Sentry
 Shibboleth
+Shimcache
 Shodan
 Shopify
 Sidekiq
@@ -293,6 +296,7 @@ Stackprof
 Stuxnet
 Superblock
 Sysbench
+Sysmon
 TODO
 Tabnine
 Thanos
@@ -384,6 +388,9 @@ blockquoting
 boolean
 booleans
 bootkit
+bootloader
+bootsector
+breakpoint
 browsable
 bufferline
 bugfix
@@ -398,6 +405,7 @@ burndown
 burnup
 burstable
 cacheable
+callee
 callstack
 callstacks
 canonicalized
@@ -490,6 +498,7 @@ fastlane
 favicon
 favorited
 ffuf
+filesystem
 filetype
 filetypes
 firewalled
@@ -540,6 +549,7 @@ issuables
 jQuery
 jasmine-jquery
 javascript
+journaling
 jq
 jsdom
 json
