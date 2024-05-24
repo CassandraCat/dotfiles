@@ -288,10 +288,7 @@ style = "bold cyan"
 
 [custom.emoji]
 description = "Displays a (pseudo) random emoji for each prompt"
-# change the content of the EMOJIS array to your liking and replace the
-# number 12 with the number of items in the array, minus one
-command = "EMOJIS=( ⛵️  🛰  🪐  🚀  🧡  🔭  🌍  💫  ☄️  ✨  🌠  🌌  ⭐️); EMOJI_INDEX=$(( $RANDOM % 12 + 0 )); echo ${EMOJIS[$EMOJI_INDEX]}"
-# if you are on windows, replace "true" with "1"
+command = "EMOJIS=( ⛵️  🛰  🪐  🚀  🧡  ☄️  ✨  ⭐️  🛸  🌑  🫧  🐳  🌖  🌔 ); EMOJI_INDEX=$(( $RANDOM % 14 + 0 )); echo -n ${EMOJIS[$EMOJI_INDEX]}\" \""
 when = "true"
 shell = ["bash", "--noprofile", "--norc"]
-format = "$output"
+format = "$output "
