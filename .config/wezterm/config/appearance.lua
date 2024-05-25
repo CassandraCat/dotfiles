@@ -16,7 +16,6 @@ local function get_theme()
 end
 
 return {
-   enable_wayland = false,
    animation_fps = 60,
    max_fps = 60,
    front_end = 'WebGpu',
@@ -26,6 +25,20 @@ return {
    -- color scheme
    colors = colors,
    color_scheme = get_theme(),
+
+   -- background
+   background = {
+      {
+         source = { File = wezterm.GLOBAL.background },
+         horizontal_align = 'Center',
+      },
+      {
+         source = { Color = colors.background },
+         height = '100%',
+         width = '100%',
+         opacity = 0.96,
+      },
+   },
 
    -- tab bar
    enable_tab_bar = true,

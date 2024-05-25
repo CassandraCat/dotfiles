@@ -42,9 +42,13 @@ local function get_tab_bar_bg()
 end
 
 local colorscheme = {
-   cursor_bg = mocha.sapphire,
-   cursor_border = mocha.sapphire,
+   foreground = mocha.text,
+   background = mocha.base,
+   cursor_bg = mocha.rosewater,
+   cursor_border = mocha.rosewater,
    cursor_fg = mocha.crust,
+   selection_bg = mocha.surface2,
+   selection_fg = mocha.text,
    ansi = {
       '#0C0C0C', -- black
       '#C50F1F', -- red
