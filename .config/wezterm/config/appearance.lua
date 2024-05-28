@@ -31,6 +31,7 @@ return {
       {
          source = { File = wezterm.GLOBAL.background },
          horizontal_align = 'Center',
+         opacity = 0.3
       },
       {
          source = { Color = colors.background },
