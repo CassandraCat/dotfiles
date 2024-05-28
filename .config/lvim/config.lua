@@ -3,7 +3,7 @@
 lvim.leader = " "
 lvim.colorscheme = "tokyonight" -- set to a custom theme
 lvim.builtin.time_based_themes = true -- set false to use your own configured theme
-lvim.transparent_window = false -- enable/disable transparency
+lvim.transparent_window = true -- enable/disable transparency
 lvim.debug = false
 vim.lsp.set_log_level "error"
 lvim.log.level = "warn"
