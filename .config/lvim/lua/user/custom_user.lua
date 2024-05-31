@@ -74,7 +74,7 @@ M.config = function()
   lvim.builtin.trouble.active = true
   lvim.builtin.mini = {
     animate = {
-      active = true,
+      active = false,
     },
     move = {
       active = true,
