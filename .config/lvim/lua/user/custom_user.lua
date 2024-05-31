@@ -71,6 +71,7 @@ M.config = function()
   lvim.builtin.legendary.active = true
   lvim.builtin.cmp.cmdline.enable = true
   lvim.builtin.bigfile.active = true
+  lvim.builtin.trouble.active = true
   lvim.builtin.mini = {
     animate = {
       active = true,
