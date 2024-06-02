@@ -10,16 +10,16 @@
 # -------- Policy Group
 # -----------------------------------
 􀬚 Airplane = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
-􁝯 Mainland = select, 􀷎 Direct, 􀥠 OutSide, hidden=false, no-alert=false
-􀣺 Apple = select, 􀷎 Direct, 􀥠 OutSide, hidden=false, no-alert=false
+􀥲 Mainland = select, 􀷎 Direct, 􀥠 OutSide, hidden=false, no-alert=false
+􀪱 Apple = select, 􀷎 Direct, 􀥠 OutSide, hidden=false, no-alert=false
 􀍟 Apple Update = select, 􀥠 OutSide, 􀷎 Direct, 􀍼 Reject, hidden=false, no-alert=false
 􀇼 AdBlock = select, 􀥠 OutSide, 􀍼 Reject, 􀷎 Direct, hidden=false, no-alert=false
-􁼿 CMedia = select, 􀷎 Direct, 􁐇 Movie Proxies@HK, 􁐇 Movie Proxies@TW, hidden=false, no-alert=false
-􁽀 GMedia = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
-􀛸 GGame = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
-􁺺 OpenAi = select, 􁝯 AI Proxies, 􀈟 ShadowSocket@US, 􁹧 CornSS@US, 􀥠 OutSide, hidden=false, no-alert=false
-􁐗 Speedtest = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
-􀯠 Others = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
+􂅿 CMedia = select, 􀷎 Direct, 􁐇 Movie Proxies@HK, 􁐇 Movie Proxies@TW, hidden=false, no-alert=false
+􂆀 GMedia = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
+􀑑 GGame = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
+􁍎 OpenAI = select, 􁝯 AI Proxies, 􀈟 ShadowSocket@US, 􁹧 CornSS@US, 􀥠 OutSide, hidden=false, no-alert=false
+􀬗 Speedtest = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
+􀫎 Others = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
 
 # -----------------------------------
 # -------- Policy Group(Extra)
