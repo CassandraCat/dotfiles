@@ -291,4 +291,4 @@ description = "Displays a (pseudo) random emoji for each prompt"
 command = "EMOJIS=( ⛵️  🛰  🪐  🚀  🧡  ☄️  ✨  ⭐️  🛸  🌑  🫧  🐳  🌖  🌔 ); EMOJI_INDEX=$(( $RANDOM % 14 + 0 )); echo -n ${EMOJIS[$EMOJI_INDEX]}\" \""
 when = "true"
 shell = ["bash", "--noprofile", "--norc"]
-format = "$output "
+format = " $output "
