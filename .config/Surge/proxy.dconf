@@ -1,0 +1,78 @@
+[Proxy]
+# SEE: Built-in Policy -> https://manual.nssurge.com/policy/built-in.html
+􀷎 Direct = DIRECT
+􀇼 Reject-Drop = REJECT-DROP
+􀍼 Reject = REJECT
+􀠱 Reject-TingGif = REJECT-TINYGIF
+
+[Proxy Group]
+# -----------------------------------
+# -------- Policy Group
+# -----------------------------------
+􀬚 Airplane = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
+􁝯 Mainland = select, 􀷎 Direct, 􀥠 OutSide, hidden=false, no-alert=false
+􀣺 Apple = select, 􀷎 Direct, 􀥠 OutSide, hidden=false, no-alert=false
+􀍟 Apple Update = select, 􀥠 OutSide, 􀷎 Direct, 􀍼 Reject, hidden=false, no-alert=false
+􀇼 AdBlock = select, 􀥠 OutSide, 􀍼 Reject, 􀷎 Direct, hidden=false, no-alert=false
+􁼿 CMedia = select, 􀷎 Direct, 􁐇 Movie Proxies@HK, 􁐇 Movie Proxies@TW, hidden=false, no-alert=false
+􁽀 GMedia = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
+􀛸 GGame = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
+􁺺 OpenAi = select, 􁝯 AI Proxies, 􀈟 ShadowSocket@US, 􁹧 CornSS@US, 􀥠 OutSide, hidden=false, no-alert=false
+􁐗 Speedtest = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
+􀯠 Others = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
+
+# -----------------------------------
+# -------- Policy Group(Extra)
+# -----------------------------------
+􀇥 Blizzard = select, 􁹧 CornSS@US, 􁹧 CornSS@SG, 􀓎 Rabbit@US, 􀈟 ShadowSocket@US, 􀈟 ShadowSocket@SG, 􀷎 Direct, hidden=true, no-alert=false
+􀺧 Discord = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
+􀈠 Telegram = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
+􀚅 Slack = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
+􀧍 Microsoft = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
+􀍯 PayPal = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
+􀺭 NeteaseMusic = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
+􀺹 Spotify = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
+􁖐 Douyu = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
+􁢙 Huya = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
+􁓵 BiliBili = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
+􀜤 IQiYi = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
+􁐈 TencentVideo = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
+􀊚 Youtube = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
+􀾞 Baidu = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
+􀀑 Google = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
+ 
+# -----------------------------------
+# -------- Airport Policy
+# -----------------------------------
+􀙀 Coco = smart, policy-path=https://sub.store/download/keke_cloud, update-interval=172800, hidden=true
+􀓎 Rabbit = smart, policy-path=https://sub.store/download/naughty_rabbit, update-interval=172800, hidden=true
+􁹧 CornSS = smart, policy-path=https://sub.store/download/CornSS, update-interval=172800, hidden=true
+􀈟 ShadowSocket = smart, policy-path=https://sub.store/download/ShadowSocks, update-interval=172800, hidden=true
+
+# -----------------------------------
+# -------- Airport Group
+# -----------------------------------
+􀋑 Proxy = select, 􀬚 Airplane, hidden=true
+􀷰 All_Proxy = select, include-other-group="􀈟 ShadowSocket, 􀙀 Coco, 􀓎 Rabbit, 􁹧 CornSS", hidden=true
+􀷰 Special_Proxy = select, include-other-group="􀈟 ShadowSocket, 􁹧 CornSS, 􀙀 Coco", policy-regex-filter=IEPL|IPLC, hidden=true
+
+# -----------------------------------
+# -------- Proxy Group
+# -----------------------------------
+􀵵 Aisa Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(香港|HK|台湾|TW|新加坡|SG|日本|JP), hidden=true, no-alert=false, evaluate-before-use=true
+􀵵 Aisa Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(香港|HK|台湾|TW|新加坡|SG|日本|JP), hidden=true, no-alert=false, evaluate-before-use=true
+􀵳 Europe Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(英国|UK|爱沙尼亚|EE|德国|DE|荷兰|NL), hidden=true, no-alert=false, evaluate-before-use=true
+􀵳 Europe Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(英国|UK|爱沙尼亚|EE|德国|DE|荷兰|NL), hidden=true, no-alert=false, evaluate-before-use=true
+􀵱 Americas Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(美国|US), hidden=true, no-alert=false, evaluate-before-use=true
+􀵱 Americas Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(美国|US), hidden=true, no-alert=false, evaluate-before-use=true
+􁇲 Central Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(澳大利亚|AU), hidden=true, no-alert=false, evaluate-before-use=true
+􁇲 Central Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(澳大利亚|AU), hidden=true, no-alert=false, evaluate-before-use=true
+􁝯 AI Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(美国|US).*GPT, hidden=true, no-alert=false, evaluate-before-use=true
+􁐇 Movie Proxies@HK = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(香港|HK), hidden=true, no-alert=false, evaluate-before-use=true
+􁐇 Movie Proxies@TW = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(台湾|TW), hidden=true, no-alert=false, evaluate-before-use=true
+􀓎 Rabbit@US = smart, include-other-group=􀓎 Rabbit, policy-regex-filter=(美国|US), hidden=true, no-alert=false, evaluate-before-use=true
+􁹧 CornSS@US = smart, include-other-group=􁹧 CornSS, policy-regex-filter=(美国|US), hidden=true, no-alert=false, evaluate-before-use=true
+􁹧 CornSS@SG = smart, include-other-group=􁹧 CornSS, policy-regex-filter=(新加坡|SG), hidden=true, no-alert=false, evaluate-before-use=true
+􀈟 ShadowSocket@US = smart, include-other-group=􀈟 ShadowSocket, policy-regex-filter=(美国|US), hidden=true, no-alert=false, evaluate-before-use=true
+􀈟 ShadowSocket@SG = smart, include-other-group=􀈟 ShadowSocket, policy-regex-filter=(新加坡|SG), hidden=true, no-alert=false, evaluate-before-use=true
+􀥠 OutSide = fallback, 􀵵 Aisa Proxies(DL), 􀵱 Americas Proxies(DL), 􀵳 Europe Proxies(DL), 􁇲 Central Proxies(DL), 􀵵 Aisa Proxies, 􀵱 Americas Proxies, 􀵳 Europe Proxies, 􁇲 Central Proxies, hidden=true, no-alert=false, interval=1800, timeout=2, evaluate-before-use=true

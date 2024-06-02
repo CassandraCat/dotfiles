@@ -1,0 +1,153 @@
+[General]
+# =============================================
+# ======== Universal Options
+# =============================================
+# -----------------------------------
+# -------- Basic
+# -----------------------------------
+# Values: verbose|info|notify|warning  (Default: notify)
+loglevel = notify
+# Show an error webpage for the REJECT policy if the request is a plain HTTP request.
+show-error-page-for-reject = true
+
+# -----------------------------------
+# -------- IPv6
+# -----------------------------------
+ipv6 = false
+ipv6-vif = auto
+
+# -----------------------------------
+# -------- Server Proxies Tester
+# -----------------------------------
+internet-test-url = http://bing.com
+proxy-test-url = http://www.google.com/generate_204
+proxy-test-udp = apple.com@8.8.8.8
+test-timeout = 2
+
+# -----------------------------------
+# -------- Skip Proxy
+# -----------------------------------
+# `skip-proxy` only works for skipping HTTP/HTTPS requests on MacOS.
+skip-proxy = localhost, *.local, 127.0.0.1, 192.168.0.0/24, 172.16.0.0/12, 10.0.0.0/8
+# This option lets requests use simple hostnames (without dot) handled by Surge VIF instead of Surge proxy.
+exclude-simple-hostnames = true
+# `tun-excluded-routes` works for skipping Surge VIF.
+# tun-excluded-routes = 192.168.0.0/24, 172.16.0.0/12, 10.0.0.0/8
+# SEE: `2.2.2 tun-excluded-routes and tun-included-routes options` in https://manual.nssurge.com/book/understanding-surge/cn/
+# tun-included-routes = ...
+
+# -----------------------------------
+# -------- DNS
+# -----------------------------------
+dns-server = 223.5.5.5, 114.114.114.114, 119.29.29.29, system
+# By default, Surge only returns fake IP addresses for DNS queries sent to Surge DNS address (198.18.0.2). Queries sent to a standard DNS will be forwarded.
+hijack-dns = 8.8.8.8:53, 8.8.4.4:53
+# NOTE: If encrypted DNS is configured, the traditional DNS will only be used to test the connectivity and resolve the domain in the encrypted DNS URL.
+# encrypted-dns-server = https://doh.pub/dns-query, https://dns.alidns.com/dns-query
+encrypted-dns-follow-outbound-mode = false
+encrypted-dns-skip-cert-verification = false
+# If enabled, DNS resolution is not performed on the proxy server when the local DNS cache exists. (Use the local DNS mapping result)
+use-local-host-item-for-proxy = false
+# Should be forbidden by default.
+allow-dns-svcb = false
+
+# -----------------------------------
+# -------- Fake/Real IP
+# -----------------------------------
+# SEE: https://github.com/VirgilClyne/GetSomeFries/wiki
+# NOTE: Removed `*.logon.battlenet.com.cn`, `*.logon.battle.net, `*.blzstatic.cn` and Add `oauth.battle.net`, `*.apple.com`
+always-real-ip = *.lan, *.direct, *.apple.com, cable.auth.com, *.msftconnecttest.com, *.msftncsi.com, network-test.debian.org, detectportal.firefox.com, resolver1.opendns.com, *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, stun.*, global.turn.twilio.com, global.stun.twilio.com, app.yinxiang.com, injections.adguard.org, local.adguard.org, cable.auth.com, localhost.*.qq.com, localhost.*.weixin.qq.com, oauth.battle.net, music.163.com, *.music.163.com, *.126.net, musicapi.taihe.com, music.taihe.com, songsearch.kugou.com, trackercdn.kugou.com, *.kuwo.cn, api-jooxtt.sanook.com, api.joox.com, joox.com, y.qq.com, *.y.qq.com, streamoc.music.tc.qq.com, mobileoc.music.tc.qq.com, isure.stream.qqmusic.qq.com, dl.stream.qqmusic.qq.com, aqqmusic.tc.qq.com, amobile.music.tc.qq.com, *.xiami.com, *.music.migu.cn, music.migu.cn, proxy.golang.org, *.mcdn.bilivideo.cn, *.cmpassport.com, id6.me, open.e.189.cn, mdn.open.wo.cn, opencloud.wostore.cn, auth.wosms.cn, *.jegotrip.com.cn, *.icitymobile.mobi, *.pingan.com.cn, *.cmbchina.com, *.10099.com.cn, pool.ntp.org, *.pool.ntp.org, ntp.*.com, time.*.com, ntp?.*.com, time?.*.com, time.*.gov, time.*.edu.cn, *.ntp.org.cn, PDC._msDCS.*.*, DC._msDCS.*.*, GC._msDCS.*.*
+
+# -----------------------------------
+# -------- External Controller
+# -----------------------------------
+external-controller-access = Surge@0.0.0.0:6170
+http-api = Surge@0.0.0.0:6171
+# Use HTTPS protocol instead of HTTP.
+http-api-tls = true
+# Use the port of `http-api`
+http-api-web-dashboard = true
+
+# -----------------------------------
+# -------- GeoIP
+# -----------------------------------
+# The URL of the GeoIP database for updating.
+geoip-maxmind-url = https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb
+disable-geoip-db-auto-update = false
+
+# -----------------------------------
+# -------- UDP
+# -----------------------------------
+udp-policy-not-supported-behaviour = REJECT
+# Enabled will prioritize UDP packets when system load is very high and packet processing is delayed. (Game Mode)
+udp-priority = true
+
+# -----------------------------------
+# -------- Debug
+# -----------------------------------
+# Enable CPU debug mode. (This may slow down the performance.)
+debug-cpu-usage = false
+# Enable memory debug mode. This may slow down the performance.
+debug-memory-usage = false
+
+# -----------------------------------
+# -------- Unused
+# -----------------------------------
+# Make Surge treat TCP connections as HTTP requests.
+# force-http-engine-hosts =
+# always-raw-tcp-hosts =
+# always-raw-tcp-keywords =
+# use-default-policy-if-wifi-not-primary = false
+
+
+
+# =============================================
+# ======== iOS Only
+# =============================================
+# -----------------------------------
+# -------- Wifi Access
+# -----------------------------------
+# Allow Surge proxy services access from other devices in the LAN.
+allow-wifi-access = false
+wifi-access-http-port = 6152
+wifi-access-socks5-port = 6153
+wifi-access-http-auth = username:password
+
+# When the current network is taken over by Surge Gateway, auto suspend Surge iOS.
+auto-suspend = true
+
+# When the wifi is poor, Surge will try to use the data network to establish a connection.
+wifi-assist = false
+# Always use the Wi-Fi and cellular data to establish connections.
+all-hybrid = false
+# Allow Surge proxy services access from other devices while Personal Hotspot is on.
+allow-hotspot-access = false
+# Hide the VPN icon in the status bar.
+hide-vpn-icon = false
+
+# -----------------------------------
+# -------- Advanced
+# -----------------------------------
+# All network requests will be handled by Surge. (Use with caution.)
+include-all-networks = false
+# Enable this option to make Surge VIF handle requests sent to LAN. (Use with caution.)
+include-local-networks = false
+# Enable this option to make Surge VIF handle network traffic for the Apple Push Notification service (APNs). (Must be used in conjunction with `include-all-networks=true`.)
+include-apns = false
+# Enable this option to make Surge VIF handle internet-routable network traffic for cellular services. (Must be used in conjunction with `include-all-networks=true`.)
+include-cellular-services = false
+# This option is used to control the working mode of Surge iOS. (Default: 0 - Auto)
+compatibility-mode = 0
+
+
+
+# =============================================
+# ======== MacOS Only
+# =============================================
+vif-mode = auto
+# Follow local DNS mapping items in `/etc/hosts`.
+read-etc-hosts = false
+# HTTP/HTTPS proxy server for Surge to use.
+# http-listen = 0.0.0.0:6152
+# Socks5 proxy server for Surge to use.
+# socks5-listen = 0.0.0.0:6153
