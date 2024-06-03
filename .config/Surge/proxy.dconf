@@ -25,21 +25,21 @@
 # -------- Policy Group(Extra)
 # -----------------------------------
 􀇥 Blizzard = select, 􁹧 CornSS@US, 􁹧 CornSS@SG, 􀓎 Rabbit@US, 􀈟 ShadowSocket@US, 􀈟 ShadowSocket@SG, 􀷎 Direct, hidden=true, no-alert=false
-􀺧 Discord = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
-􀈠 Telegram = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
-􀚅 Slack = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
-􀧍 Microsoft = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
-􀍯 PayPal = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
-􀺭 NeteaseMusic = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
-􀺹 Spotify = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
-􁖐 Douyu = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
-􁢙 Huya = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
-􁓵 BiliBili = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
-􀜤 IQiYi = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
-􁐈 TencentVideo = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
-􀊚 Youtube = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
-􀾞 Baidu = select, 􀷎 Direct, 􀥠 OutSide, hidden=true, no-alert=false
-􀀑 Google = select, 􀥠 OutSide, 􀷎 Direct, hidden=true, no-alert=false
+􀺧 Discord = select, 􀬚 Airplane, hidden=true, no-alert=false
+􀈠 Telegram = select, 􀬚 Airplane, hidden=true, no-alert=false
+􀚅 Slack = select, 􀬚 Airplane, hidden=true, no-alert=false
+􀧍 Microsoft = select, 􀬚 Airplane, hidden=true, no-alert=false
+􀍯 PayPal = select, 􀬚 Airplane, hidden=true, no-alert=false
+􀺭 NeteaseMusic = select, 􂅿 CMedia, hidden=true, no-alert=false
+􀺹 Spotify = select, 􂆀 GMedia, hidden=true, no-alert=false
+􁖐 Douyu = select, 􂅿 CMedia, hidden=true, no-alert=false
+􁢙 Huya = select, 􂅿 CMedia, hidden=true, no-alert=false
+􁓵 BiliBili = select, 􂅿 CMedia, hidden=true, no-alert=false
+􀜤 IQiYi = select, 􂅿 CMedia, hidden=true, no-alert=false
+􁐈 TencentVideo = select, 􂅿 CMedia, hidden=true, no-alert=false
+􀊚 Youtube = select, 􂆀 GMedia, hidden=true, no-alert=false
+􀾞 Baidu = select, 􀥲 Mainland, hidden=true, no-alert=false
+􀀑 Google = select, 􀬚 Airplane, hidden=true, no-alert=false
  
 # -----------------------------------
 # -------- Airport Policy
