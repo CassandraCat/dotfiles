@@ -417,7 +417,7 @@ M.config = function()
       return ""
     end,
     padding = { left = 0, right = 0 },
-    color = { fg = colors.bg, bg = "#1F1F28" },
+    color = { fg = colors.bg, bg = colors.none },
     cond = nil,
   }
 
@@ -426,7 +426,7 @@ M.config = function()
       return ""
     end,
     padding = { left = 0, right = 0 },
-    color = { fg = colors.bg, bg = "#1F1F28" },
+    color = { fg = colors.bg, bg = colors.none },
     cond = nil,
   }
 
