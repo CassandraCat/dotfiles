@@ -180,7 +180,7 @@ M.config = function()
         separator = true,
       },
     },
-    separator_style = vim.env.KITTY_WINDOW_ID and "slant" or "thin",
+    separator_style = vim.env.KITTY_WINDOW_ID and "slant" or {},
     right_mouse_command = "vert sbuffer %d",
     show_close_icon = false,
     -- indicator = { style = "bold" },
