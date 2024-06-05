@@ -604,7 +604,7 @@ M.telescope_theme = function(colorset)
     end
 
     vim.api.nvim_set_hl(0, "SymbolUsageRounding", { fg = h("TabLine").bg, italic = true })
-    vim.api.nvim_set_hl(0, "SymbolUsageContent", { bg = h("TabLine").bg, fg = h("Comment").fg, italic = true })
+    vim.api.nvim_set_hl(0, "SymbolUsageContent", { bg = h("TabLine").bg, fg = h("TabLine").fg, italic = true })
     vim.api.nvim_set_hl(0, "SymbolUsageRef", { fg = h("Function").fg, bg = h("TabLine").bg, italic = true })
     vim.api.nvim_set_hl(0, "SymbolUsageDef", { fg = h("Type").fg, bg = h("TabLine").bg, italic = true })
     vim.api.nvim_set_hl(0, "SymbolUsageImpl", { fg = h("@keyword").fg, bg = h("TabLine").bg, italic = true })
