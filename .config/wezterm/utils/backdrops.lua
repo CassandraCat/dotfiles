@@ -135,24 +135,13 @@ end
 
 --- Start a timer to change the background every hour
 ---@param window any WezTerm `MuxWindow` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
-function BackDrops:start_timer(window)
+function BackDrops:start_timer()
    local function timer_callback()
-      self:random(window)
+      self:random()
       wezterm.time.call_after(3600, timer_callback)
    end
-   self:random(window)
+   self:random()
    wezterm.time.call_after(3600, timer_callback)
-end
-
---- Sets up event listeners for window events
-function BackDrops:setup_event_listeners()
-   wezterm.on('window-config-reloaded', function(window)
-      self:_set_opt(window)
-   end)
-
-   wezterm.on('window-created', function(window)
-      self:start_timer(window)
-   end)
 end
 
 return BackDrops:init()

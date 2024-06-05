@@ -1,6 +1,6 @@
 local Config = require('config')
 
-require('utils.backdrops'):set_files():setup_event_listeners()
+require('utils.backdrops'):set_files():start_timer()
 
 require('events.right-status').setup()
 require('events.left-status').setup()
