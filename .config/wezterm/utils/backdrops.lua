@@ -48,21 +48,25 @@ end
 ---@private
 ---@param window any WezTerm Window see: https://wezfurlong.org/wezterm/config/lua/window/index.html
 function BackDrops:_set_opt(window)
-   local opts = {
-      background = {
+   if window and window.set_config_overrides then
+      local overrides = window:get_config_overrides() or {}
+      overrides.background = {
          {
             source = { File = wezterm.GLOBAL.background },
             horizontal_align = 'Center',
+            opacity = 0.3,
          },
          {
             source = { Color = colors.background },
             height = '100%',
             width = '100%',
-            opacity = 0.96,
+            opacity = 0.98,
          },
-      },
-   }
-   window:set_config_overrides(opts)
+      }
+      window:set_config_overrides(overrides)
+   else
+      wezterm.log_error('window object or set_config_overrides method not available')
+   end
 end
 
 ---Convert the `files` array to a table of `InputSelector` choices
@@ -127,6 +131,28 @@ function BackDrops:set_img(window, idx)
    self.current_idx = idx
    wezterm.GLOBAL.background = self.files[self.current_idx]
    self:_set_opt(window)
+end
+
+--- Start a timer to change the background every hour
+---@param window any WezTerm `MuxWindow` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
+function BackDrops:start_timer(window)
+   local function timer_callback()
+      self:random(window)
+      wezterm.time.call_after(3600, timer_callback)
+   end
+   self:random(window)
+   wezterm.time.call_after(3600, timer_callback)
+end
+
+--- Sets up event listeners for window events
+function BackDrops:setup_event_listeners()
+   wezterm.on('window-config-reloaded', function(window)
+      self:_set_opt(window)
+   end)
+
+   wezterm.on('window-created', function(window)
+      self:start_timer(window)
+   end)
 end
 
 return BackDrops:init()
