@@ -1,3 +1,4 @@
 .config/yarn/
 .config/configstore/
 .config/raycast/extensions/
+.config/github-copilot/
