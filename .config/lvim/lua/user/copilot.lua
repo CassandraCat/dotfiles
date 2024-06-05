@@ -19,6 +19,8 @@ M.config = function()
     javascriptreact = true,
     typescriptreact = true,
     terraform = true,
+    text = true,
+    dart = true
   }
 end
 
