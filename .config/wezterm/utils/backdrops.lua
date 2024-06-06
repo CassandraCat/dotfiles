@@ -15,6 +15,9 @@ local PATH_SEP = platform.is_win and '\\' or '/'
 ---@class BackDrops
 ---@field current_idx number index of current image
 ---@field files string[] background images
+---@field timer_started boolean flag to check if timer is already started
+---@field keep_running boolean flag to check if timer should keep running
+
 local BackDrops = {}
 BackDrops.__index = BackDrops
 
@@ -24,6 +27,8 @@ function BackDrops:init()
    local inital = {
       current_idx = 1,
       files = {},
+      timer_started = false,  -- Initialize the flag
+      keep_running = false,   -- Initialize the flag
    }
    local backdrops = setmetatable(inital, self)
    wezterm.GLOBAL.background = nil
@@ -40,7 +45,12 @@ end
 ---   initial load of the Terminal config.
 function BackDrops:set_files()
    self.files = wezterm.read_dir(wezterm.config_dir .. PATH_SEP .. 'backdrops')
-   wezterm.GLOBAL.background = self.files[1]
+   if #self.files > 0 then
+      wezterm.GLOBAL.background = self.files[1]
+   else
+      wezterm.log_error('No files found in backdrops directory')
+   end
+   wezterm.log_info("Files set: " .. table.concat(self.files, ", "))
    return self
 end
 
@@ -64,6 +74,7 @@ function BackDrops:_set_opt(window)
          },
       }
       window:set_config_overrides(overrides)
+      wezterm.log_info("Background set to: " .. wezterm.GLOBAL.background)
    else
       wezterm.log_error('window object or set_config_overrides method not available')
    end
@@ -87,8 +98,14 @@ end
 ---Pass in `Window` object to override the current window options
 ---@param window any? WezTerm `Window` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
 function BackDrops:random(window)
+   if #self.files == 0 then
+      wezterm.log_error('No files available for random selection')
+      return
+   end
    self.current_idx = math.random(#self.files)
    wezterm.GLOBAL.background = self.files[self.current_idx]
+
+   wezterm.log_info("Randomly selected background: " .. wezterm.GLOBAL.background)
 
    if window ~= nil then
       self:_set_opt(window)
@@ -133,15 +150,31 @@ function BackDrops:set_img(window, idx)
    self:_set_opt(window)
 end
 
---- Start a timer to change the background every hour
----@param window any WezTerm `MuxWindow` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
-function BackDrops:start_timer()
-   local function timer_callback()
-      self:random()
-      wezterm.time.call_after(3600, timer_callback)
+--- Start a timer to change the background every 5 seconds
+---@param window any WezTerm `Window` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
+function BackDrops:start_timer(window)
+   if self.timer_started then
+      wezterm.log_info("Timer already started")
+      return
    end
-   self:random()
-   wezterm.time.call_after(3600, timer_callback)
+   self.timer_started = true  -- Set the flag to true to indicate the timer has started
+   self.keep_running = true   -- Flag to indicate whether the timer should keep running
+
+   local function timer_callback()
+      if not self.keep_running then
+         wezterm.log_info("Timer stopped")
+         return
+      end
+      wezterm.log_info("Timer callback triggered")
+      self:random(window)
+      wezterm.time.call_after(10, timer_callback)
+   end
+   wezterm.log_info("Starting timer")
+   wezterm.time.call_after(10, timer_callback)
+end
+
+function BackDrops:stop_timer()
+   self.keep_running = false   -- Set flag to false to stop the timer
 end
 
 return BackDrops:init()

@@ -77,22 +77,36 @@ local keys = {
    {
       key = [[/]],
       mods = mod.SUPER,
-      action = wezterm.action_callback(function(window, _pane)
+      action = wezterm.action_callback(function(window)
          backdrops:random(window)
       end),
    },
    {
       key = [[,]],
       mods = mod.SUPER,
-      action = wezterm.action_callback(function(window, _pane)
+      action = wezterm.action_callback(function(window)
          backdrops:cycle_back(window)
       end),
    },
    {
       key = [[.]],
       mods = mod.SUPER,
-      action = wezterm.action_callback(function(window, _pane)
+      action = wezterm.action_callback(function(window)
          backdrops:cycle_forward(window)
+      end),
+   },
+   {
+      key = [[r]],
+      mods = mod.SUPER,
+      action = wezterm.action_callback(function(window)
+        backdrops:start_timer(window)
+      end),
+   },
+   {
+      key = [[s]],
+      mods = mod.SUPER,
+      action = wezterm.action_callback(function()
+        backdrops:stop_timer()
       end),
    },
    {
@@ -103,7 +117,7 @@ local keys = {
          choices = backdrops:choices(),
          fuzzy = true,
          fuzzy_description = 'Select Background: ',
-         action = wezterm.action_callback(function(window, _pane, idx)
+         action = wezterm.action_callback(function(window, _, idx)
             ---@diagnostic disable-next-line: param-type-mismatch
             backdrops:set_img(window, tonumber(idx))
          end),
