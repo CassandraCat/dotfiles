@@ -167,10 +167,10 @@ function BackDrops:start_timer(window)
       end
       wezterm.log_info("Timer callback triggered")
       self:random(window)
-      wezterm.time.call_after(10, timer_callback)
+      wezterm.time.call_after(3600, timer_callback)
    end
    wezterm.log_info("Starting timer")
-   wezterm.time.call_after(10, timer_callback)
+   wezterm.time.call_after(0, timer_callback)
 end
 
 function BackDrops:stop_timer()
