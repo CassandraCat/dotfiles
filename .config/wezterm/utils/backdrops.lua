@@ -50,7 +50,6 @@ function BackDrops:set_files()
    else
       wezterm.log_error('No files found in backdrops directory')
    end
-   wezterm.log_info("Files set: " .. table.concat(self.files, ", "))
    return self
 end
 

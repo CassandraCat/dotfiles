@@ -76,7 +76,7 @@ return {
    selection_word_boundary = ' \t\n{}[]()"\'`,;:@',
    line_height = 1.25,
    bold_brightens_ansi_colors = false,
-   scrollback_lines = 30000,
+   -- scrollback_lines = 30000,
    native_macos_fullscreen_mode = false,
    hide_mouse_cursor_when_typing = true,
    pane_focus_follows_mouse = true,
