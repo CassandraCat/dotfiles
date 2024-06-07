@@ -63,13 +63,12 @@ function BackDrops:_set_opt(window)
          {
             source = { File = wezterm.GLOBAL.background },
             horizontal_align = 'Center',
-            opacity = 0.3,
          },
          {
             source = { Color = colors.background },
             height = '100%',
             width = '100%',
-            opacity = 0.98,
+            opacity = 0.96,
          },
       }
       window:set_config_overrides(overrides)
