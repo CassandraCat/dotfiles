@@ -254,7 +254,7 @@ M.catppuccin = function()
     opts.custom_highlights = {
       Comment = { fg = colors.overlay1 },
       LineNr = { fg = colors.overlay1 },
-      CursorLine = { bg = colors.none },
+      -- CursorLine = { bg = colors.none },
       CursorLineNr = { fg = colors.lavender },
       DiagnosticVirtualTextError = { bg = colors.none },
       DiagnosticVirtualTextWarn = { bg = colors.none },
