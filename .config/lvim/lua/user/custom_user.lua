@@ -91,6 +91,7 @@ M.config = function()
       active = false,
     },
   }
+  lvim.builtin.leetcode.active = true
 
   -- Custom keybindings
   lvim.lsp.buffer_mappings.normal_mode["K"] = { "5k" }
