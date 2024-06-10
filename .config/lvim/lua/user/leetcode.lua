@@ -54,7 +54,7 @@ local M = {
 
   ---@type lc.storage
   storage = {
-    home = vim.fn.stdpath "data" .. "/leetcode",
+    home = vim.fn.expand "$HOME" .. "/Developer/LeetCode",
     cache = vim.fn.stdpath "cache" .. "/leetcode",
   },
 
