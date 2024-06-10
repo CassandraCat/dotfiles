@@ -93,7 +93,10 @@ space_menu_swap:subscribe("swap_menus_and_spaces", function(env)
 		sbar.set("/space\\..*/", {
 			drawing = true,
 		})
-		sbar.set("/add_space\\..*/", {
+		sbar.set("add_space", {
+			drawing = true,
+		})
+		sbar.set("front_app", {
 			drawing = true,
 		})
 	else
@@ -107,7 +110,10 @@ space_menu_swap:subscribe("swap_menus_and_spaces", function(env)
 		sbar.set("/space\\..*/", {
 			drawing = false,
 		})
-		sbar.set("/add_space\\..*/", {
+		sbar.set("add_space", {
+			drawing = false,
+		})
+		sbar.set("front_app", {
 			drawing = false,
 		})
 

@@ -4,7 +4,7 @@ local settings = require("settings")
 sbar.add("item", {
 	width = 0,
 })
-local add_space = sbar.add("item", {
+local add_space = sbar.add("item", "add_space", {
 	icon = {
 		align = "center",
 		font = {

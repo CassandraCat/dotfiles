@@ -32,6 +32,8 @@ local function getSpaceIcon(space, active)
 	end
 end
 
+local right_padding = 0
+
 -- Create a parent container with a background
 local parent_container = sbar.add("parent", "parent_container", {
 	width = "dynamic",
@@ -78,21 +80,12 @@ for i = 1, 10 do
 		sbar.animate("elastic", 10, function()
 			space:set({
 				label = {
-					padding_right = selected and 10 or 0,
-					padding_left = selected and 5 or 0,
-					style = settings.font.style_map.SemiBold,
+					padding_right = right_padding > 0 and 0 or right_padding,
 					string = selected and env.INFO or "",
-					color = {
-						alpha = 1,
-					},
-					font = {
-						color = colors.red,
-						size = selected and 12 or 18,
-					},
 				},
 				icon = {
 					padding_left = selected and 10 or 0,
-          padding_right = selected and -5 or 0,
+					padding_right = selected and 10 or 0,
 					style = settings.font.style_map.SemiBold,
 					string = selected and getSpaceIcon(i, true) or getSpaceIcon(i, false),
 					color = selected and colors.red or colors.bg1,
@@ -121,7 +114,7 @@ for i = 1, 10 do
 					style = settings.font.style_map.Regular,
 					color = selected and colors.red or colors.bg1,
 					font = {
-						size = selected and 12 or 25,
+						size = selected and 14 or 25,
 					},
 				},
 				label = {
@@ -129,7 +122,7 @@ for i = 1, 10 do
 					string = selected and "Spaces" or env.INFO,
 					color = colors.red,
 					font = {
-						size = selected and 12 or 12,
+						size = selected and 14 or 14,
 					},
 				},
 			})
@@ -138,20 +131,22 @@ for i = 1, 10 do
 
 	space:subscribe("mouse.exited", function(env)
 		local selected = env.SELECTED == "true"
+		right_padding = 10
 		sbar.animate("elastic", 10, function()
 			space:set({
 				icon = {
 					style = settings.font.style_map.SemiBold,
 					font = {
-						size = selected and 12 or 18,
+						size = selected and 14 or 18,
 					},
 					string = selected and getSpaceIcon(i, true) or getSpaceIcon(i, false),
 					color = selected and colors.red or colors.bg2,
 				},
 				label = {
+					padding_right = right_padding,
 					drawing = true,
 					style = settings.font.style_map.Regular,
-					color = colors.white,
+					color = colors.seezalt_smoke,
 					font = {
 						size = selected and 12 or 0,
 					},
