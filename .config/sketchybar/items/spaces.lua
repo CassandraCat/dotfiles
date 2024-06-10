@@ -1,7 +1,5 @@
 local colors = require("colors")
-local icons = require("icons")
 local settings = require("settings")
-local app_icons = require("helpers.app_icons")
 
 local sf_icons_active = {
 	"􀃋",
@@ -75,7 +73,7 @@ for i = 1, 10 do
 	})
 	spaces[i] = space
 
-	space:subscribe("front_app_switched", function(env)
+	space:subscribe("space_change", function(env)
 		local selected = env.SELECTED == "true"
 		sbar.animate("elastic", 10, function()
 			space:set({
@@ -94,11 +92,12 @@ for i = 1, 10 do
 				},
 				icon = {
 					padding_left = selected and 10 or 0,
+          padding_right = selected and -5 or 0,
 					style = settings.font.style_map.SemiBold,
 					string = selected and getSpaceIcon(i, true) or getSpaceIcon(i, false),
 					color = selected and colors.red or colors.bg1,
 					font = {
-						size = selected and 12 or 18,
+						size = selected and 14 or 18,
 					},
 				},
 				background = {
