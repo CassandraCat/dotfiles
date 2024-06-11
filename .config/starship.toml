@@ -1,94 +1,7 @@
-# Which is equivalent to
-format = """
-$username\
-$hostname\
-$localip\
-$shlvl\
-$singularity\
-$kubernetes\
-$directory\
-$vcsh\
-$fossil_branch\
-$fossil_metrics\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$hg_branch\
-$pijul_channel\
-$docker_context\
-$package\
-$c\
-$cmake\
-$cobol\
-$daml\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$fennel\
-$golang\
-$guix_shell\
-$haskell\
-$haxe\
-$helm\
-$java\
-$julia\
-$kotlin\
-$gradle\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$opa\
-$perl\
-$php\
-$pulumi\
-$purescript\
-$python\
-$raku\
-$rlang\
-$red\
-$ruby\
-$rust\
-$scala\
-$solidity\
-$swift\
-$terraform\
-$typst\
-$vlang\
-$vagrant\
-$zig\
-$buf\
-$nix_shell\
-$conda\
-$meson\
-$spack\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$direnv\
-$env_var\
-$crystal\
-$custom\
-$sudo\
-$cmd_duration\
-$line_break\
-$jobs\
-$battery\
-$status\
-$os\
-$container\
-$shell\
-$character"""
+format = """$character """
 
 # Put time prompt on the right
-right_format="""$time"""
+right_format="""$directory$git_branch  $git_status"""
 
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
@@ -97,198 +10,39 @@ right_format="""$time"""
 add_newline = true
 
 [character]
-success_symbol = "[[♥ ](bold cyan) [➺](bold cyan)](maroon)"
-error_symbol = "[[♥ ](bold red) [➺](bold red)](maroon)"
-vimcmd_symbol = "[[♥ ](bold cyan) [➺](bold cyan)](maroon)"
+success_symbol = "[[🪐](bold cyan) [➺](bold cyan)](maroon)"
+error_symbol = "[[🪐](bold red) [➺](bold red)](maroon)"
+vimcmd_symbol = "[[🪐](bold cyan) [➺](bold cyan)](maroon)"
 
-[aws]
-symbol = "  "
+[directory.substitutions]
+"~" = " "
 
-[buf]
-symbol = " "
-
-[c]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[crystal]
-symbol = " "
-
-[dart]
-symbol = " "
-
+# # configure directory
 [directory]
-read_only = " 󰌾"
-
-[docker_context]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[fennel]
-symbol = " "
-
-[fossil_branch]
-symbol = " "
+read_only = " "
+format = "[](#252526)[ $path ]($style)[$lock_symbol]($lock_style )[ ](bold #252526) "
+truncation_length = 10
+truncate_to_repo = true
+style = "bold italic fg:#737c73 bg:#252526"
 
 [git_branch]
 symbol = " "
-format = 'via [$symbol$branch]($style)'
+format = '[$symbol$branch]($style)'
 truncation_symbol = '…/'
 style = 'bold green'
 
 # Shows current git status
 [git_status]
-format = '([ \( $all_status$ahead_behind\)]($style) )'
+format = '[⌠](bold green)[ $all_status$ahead_behind]($style)[⌡](bold green)'
 style = 'bold green'
 conflicted = '[ ${count}](red) '
 up_to_date = '[󰘽](green) '
 untracked = '[󰋗 ${count}](red) '
-ahead = ' ${count}'
-diverged = ' ${ahead_count}  ${behind_count}'
-behind = ' ${count}'
+ahead = ' ${count} '
+diverged = ' ${ahead_count}  ${behind_count} '
+behind = ' ${count} '
 stashed = '[ ${count}](green) '
 modified = '[󰛿 ${count}](yellow) '
 staged = '[󰐗 ${count}](green) '
 renamed = '[󱍸 ${count}](yellow) '
 deleted = '[󰍶 ${count}](red) '
-
-[golang]
-symbol = " "
-
-[guix_shell]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[hostname]
-ssh_symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[kotlin]
-symbol = " "
-
-[lua]
-symbol = " "
-
-[memory_usage]
-symbol = "󰍛 "
-
-[meson]
-symbol = "󰔷 "
-
-[nim]
-symbol = "󰆥 "
-
-[nix_shell]
-symbol = " "
-
-[nodejs]
-symbol = " "
-
-[ocaml]
-symbol = " "
-
-[os.symbols]
-Alpaquita = " "
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = "󰍲 "
-
-[package]
-symbol = "󰏗 "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-
-[pijul_channel]
-symbol = " "
-
-[python]
-symbol = " "
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = " "
-
-[scala]
-symbol = " "
-
-[swift]
-symbol = " "
-
-[zig]
-symbol = " "
-
-[time]
-disabled = false
-format = '[ $time]($style)'
-style = "bold cyan"
-
-[custom.emoji]
-description = "Displays a (pseudo) random emoji for each prompt"
-command = "EMOJIS=( ⛵️  🛰  🪐  🚀  🧡  ☄️  ✨  ⭐️  🛸  🌑  🫧  🐳  🌖  🌔 ); EMOJI_INDEX=$(( $RANDOM % 14 + 0 )); echo -n ${EMOJIS[$EMOJI_INDEX]}\" \""
-when = "true"
-shell = ["bash", "--noprofile", "--norc"]
-format = " $output "
