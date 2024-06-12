@@ -1,7 +1,7 @@
-format = """$character """
+format = """$custom $character """
 
 # Put time prompt on the right
-right_format="""$directory$git_branch  $git_status"""
+right_format="""$directory$git_branch  $git_status """
 
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
@@ -10,9 +10,9 @@ right_format="""$directory$git_branch  $git_status"""
 add_newline = true
 
 [character]
-success_symbol = "[[🪐](bold cyan) [➺](bold cyan)](maroon)"
-error_symbol = "[[🪐](bold red) [➺](bold red)](maroon)"
-vimcmd_symbol = "[[🪐](bold cyan) [➺](bold cyan)](maroon)"
+success_symbol = "[➺](bold cyan)(maroon)"
+error_symbol = "[➺](bold red)(maroon)"
+vimcmd_symbol = "[➺](bold cyan)(maroon)"
 
 [directory.substitutions]
 "~" = " "
@@ -46,3 +46,10 @@ modified = '[󰛿 ${count}](yellow) '
 staged = '[󰐗 ${count}](green) '
 renamed = '[󱍸 ${count}](yellow) '
 deleted = '[󰍶 ${count}](red) '
+
+[custom.emoji]
+description = "Displays a (pseudo) random emoji for each prompt"
+command = "EMOJIS=( ⛵️  🪐  🚀  🛸  🌑  🫧  🐳  🌖  🌔 ); EMOJI_INDEX=$(( $RANDOM % 9 + 0 )); echo -n ${EMOJIS[$EMOJI_INDEX]}\" \""
+when = "true"
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output"
