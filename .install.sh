@@ -277,6 +277,9 @@ change_macos_defaults() {
   defaults write com.apple.spaces spans-displays -bool false
   defaults write com.apple.dock autohide -bool true
   defaults write com.apple.dock "mru-spaces" -bool "false"
+  defaults write com.apple.dock springboard-rows -int 6
+  defaults write com.apple.dock springboard-columns -int 8
+  defaults write com.apple.dock mineffect -string genie
   defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
   defaults write com.apple.LaunchServices LSQuarantine -bool false
   defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
