@@ -67,7 +67,7 @@ yabai -m signal --add event=display_added action="$HOME/.config/yabai/scripts/in
 yabai -m signal --add event=space_changed action="${ubersicht_spaces_refresh_command}"
 yabai -m signal --add event=window_destroyed action="$HOME/.config/yabai/scripts/auto-focus-to-new-one-when-window-destroyed.sh 2> /dev/null"
 yabai -m signal --add event=window_minimized action="$HOME/.config/yabai/scripts/auto-focus-to-new-one-when-window-destroyed.sh 2> /dev/null"
-yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
-yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change"
 
 echo "yabai configuration loaded.."
