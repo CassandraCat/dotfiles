@@ -29,27 +29,27 @@ style = "bold italic fg:#737c73 bg:#252526"
 symbol = " "
 format = '[$symbol$branch]($style)'
 truncation_symbol = '…/'
-style = 'bold green'
+style = 'bold italic cyan'
 
 # Shows current git status
 [git_status]
-format = '[⌠](bold green)[ $all_status$ahead_behind]($style)[⌡](bold green)'
-style = 'bold green'
+format = '[⌠](bold italic cyan)[ $all_status$ahead_behind]($style)[⌡](bold italic cyan)'
+style = 'bold italic cyan'
 conflicted = '[ ${count}](red) '
-up_to_date = '[󰘽](green) '
+up_to_date = '[󰘽](cyan) '
 untracked = '[󰋗 ${count}](red) '
 ahead = ' ${count} '
 diverged = ' ${ahead_count}  ${behind_count} '
 behind = ' ${count} '
-stashed = '[ ${count}](green) '
+stashed = '[ ${count}](cyan) '
 modified = '[󰛿 ${count}](yellow) '
-staged = '[󰐗 ${count}](green) '
+staged = '[󰐗 ${count}](cyan) '
 renamed = '[󱍸 ${count}](yellow) '
 deleted = '[󰍶 ${count}](red) '
 
 [custom.emoji]
 description = "Displays a (pseudo) random emoji for each prompt"
-command = "EMOJIS=( ⛵️  🪐  🚀  🛸  🌑  🫧  🐳  🌖  🌔 ); EMOJI_INDEX=$(( $RANDOM % 9 + 0 )); echo -n ${EMOJIS[$EMOJI_INDEX]}\" \""
+command = "EMOJIS=(⛵️ 🪐 🚀 🛸 🌑 🫧 🐳 🌖 🌔); EMOJI_INDEX=$(( $RANDOM % 9 + 0 )); echo -n ${EMOJIS[$EMOJI_INDEX]}"
 when = "true"
 shell = ["bash", "--noprofile", "--norc"]
 format = "$output"
