@@ -853,6 +853,9 @@ M.config = function()
       "lukas-reineke/indent-blankline.nvim",
       name = "new-indent",
       main = "ibl",
+      config = function()
+        require("user.indent_blankline").setup()
+      end,
       enabled = lvim.builtin.indentlines.mine,
     },
     {
@@ -968,7 +971,7 @@ M.config = function()
         "rcarriga/nvim-notify",
         "nvim-tree/nvim-web-devicons",
       },
-      opts = require("user.leetcode"),
+      opts = require "user.leetcode",
       enabled = lvim.builtin.leetcode.active,
     },
   }
