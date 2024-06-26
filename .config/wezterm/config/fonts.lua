@@ -12,11 +12,13 @@ local function font_with_fallback(name, params)
 end
 
 return {
-   font = font_with_fallback({
-      family = 'MonaspiceRn Nerd Font Propo',
-      harfbuzz_features = {
-         'zero',
-      },
+   font = font_with_fallback('MonaspiceRn Nerd Font Propo', {
+      weight = 'Bold',
+      style = 'Italic',
+      -- harfbuzz_features = {
+      --    'zero',
+      --    'liga',
+      -- },
    }),
    font_size = platform().is_mac and 16 or 14,
 
@@ -25,9 +27,6 @@ return {
          intensity = 'Bold',
          font = font_with_fallback({
             family = 'MonaspiceRn Nerd Font Propo',
-            harfbuzz_features = {
-               'zero',
-            },
             weight = 'Medium',
          }),
       },
