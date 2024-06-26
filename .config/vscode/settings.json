@@ -5,7 +5,7 @@
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "Material Theme Ocean",
   "workbench.editor.tabSizing": "shrink",
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "catppuccin-mocha",
   "workbench.list.smoothScrolling": true,
   "workbench.editor.wrapTabs": true,
   "workbench.colorCustomizations": {
@@ -91,8 +91,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.lineNumbers": "relative",
-  "editor.fontSize": 18,
-  "editor.fontFamily": "MonaspiceRn Nerd Font Propo,JetBrains Mono,Menlo, Monaco, 'Courier New', monospace,MesloLGS NF",
+  "editor.fontSize": 18.5,
+  "editor.fontFamily": "Cavolini,MonaspiceRn Nerd Font Propo,JetBrains Mono,Menlo, Monaco, 'Courier New', monospace,MesloLGS NF",
   "editor.fontLigatures": true,
   "editor.unicodeHighlight.allowedLocales": {
     "zh-hans": true,
@@ -283,6 +283,7 @@
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.env.osx": {},
   "terminal.integrated.defaultProfile.windows": "zsh",
+  "terminal.integrated.fontFamily": "MonaspiceRn Nerd Font Propo",
 
   /*
    * Window Settings
@@ -302,7 +303,6 @@
    */
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "breadcrumbs.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
 
   /*
@@ -757,7 +757,6 @@
     "frame": false,
     "vibrancy": "ultra-dark",
     "visualEffectState": "active"
-    // "titleBarStyle": "customButtonsOnHover",
   },
   "apc.sidebar.titlebar": {
     "height": 35,
@@ -769,7 +768,8 @@
   },
   "apc.menubar.compact": false,
   "apc.imports": [
-    "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.2/dist/updateHandler.js"
+    "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.2/dist/updateHandler.js",
+    "file://${userHome}/.vscode/custom.css"
   ],
 
   // ----------- Error Lens Settings -----------
@@ -789,7 +789,7 @@
   "errorLens.fontStyleItalic": true,
 
   // ----------- Project Manager Settings -----------
-  "projectManager.git.baseFolders": ["~/Github"],
+  "projectManager.git.baseFolders": ["~/Developer"],
 
   // ----------- Vite Settings -----------
   "vite.autoStart": false,
@@ -803,7 +803,7 @@
   "code-runner.saveAllFilesBeforeRun": true,
   "code-runner.saveFileBeforeRun": true,
 
-  // ----------- Indent Rainbow Settings -----------
+  // ----------- Indent Rainbow Settings ----------
   "indentRainbow.indicatorStyle": "light",
   "indentRainbow.lightIndicatorStyleLineWidth": 1,
   "indentRainbow.colors": [
@@ -817,7 +817,7 @@
   "better-comments.highlightPlainText": true,
 
   // ----------- Animations Settings -----------
-  "animations.Enabled": true,
+  "animations.Enabled": false,
   "animations.Command-Palette": "Scale",
   "animations.Install-Method": "Apc Customize UI++",
   "animations.CursorAnimation": true,
@@ -832,12 +832,22 @@
   "gitlens.changes.toggleMode": "window",
   "gitlens.heatmap.toggleMode": "window",
   "gitlens.fileAnnotations.dismissOnEscape": false,
-  "update.mode": "default",
+  "update.mode": "manual",
   "console-ninja.featureSet": "Community",
+
+  // ----------- UniApp Settings -----------
+  "create-uniapp-view.directory": true,
+  "create-uniapp-view.name": "与文件夹同名",
 
   // ----------- Markdown Preview Settings -----------
   "markdown-preview-enhanced.previewColorScheme": "editorColorScheme",
   "markdown-preview-enhanced.previewTheme": "atom-dark.css",
 
-  "workbench.statusBar.visible": false
+  // ----------- Other Settings -----------
+  "workbench.statusBar.visible": false,
+  "editor.accessibilitySupport": "off",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "breadcrumbs.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.activityBar.location": "hidden"
 }
