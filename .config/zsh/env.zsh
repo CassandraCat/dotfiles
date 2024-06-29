@@ -63,3 +63,4 @@ export PATH="$PATH:/Users/crazycatzhang/Library/Application Support/Coursier/bin
 
 export PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!seen[$0]++' | sed 's/:$//')
 
+export GIT_CONFIG_GLOBAL="$HOME/.config/git/.gitconfig"
