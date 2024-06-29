@@ -14,6 +14,7 @@ curl -L https://raw.githubusercontent.com/CrazyCatZhang/dotfiles/main/.install.s
 
 ### vscode
 ![vscode screenshot](./.config/images/vscode-screenshot.png)
+![vscode_panel_screenshot](./.config/images/vscode-panel-screenshot.png)
 
 ### wezterm
 ![wezterm screenshot](./.config/images/wezterm-screenshot.png)
