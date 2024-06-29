@@ -967,8 +967,8 @@ M.config = function()
       enabled = lvim.builtin.leetcode.active,
     },
     {
-      "abzcoding/markdown.nvim",
-      branch = "feature/fancy",
+      "crazycatzhang/markdown.nvim",
+      branch = "main",
       name = "render-markdown",
       config = function()
         require("user.markd").config()
