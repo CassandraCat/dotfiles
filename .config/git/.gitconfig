@@ -5,7 +5,7 @@
   email = crazycatzhang@outlook.com
 [core]
   excludesfile = ~/.config/git/gitignore_global
-  editor = nvim
+  editor = lvim
   ignorecase = false
   repositoryformatversion = 0
   filemode = true
