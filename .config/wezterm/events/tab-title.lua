@@ -27,10 +27,16 @@ end
 
 local _set_title = function(process_name, base_title, max_width, inset)
    local title
-   inset = inset or 6
+   inset = inset or 4
+
+   local folder_name = base_title:match(".*/([^/]+)$")
+
+   if folder_name then
+      base_title = folder_name
+   end
 
    if process_name:len() > 0 then
-      title = process_name .. ' ~ ' .. base_title
+      title = process_name .. ' ' .. base_title
    else
       title = base_title
    end
