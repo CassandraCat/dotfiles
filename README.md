@@ -17,7 +17,6 @@ curl -L https://raw.githubusercontent.com/CrazyCatZhang/dotfiles/main/.install.s
 
 ### wezterm
 ![wezterm screenshot](./.config/images/wezterm-screenshot.png)
-![wezterm-tab-screenshot](./.config/images/wezterm-tab-screenshot.png)
 
 ### tmux
 ![tmux screenshot](./.config/images/tmux-screenshot.png)
