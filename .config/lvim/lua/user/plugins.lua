@@ -21,11 +21,10 @@ M.config = function()
       name = "rose-pine",
       config = function()
         require("user.theme").rose_pine()
-        lvim.colorscheme = "rose-pine"
-      end,
-      cond = function()
         local _time = os.date "*t"
-        return (_time.hour >= 1 and _time.hour < 9) and lvim.builtin.time_based_themes
+        if (_time.hour >= 1 and _time.hour < 9) and lvim.builtin.time_based_themes then
+          lvim.colorscheme = "rose-pine"
+        end
       end,
     },
     {
@@ -43,12 +42,13 @@ M.config = function()
       "rebelot/kanagawa.nvim",
       config = function()
         require("user.theme").kanagawa()
-        lvim.colorscheme = "kanagawa"
-      end,
-      cond = function()
         local _time = os.date "*t"
-        return ((_time.hour >= 21 and _time.hour < 24) or (_time.hour >= 0 and _time.hour < 1))
+        if
+          ((_time.hour >= 21 and _time.hour < 24) or (_time.hour >= 0 and _time.hour < 1))
           and lvim.builtin.time_based_themes
+        then
+          lvim.colorscheme = "kanagawa"
+        end
       end,
     },
     {
