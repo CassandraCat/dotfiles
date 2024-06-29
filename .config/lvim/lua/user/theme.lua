@@ -40,9 +40,8 @@ function HighlightedFoldtext()
 end
 
 M.tokyonight = function()
-  -- require("tokyonight").setup {
-  lvim.builtin.theme.tokyonight.options = {
-    style = "storm",
+  require("tokyonight").setup {
+    style = "moon",
     transparent = lvim.transparent_window,
     terminal_colors = true,
     styles = {
@@ -83,6 +82,12 @@ M.tokyonight = function()
       hl.NormalNC = { fg = current_colors.fg_dark, bg = "#1c1d28" }
       hl.Normal = { fg = current_colors.fg, bg = "#1f2335" }
       hl.CursorLineNr = { fg = current_colors.orange, style = "bold" }
+      hl["rainbow1"] = { fg = c.red, bg = "#24283b" }
+      hl["rainbow2"] = { fg = c.orange, bg = "#24283b" }
+      hl["rainbow3"] = { fg = c.yellow, bg = "#24283b" }
+      hl["rainbow4"] = { fg = c.green, bg = "#24283b" }
+      hl["rainbow5"] = { fg = c.teal, bg = "#24283b" }
+      hl["rainbow6"] = { fg = c.magenta, bg = "#24283b" }
     end,
   }
 end
@@ -168,6 +173,12 @@ M.rose_pine = function()
       CmpItemKindReference = { fg = "gold" },
       CmpItemKindOperator = { fg = "subtle" },
       CmpItemKindTypeSnippet = { fg = "pine" },
+      rainbow1 = { fg = "#eb6f92", bg = "#2a273f" },
+      rainbow2 = { fg = "#ea9d34", bg = "#2a273f" },
+      rainbow3 = { fg = "#f7c177", bg = "#2a273f" },
+      rainbow4 = { fg = "#31748f", bg = "#2a273f" },
+      rainbow5 = { fg = "#9ccfd8", bg = "#2a273f" },
+      rainbow6 = { fg = "#c4a7e7", bg = "#2a273f" },
     },
   }
 end
@@ -245,6 +256,12 @@ M.catppuccin = function()
         Cursor = { fg = "#1e1e2e", bg = "#d9e0ee" },
         ["@constant.builtin"] = { fg = "#EBA0AC" },
         TSConstBuiltin = { fg = "#EBA0AC" },
+        rainbow1 = { fg = "#f38ba8", bg = "#302D41" },
+        rainbow2 = { fg = "#fab387", bg = "#302D41" },
+        rainbow3 = { fg = "#f9e2af", bg = "#302D41" },
+        rainbow4 = { fg = "#a6e3a1", bg = "#302D41" },
+        rainbow5 = { fg = "#74c7ec", bg = "#302D41" },
+        rainbow6 = { fg = "#b4befe", bg = "#302D41" },
       },
     },
   }
@@ -296,6 +313,12 @@ M.kanagawa = function()
         NvimTreeFolderIcon = { fg = "#7e9cd8" },
         CmpItemKindEnum = { fg = "#957FB8" },
         ["@parameter"] = { fg = "#DCA561" },
+        rainbow1 = { fg = "#C34043", bg = "#21212A" },
+        rainbow2 = { fg = "#FFA066", bg = "#21212A" },
+        rainbow3 = { fg = "#DCA561", bg = "#21212A" },
+        rainbow4 = { fg = "#76946A", bg = "#21212A" },
+        rainbow5 = { fg = "#4e8ca2", bg = "#21212A" },
+        rainbow6 = { fg = "#949fb5", bg = "#21212A" },
       }
     end,
     theme = "wave",
@@ -452,7 +475,6 @@ M.current_colors = function()
   local _time = os.date "*t"
   if _time.hour >= 1 and _time.hour < 9 then
     colors = M.colors.rose_pine_colors
-    -- colors = M.colors.catppuccin_colors
   elseif _time.hour >= 9 and _time.hour < 17 then
     colors = M.colors.tokyonight_colors
   elseif _time.hour >= 17 and _time.hour < 21 then
@@ -537,6 +559,12 @@ M.telescope_theme = function(colorset)
     link("@lsp.typemod.variable", "@variable")
     link("@lsp.typemod.parameter.label", "@field")
     link("@type.qualifier", "@keyword")
+    link("@markup.heading.1.markdown", "rainbow1")
+    link("@markup.heading.2.markdown", "rainbow2")
+    link("@markup.heading.3.markdown", "rainbow3")
+    link("@markup.heading.4.markdown", "rainbow4")
+    link("@markup.heading.5.markdown", "rainbow5")
+    link("@markup.heading.6.markdown", "rainbow6")
   end
 
   -- NOTE: these are my personal preferences
@@ -614,11 +642,11 @@ end
 M.toggle_theme = function()
   local theme = lvim.colorscheme
   local colorset = require("user.theme").colors.tokyonight_colors
-  if theme == "tokyonight" then
+  if theme == "tokyonight-moon" then
     lvim.colorscheme = "catppuccin-mocha"
     colorset = require("user.theme").colors.catppuccin_colors
   else
-    lvim.colorscheme = "tokyonight"
+    lvim.colorscheme = "tokyonight-moon"
   end
   if vim.g.toggle_theme_icon == "   " then
     vim.g.toggle_theme_icon = "   "

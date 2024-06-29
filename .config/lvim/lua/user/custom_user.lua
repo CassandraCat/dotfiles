@@ -77,6 +77,8 @@ M.config = function()
   lvim.builtin.cmp.cmdline.enable = true
   lvim.builtin.bigfile.active = true
   lvim.builtin.trouble.active = true
+  lvim.builtin.markdown.active = true
+  lvim.builtin.leetcode.active = true
   lvim.builtin.mini = {
     animate = {
       active = false,
@@ -91,7 +93,6 @@ M.config = function()
       active = false,
     },
   }
-  lvim.builtin.leetcode.active = true
 
   -- Custom keybindings
   lvim.lsp.buffer_mappings.normal_mode["K"] = { "5k" }

@@ -148,11 +148,6 @@ M.config = function()
       end,
     },
     {
-      "iamcco/markdown-preview.nvim",
-      build = "cd app && npm install",
-      ft = "markdown",
-    },
-    {
       "mrcjkb/rustaceanvim",
       version = "^3",
       init = function()
@@ -973,6 +968,15 @@ M.config = function()
       },
       opts = require "user.leetcode",
       enabled = lvim.builtin.leetcode.active,
+    },
+    {
+      "abzcoding/markdown.nvim",
+      branch = "feature/fancy",
+      name = "render-markdown",
+      config = function()
+        require("user.markd").config()
+      end,
+      enabled = lvim.builtin.markdown.active,
     },
   }
 end
