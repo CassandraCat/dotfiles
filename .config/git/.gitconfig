@@ -1,0 +1,21 @@
+[init]
+  defaultBranch = main
+[user]
+  name = CrazyCatZhang
+  email = crazycatzhang@outlook.com
+[core]
+  excludesfile = ~/.config/git/gitignore_global
+  editor = nvim
+  ignorecase = false
+  repositoryformatversion = 0
+  filemode = true
+  bare = false
+  logallrefupdates = true
+  precomposeunicode = true
+  autocrlf = input
+[commit]
+  verbose = true
+[pull]
+  rebase = false
+[https]
+  proxy = http://127.0.0.1:6152
