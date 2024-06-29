@@ -64,7 +64,7 @@ local media_title = sbar.add("item", {
 		width = 0,
 		max_chars = 16,
 		y_offset = -5,
-    color = 0x99ffffff
+		color = 0x99ffffff,
 	},
 })
 
