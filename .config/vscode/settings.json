@@ -3,7 +3,7 @@
    * Workbench settings
    */
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Material Theme Ocean",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.editor.tabSizing": "shrink",
   "workbench.iconTheme": "catppuccin-mocha",
   "workbench.list.smoothScrolling": true,
@@ -31,7 +31,7 @@
     "editorSuggestWidget.border": "#01589b99",
     "editorGroupHeader.tabsBorder": "#00000000",
     "editorGroupHeader.tabsBackground": "#00000000",
-    "editor.lineHighlightBackground": "#10121a",
+    "editor.lineHighlightBackground": "#1a1923",
 
     "focusBorder": "#00000000",
 
@@ -53,8 +53,6 @@
     "list.activeSelectionForeground": "#B0B0B0",
     "list.inactiveSelectionForeground": "#B0B0B0",
 
-    "panel.border": "#00000000",
-    "panel.background": "#00000000",
     "panelTitle.activeBorder": "#29B6F6",
     "panelTitle.activeForeground": "#29B6F6",
     "panelTitle.inactiveForeground": "#01589b99",
@@ -322,7 +320,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 6/28/2024, 10:24:21 PM",
+    "//": "Last update at 6/30/2024, 9:59:42 AM",
     ".clang-tidy": ".clang-format, .clangd, compile_commands.json",
     ".env": "*.env, .env.*, .envrc, env.d.ts",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
@@ -690,6 +688,10 @@
       "commands": ["workbench.action.remote.showMenu"]
     },
     {
+      "before": ["<leader>", "r", "p"],
+      "commands": ["remoteHub.openRepository"]
+    },
+    {
       "before": ["t", "o"],
       "commands": ["workbench.view.extension.todo-tree-container"]
     },
@@ -961,12 +963,9 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.jsxSingleQuote": true,
-
-  // ----------- Other Settings -----------
-  "workbench.statusBar.visible": false,
   "editor.accessibilitySupport": "off",
   "github.copilot.editor.enableAutoCompletions": true,
   "breadcrumbs.enabled": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "workbench.activityBar.location": "hidden"
+  "workbench.statusBar.visible": false
 }
