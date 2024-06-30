@@ -44,9 +44,9 @@ end
 local colorscheme = {
    foreground = mocha.text,
    background = mocha.base,
-   cursor_bg = mocha.rosewater,
-   cursor_border = mocha.rosewater,
-   cursor_fg = mocha.crust,
+   cursor_bg = "#1979c2",
+   cursor_border = "#1979c2",
+   cursor_fg = mocha.sapphire,
    selection_bg = mocha.surface2,
    selection_fg = mocha.text,
    ansi = {
