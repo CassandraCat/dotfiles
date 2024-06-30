@@ -1,5 +1,12 @@
-.mac {
+.mac,
+.mtk1,
+.input,
+.composite.title .title-label h2 {
   font-family: "Cavolini", sans-serif !important;
   font-weight: bold !important;
   font-style: italic !important;
+}
+
+.monaco-action-bar .action-item .codicon {
+  font-weight: bold !important;
 }

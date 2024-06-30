@@ -32,7 +32,6 @@
     "editorGroupHeader.tabsBorder": "#00000000",
     "editorGroupHeader.tabsBackground": "#00000000",
     "editor.lineHighlightBackground": "#1a1923",
-
     "focusBorder": "#00000000",
 
     "gitDecoration.modifiedResourceForeground": "#81bae6",
@@ -43,6 +42,7 @@
 
     "input.border": "#01589b99",
     "input.background": "#0C1125",
+    "input.foreground": "#29B6F6",
     "icon.foreground": "#29B6F6",
 
     "list.focusOutline": "#191923",
@@ -66,6 +66,9 @@
     "peekViewEditorGutter.background": "#00000000",
     "peekViewEditor.matchHighlightBackground": "#00000000",
     "peekViewEditor.matchHighlightBorder": "#00000000",
+
+    "quickInputList.focusBackground": "#0b1123",
+    "quickInputList.focusIconForeground": "#29B6F6",
 
     "sideBar.border": "#00000000",
     "sideBar.foreground": "#1979c2",
@@ -884,7 +887,7 @@
   },
   "apc.menubar.compact": false,
   "apc.imports": [
-    "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.2/dist/updateHandler.js",
+    "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.3/dist/updateHandler.js",
     "file://${userHome}/.vscode/custom.css"
   ],
 
@@ -933,7 +936,7 @@
   "better-comments.highlightPlainText": true,
 
   // ----------- Animations Settings -----------
-  "animations.Enabled": false,
+  "animations.Enabled": true,
   "animations.Command-Palette": "Scale",
   "animations.Install-Method": "Apc Customize UI++",
   "animations.CursorAnimation": true,
@@ -941,6 +944,7 @@
     "Color": "#29B6F6",
     "CursorStyle": "line"
   },
+  "animations.Default-Duration": 200,
 
   // ----------- Git Settings -----------
   "git.autofetch": true,
@@ -973,5 +977,8 @@
   "github.copilot.editor.enableAutoCompletions": true,
   "breadcrumbs.enabled": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "animations.Smooth-Mode": false,
+  "editor.fontVariations": false,
+  "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true
 }
