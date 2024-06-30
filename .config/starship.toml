@@ -10,9 +10,9 @@ right_format="""$directory$git_branch  $git_status """
 add_newline = true
 
 [character]
-success_symbol = "[➺](bold cyan)(maroon)"
+success_symbol = "[➺](bold #29B6F6)(maroon)"
 error_symbol = "[➺](bold red)(maroon)"
-vimcmd_symbol = "[➺](bold cyan)(maroon)"
+vimcmd_symbol = "[➺](bold #29B6F6)(maroon)"
 
 [directory.substitutions]
 "~" = " "
@@ -29,21 +29,21 @@ style = "bold italic fg:#737c73 bg:#252526"
 symbol = " "
 format = '[$symbol$branch]($style)'
 truncation_symbol = '…/'
-style = 'bold italic cyan'
+style = 'bold italic #29B6F6'
 
 # Shows current git status
 [git_status]
-format = '[⌠](bold italic cyan)[ $all_status$ahead_behind]($style)[⌡](bold italic cyan)'
-style = 'bold italic cyan'
+format = '[⌠](bold italic #29B6F6)[ $all_status$ahead_behind]($style)[⌡](bold italic #29B6F6)'
+style = 'bold italic #29B6F6'
 conflicted = '[ ${count}](red) '
-up_to_date = '[󰘽](cyan) '
+up_to_date = '[󰘽](#29B6F6) '
 untracked = '[󰋗 ${count}](red) '
 ahead = ' ${count} '
 diverged = ' ${ahead_count}  ${behind_count} '
 behind = ' ${count} '
-stashed = '[ ${count}](cyan) '
+stashed = '[ ${count}](#29B6F6) '
 modified = '[󰛿 ${count}](yellow) '
-staged = '[󰐗 ${count}](cyan) '
+staged = '[󰐗 ${count}](#29B6F6) '
 renamed = '[󱍸 ${count}](yellow) '
 deleted = '[󰍶 ${count}](red) '
 
