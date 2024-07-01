@@ -156,7 +156,7 @@ M.config = function()
       enabled = lvim.builtin.rust_programming.active,
     },
     {
-      "abzcoding/lsp_lines.nvim",
+      "maan2003/lsp_lines.nvim",
       lazy = true,
       config = function()
         require("lsp_lines").setup()
@@ -967,13 +967,22 @@ M.config = function()
       enabled = lvim.builtin.leetcode.active,
     },
     {
-      "crazycatzhang/markdown.nvim",
+      "meanderingprogrammer/markdown.nvim",
       branch = "main",
       name = "render-markdown",
       config = function()
         require("user.markd").config()
       end,
       enabled = lvim.builtin.markdown.active,
+    },
+    {
+      "abzcoding/project.nvim",
+      name = "new-project",
+      branch = "fix/nvim-12",
+      config = function()
+        require("user.project").config()
+      end,
+      enabled = not lvim.builtin.project.active and lvim.builtin.project.mine,
     },
   }
 end

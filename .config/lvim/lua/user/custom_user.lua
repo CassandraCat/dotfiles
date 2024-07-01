@@ -63,7 +63,6 @@ M.config = function()
   lvim.builtin.harpoon.active = true
   lvim.builtin.symbols_usage.active = true
   lvim.builtin.tag_provider = "outline"
-  -- require("lvim.lsp.manager").setup("prosemd_lsp", {})
   lvim.builtin.fancy_diff = { active = true }
   lvim.builtin.nonumber_unfocus = true
   lvim.builtin.winbar_provider = "" -- hidden winbar
@@ -79,6 +78,8 @@ M.config = function()
   lvim.builtin.trouble.active = true
   lvim.builtin.markdown.active = true
   lvim.builtin.leetcode.active = true
+  lvim.builtin.project.active = false
+  lvim.builtin.project.mine = true
   lvim.builtin.mini = {
     animate = {
       active = false,
