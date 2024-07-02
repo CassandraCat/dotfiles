@@ -7,6 +7,7 @@ local kanagawa = require "kanagawa"
 
 local tokyonight_opts = {
   style = "moon",
+  light_style = "day",
   transparent = lvim.transparent_window,
   terminal_colors = true,
   styles = {
@@ -47,7 +48,7 @@ local tokyonight_opts = {
     hl.CursorLine = { bg = "NONE" }
     hl.NormalNC = { fg = current_colors.fg_dark, bg = "#1c1d28" }
     hl.Normal = { fg = current_colors.fg, bg = "#1f2335" }
-    hl.CursorLineNr = { fg = current_colors.orange, style = "bold" }
+    hl.CursorLineNr = { fg = current_colors.orange }
     hl.SymbolUsage = { bg = current_colors.bg }
     hl["rainbow1"] = { fg = c.red, bg = "#24283b" }
     hl["rainbow2"] = { fg = c.orange, bg = "#24283b" }
@@ -56,6 +57,7 @@ local tokyonight_opts = {
     hl["rainbow5"] = { fg = c.teal, bg = "#24283b" }
     hl["rainbow6"] = { fg = c.magenta, bg = "#24283b" }
   end,
+  cache = true,
 }
 
 local rose_pine_opts = {
