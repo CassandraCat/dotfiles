@@ -40,14 +40,14 @@ tap_brew() {
     buo/cask-upgrade
     felixkratz/formulae
     hashicorp/tap
-    homebrew/cask-fonts
     homebrew/services
     jesseduffield/lazygit
     jstkdng/programs
     koekeishiya/formulae
     lencx/chatgpt
-    wez/wezterm
     mongodb/brew
+    pkgxdev/made
+    wez/wezterm
   )
 
   local current_taps=$(brew tap)
@@ -66,88 +66,85 @@ tap_brew() {
 
 install_brew_formulae() {
   local -a formulae=(
+    autojump
+    bat
+    cask
+    ccat
     cmake
+    cmake-docs
+    composer
     coursier
     ctags
+    exiftool
+    fastfetch
+    fd
+    felixkratz/formulae/sketchybar
+    felixkratz/formulae/svim
+    ffmpegthumbnailer
+    figlet
+    fzf
+    gh
+    git
+    gitmoji
+    gnu-sed
+    go
     gopls
-    julia
-    luarocks
-    neovim
-    opencv
-    php
-    pyinstaller
-    rust
-    typescript
-    vim
-    yarn
-    mongodb/brew/mongodb-community@6.0
-    mongosh
-    mysql
-    redis
     hadolint
+    hashicorp/tap/terraform
+    jesseduffield/lazygit/lazygit
+    joshuto
+    jq
+    julia
+    koekeishiya/formulae/skhd
+    koekeishiya/formulae/yabai
+    lerna
+    lsd
+    lua-language-server
     luacheck
+    luarocks
     markdownlint-cli
+    mas
+    maven
+    neovim
+    nvm
+    opencv
+    pillow
+    pipx
+    pkgxdev/made/pkgx
+    poppler
+    portablegl
+    powerlevel10k
+    pyinstaller
+    rainbarf
+    ripgrep
+    ruby@3.1
+    rust
     semgrep
     shellcheck
-    composer
-    mas
-    nvm
-    pipx
-    fd
-    fzf
-    ripgrep
+    shfmt
+    starship
+    stow
+    stylua
+    superfile
+    switchaudio-osx
+    task
     the_silver_searcher
+    timewarrior
+    tmuxinator
+    typescript
     unar
+    vale
+    vim
+    viu
     wget
     xcb-util-image
     xclip
-    autojump
-    neofetch
-    raitnbarf
-    skhd
-    starship
-    stow
-    switchaudio-osx
-    task
-    timewarrior
-    tmux
-    tmuxinator
-    yabai
-    zoxide
-    nowplaying-cli
-    bat
-    figlet
-    stylua
-    vale
-    ffmpegthumbnailer
-    viu
-    go
-    lua
-    node
-    ruby
-    cask
-    joshuto
-    lazygit
-    llvm
-    sketchybar
+    yarn
     yazi
     zig
-    gsl
-    boost
-    libomp
-    armadillo
-    borders
-    mactex
-    hdf5
-    gnuplot
-    texlab
-    helix
+    zoxide
     zsh-autosuggestions
-    zsh-fast-syntax-highlighting
-    lulu
-    btop
-    svim
-    dooit
+    zsh-syntax-highlighting
   )
 
   for formula in "${formulae[@]}"; do
@@ -164,72 +161,93 @@ install_brew_formulae() {
 
 install_brew_casks() {
   local -a casks=(
+    1password
+    activedock
+    adobe-creative-cloud
+    adrive
+    alfred
+    apifox
+    appcleaner
     arc
-    firefox
-    google-chrome
+    background-music
+    battery-buddy
+    bettertouchtool
+    bilibili
+    caffeine
+    charles
+    cheatsheet
     codekit
+    discord
     docker
+    dockx
+    firefox
+    flux
+    font-cascadia-code
+    font-material-design-icons-webfont
+    font-sf-mono
+    font-sf-pro
+    fork
+    google-chrome
+    hammerspoon
+    hbuilderx
+    iina
     iterm2
     jetbrains-toolbox
     kaleidoscope
-    navicat-premium
-    postman
-    sublime-text
-    visual-studio-code
-    tower
-    wezterm
-    kitty
-    warp
-    termius
-    charles
-    squirrel
-    notion
-    obsidian
-    typora
-    xmind
-    skim
-    alfred
-    bettertouchtool
-    caffeine
-    cleanmymac
     karabiner-elements
     keka
-    rectangle
-    surge
-    popclip
-    paragon-ntfs
-    1password
-    cheatsheet
-    raycast
-    setapp
-    snipaste
-    thor
-    tickeys
-    discord
-    slack
-    telegram
-    wechat
-    qq
-    iina
-    neteasemusic
-    qqmusic
-    spotify
-    bilibili
-    qqlive
+    kitty
+    landrop
     loopback
+    metasploit
+    mos
+    navicat-premium
+    neteasemusic
+    netnewswire
+    notion
     obs
-    yesplaymusic
-    adrive
-    dropbox
-    syncthing
-    font-cascadia-code
-    font-sf-mono
-    font-sf-pro
+    paragon-ntfs
+    popclip
+    postico
+    postman
+    proton-mail
+    qq
+    qqmusic
+    raycast
+    rectangle
+    scrivener
+    sequel-ace
+    setapp
     sf-symbols
-    font-hack-nerd-font
-    font-jetbrains-mono
-    font-fira-code
+    skim
+    slack
+    snipaste
+    sourcetree
+    spotify
+    squirrel
     steam
+    sublime-text
+    surge
+    syncthing
+    tableplus
+    telegram
+    termius
+    thor
+    thunderbird
+    tickeys
+    todesk
+    tower
+    typora
+    visual-studio-code
+    warp
+    wechat
+    wezterm
+    wireshark-chmodbpf
+    wpsoffice
+    xmind
+    yesplaymusic
+    youku
+    zed
   )
 
   for cask in "${casks[@]}"; do
