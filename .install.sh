@@ -85,6 +85,7 @@ install_brew_formulae() {
     fzf
     gh
     git
+    git-lfs
     gitmoji
     gnu-sed
     go
