@@ -10,3 +10,12 @@
 .monaco-action-bar .action-item .codicon {
   font-weight: bold !important;
 }
+
+.codicon-tree-item-expanded:before {
+  content: "" !important;
+}
+
+.monaco-tl-twistie {
+  width: 3px !important;
+}
+
