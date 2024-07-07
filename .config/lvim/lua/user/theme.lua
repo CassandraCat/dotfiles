@@ -220,6 +220,7 @@ local catppuccin_opts = {
       CmpItemKindEnumMember = { fg = "#F5C2E7" },
       CmpItemMenu = { fg = "#7F849C" },
       CmpItemAbbr = { fg = "#BAC2DE" },
+      ColorColumn = { bg = "#181825" },
       Cursor = { fg = "#1e1e2e", bg = "#d9e0ee" },
       ["@constant.builtin"] = { fg = "#EBA0AC" },
       TSConstBuiltin = { fg = "#EBA0AC" },

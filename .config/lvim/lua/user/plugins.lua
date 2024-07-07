@@ -365,7 +365,7 @@ M.config = function()
       "declancm/cinnamon.nvim",
       config = function()
         require("cinnamon").setup {
-          keymaps = { basic = true, extra = true },
+          keymaps = { basic = true, extra = false },
           options = {
             mode = "window",
           },
@@ -967,8 +967,8 @@ M.config = function()
       enabled = lvim.builtin.leetcode.active,
     },
     {
-      "meanderingprogrammer/markdown.nvim",
-      branch = "main",
+      "abzcoding/markdown.nvim",
+      branch = "feature/fancy",
       name = "render-markdown",
       config = function()
         require("user.markd").config()
