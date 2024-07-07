@@ -28,6 +28,32 @@ M.config = function()
     )
   end
 
+  if lvim.builtin.bigfile.active == false then
+    vim.cmd [[
+  " disable syntax highlighting in big files
+  function! DisableSyntaxTreesitter()
+      if exists(':TSBufDisable')
+          exec 'TSBufDisable autotag'
+          exec 'TSBufDisable highlight'
+      endif
+
+      set foldmethod=manual
+      syntax clear
+      syntax off
+      filetype off
+      set noundofile
+      set noswapfile
+      set noloadplugins
+      set lazyredraw
+  endfunction
+
+  augroup BigFileDisable
+      autocmd!
+      autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
+  augroup END
+    ]]
+  end
+
   if lvim.builtin.sql_integration.active then
     -- Add vim-dadbod-completion in sql files
     create_aucmd("FileType", {

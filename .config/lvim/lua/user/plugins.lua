@@ -912,13 +912,6 @@ M.config = function()
       enabled = lvim.builtin.dap.active,
     },
     {
-      "mireq/large_file",
-      config = function()
-        require("large_file").setup()
-      end,
-      enabled = lvim.builtin.bigfile.active,
-    },
-    {
       "echasnovski/mini.animate",
       version = "*",
       config = function()
