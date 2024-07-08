@@ -1,38 +1,20 @@
--- Taken from https://github.com/benfowler/telescope-luasnip.nvim/blob/master/lua/telescope/_extensions/luasnip.lua
--- MIT License
-
--- Copyright (c) 2021 fhill2
-
--- Permission is hereby granted, free of charge, to any person obtaining a copy
--- of this software and associated documentation files (the "Software"), to deal
--- in the Software without restriction, including without limitation the rights
--- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
--- copies of the Software, and to permit persons to whom the Software is
--- furnished to do so, subject to the following conditions:
-
--- The above copyright notice and this permission notice shall be included in all
--- copies or substantial portions of the Software.
-
--- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
--- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
--- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
--- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
--- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
--- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
--- SOFTWARE.
-
 local has_telescope, telescope = pcall(require, "telescope")
 if not has_telescope then
   error "This plugins requires nvim-telescope/telescope.nvim"
 end
 
-local actions = require "telescope.actions"
-local action_state = require "telescope.actions.state"
-local finders = require "telescope.finders"
-local pickers = require "telescope.pickers"
-local previewers = require "telescope.previewers"
-local entry_display = require "telescope.pickers.entry_display"
-local conf = require("telescope.config").values
+-- stylua: ignore start
+local actions       = require("telescope.actions")
+local action_state  = require("telescope.actions.state")
+local finders       = require("telescope.finders")
+local pickers       = require("telescope.pickers")
+local previewers    = require("telescope.previewers")
+local entry_display = require("telescope.pickers.entry_display")
+local conf          = require("telescope.config").values
+local ext_conf      = require("telescope._extensions")
+-- stylua: ignore end
+
+local M = {}
 
 local filter_null = function(str, default)
   return str and str or (default and default or "")
@@ -58,7 +40,14 @@ local get_docstring = function(luasnip, ft, context)
     if snips_for_ft then
       for _, snippet in pairs(snips_for_ft) do
         if context.name == snippet.name and context.trigger == snippet.trigger then
-          docstring = snippet:get_docstring()
+          local raw_docstring = snippet:get_docstring()
+          if type(raw_docstring) == "string" then
+            for chunk in string.gmatch(snippet:get_docstring(), "[^\n]+") do
+              docstring[#docstring + 1] = chunk
+            end
+          else
+            docstring = raw_docstring
+          end
         end
       end
     end
@@ -66,21 +55,37 @@ local get_docstring = function(luasnip, ft, context)
   return docstring
 end
 
-local luasnip_fn = function(opts)
-  opts = opts or {}
+local default_search_text = function(entry)
+  return filter_null(entry.context.trigger)
+    .. " "
+    .. filter_null(entry.context.name)
+    .. " "
+    .. entry.ft
+    .. " "
+    .. filter_description(entry.context.name, entry.context.description)
+end
+
+local _opts = {
+  preview = {
+    check_mime_type = true,
+  },
+}
+M.opts = _opts
+
+M.luasnip_fn = function(opts)
+  local opts = vim.tbl_extend("keep", opts or {}, M.opts or _opts)
+
+  -- print(("debug: %s: opts.test"):format(debug.getinfo(1).source))
+  -- print(vim.inspect(opts.test))
   local objs = {}
 
   -- Account for the fact that luasnip may be lazy-loaded
   local has_luasnip, luasnip = pcall(require, "luasnip")
   if has_luasnip then
     local available = luasnip.available()
-
     for filename, file in pairs(available) do
       for _, snippet in ipairs(file) do
-        table.insert(objs, {
-          ft = filename ~= "" and filename or "-",
-          context = snippet,
-        })
+        table.insert(objs, { ft = filename == "" and "-" or filename, context = snippet })
       end
     end
   else
@@ -99,78 +104,85 @@ local luasnip_fn = function(opts)
 
   local displayer = entry_display.create {
     separator = " ",
-    items = {
-      { width = 24 },
-      { remaining = true },
-    },
+    items = { { width = 12 }, { width = 24 }, { width = 16 }, { remaining = true } },
   }
 
   local make_display = function(entry)
     return displayer {
+      entry.value.ft,
       entry.value.context.name,
+      { entry.value.context.trigger, "TelescopeResultsNumber" },
       filter_description(entry.value.context.name, entry.value.context.description),
     }
   end
 
-  pickers
-    .new(opts, {
-      prompt_title = "LuaSnip",
-      finder = finders.new_table {
+    -- stylua: ignore
+    pickers.new(opts, {
+        prompt_title = "LuaSnip",
+        finder = finders.new_table({
+            results = objs,
+            entry_maker = function(entry)
+                search_fn = ext_conf._config.luasnip
+                    and ext_conf._config.luasnip.search
+                    or default_search_text
+                return {
+                    value = entry,
+                    display = make_display,
+                    ordinal = search_fn(entry),
+                    preview_command = function(_, bufnr)
+                        local snippet = get_docstring(luasnip, entry.ft, entry.context)
+                        if opts.preview.check_mime_type then
+                            vim.api.nvim_buf_set_option(bufnr, "filetype", entry.ft)
+                        end
+                        vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, snippet)
+                    end
+                }
+            end
+        }),
 
-        results = objs,
-        entry_maker = function(entry)
-          return {
-            value = entry,
-            display = make_display,
+        previewer = previewers.display_content.new(opts),
+        sorter = conf.generic_sorter(opts),
+        attach_mappings = function()
+            actions.select_default:replace(function(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                actions.close(prompt_bufnr)
 
-            ordinal = entry.ft
-              .. " "
-              .. filter_null(entry.context.trigger)
-              .. " "
-              .. filter_null(entry.context.name)
-              .. " "
-              .. filter_description(entry.context.name, entry.context.description),
+                -- Match snippets to be expanded
+                -- Extract them directly
+                local snippetsToExpand = {}
+                luasnip.available(function(snippet)
+                    if snippet.trigger == selection.value.context.trigger then
+                        table.insert(snippetsToExpand, snippet)
+                    end
+                    return nil
+                end)
 
-            preview_command = function(_, bufnr)
-              local snippet = get_docstring(luasnip, entry.ft, entry.context)
-              vim.api.nvim_set_option_value("filetype", entry.ft, { buf = bufnr })
-              if type(snippet) ~= "table" then
-                local lines = {}
-                for s in snippet:gmatch "[^\r\n]+" do
-                  table.insert(lines, s)
+                -- Use first snippet to expand
+                if (#snippetsToExpand > 0) then
+                    vim.cmd(':startinsert!')
+                    vim.defer_fn(function() luasnip.snip_expand(snippetsToExpand[1]) end, 50)
+                else
+                    error(
+                        "telescope-luasnip.nvim: snippet '" .. selection.value.context.name .. "'" ..
+                            " was selected, but there are no snippets to expand!")
                 end
-                snippet = lines
-              end
-              vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, snippet)
-            end,
-          }
-        end,
-      },
-
-      previewer = previewers.display_content.new(opts),
-      sorter = conf.generic_sorter(opts),
-      attach_mappings = function()
-        actions.select_default:replace(function(prompt_bufnr)
-          local selection = action_state.get_selected_entry()
-          actions.close(prompt_bufnr)
-          vim.api.nvim_put({ selection.value.context.trigger }, "", true, true)
-          if luasnip.expandable() then
-            vim.cmd "startinsert"
-            luasnip.expand()
-            vim.cmd "stopinsert"
-          else
-            print(
-              "Snippet '"
-                .. selection.value.context.name
-                .. "'"
-                .. "was selected, but LuaSnip.expandable() returned false"
-            )
-          end
-        end)
-        return true
-      end,
-    })
-    :find()
+                -- vim.cmd('stopinsert')
+            end)
+            return true
+        end
+    }):find()
 end -- end custom function
 
-return telescope.register_extension { exports = { luasnip = luasnip_fn } }
+-- stylua: ignore start
+return telescope.register_extension({
+  setup = function(optsExt, opts)
+    M.opts = vim.tbl_extend('keep', optsExt or {}, opts or {}, M.opts or _opts)
+  end,
+  exports = {
+    luasnip            = M.luasnip_fn,
+    filter_null        = filter_null,
+    filter_description = filter_description,
+    get_docstring      = get_docstring,
+  },
+})
+-- stylua: ignore end
