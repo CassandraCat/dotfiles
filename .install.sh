@@ -37,6 +37,7 @@ install_homebrew() {
 
 tap_brew() {
   local -a taps=(
+    blacktop/tap
     buo/cask-upgrade
     felixkratz/formulae
     hashicorp/tap
@@ -78,8 +79,8 @@ install_brew_formulae() {
     exiftool
     fastfetch
     fd
-    felixkratz/formulae/sketchybar
-    felixkratz/formulae/svim
+    sketchybar
+    svim
     ffmpegthumbnailer
     figlet
     fzf
@@ -91,14 +92,15 @@ install_brew_formulae() {
     go
     gopls
     hadolint
-    hashicorp/tap/terraform
-    jesseduffield/lazygit/lazygit
+    terraform
+    lazygit
     joshuto
     jq
     julia
-    koekeishiya/formulae/skhd
-    koekeishiya/formulae/yabai
+    skhd
+    yabai
     lerna
+    lporg
     lsd
     lua-language-server
     luacheck
@@ -111,7 +113,7 @@ install_brew_formulae() {
     opencv
     pillow
     pipx
-    pkgxdev/made/pkgx
+    pkgx
     poppler
     portablegl
     powerlevel10k

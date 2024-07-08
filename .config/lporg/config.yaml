@@ -1,0 +1,243 @@
+apps:
+  pages:
+    - number: 1
+      items:
+        - Visual Studio Code
+        - WebStorm
+        - IntelliJ IDEA Ultimate
+        - RustRover
+        - RubyMine
+        - DataGrip
+        - AppCode
+        - CLion Nova
+        - Android Studio
+        - HBuilderX
+        - Xcode
+        - Wechat Devtools
+        - Docker
+        - Termius
+        - ForkLift
+        - Tower
+        - Sourcetree
+        - Fork
+        - Charles
+        - Kaleidoscope
+        - CodeKit
+        - Postman
+        - Apifox
+        - Dash
+        - JetBrains Toolbox
+        - Navicat Premium
+        - Postico 2
+        - TablePlus
+        - Sequel Ace
+        - Script Editor
+        - Zed
+    - number: 2
+      items:
+        - WezTerm
+        - kitty
+        - Warp
+        - Terminal
+        - iTerm
+        - Surge
+        - Quantumult X
+        - ClashX
+        - Clash Verge
+        - ClearVPN
+    - number: 3
+      items:
+        - 1Password
+        - ChatGPT
+        - Workspaces
+        - Keysmith
+        - PopClip
+        - Raycast
+        - Alfred 5
+        - Thor
+        - 2Do
+        - Paste
+        - Snipaste
+        - Keka
+        - Dropover
+        - HazeOver
+        - ToDesk
+        - Mos
+        - Amphetamine
+        - Caffeine
+        - iPic
+        - Mousecape
+        - Bob
+        - Parallels Desktop
+        - Battery Buddy
+        - LANDrop
+        - Notion
+        - Pages
+        - Numbers
+        - Keynote
+        - WPS Office
+        - Xmind
+        - Typora
+        - Notes
+        - Scrivener
+        - Skim
+        - Freeform
+        - CheatSheet
+        - SF Symbols
+        - NetNewsWire
+    - number: 4
+      items:
+        - CleanMyMac X
+        - Hammerspoon
+        - Bartender
+        - Setapp
+        - BetterTouchTool
+        - Karabiner-Elements
+        - Karabiner-EventViewer
+        - Rectangle
+        - DockX
+        - Flux
+        - ActiveDock 2
+        - Get Backup Pro
+        - Syncthing
+        - NTFS for Mac
+        - aDrive
+        - BaiduNetdisk
+        - AppCleaner
+        - TinkerTool
+    - number: 5
+      items:
+        - NetEaseMusic
+        - Spotify
+        - QQ音乐
+        - YesPlayMusic
+        - 腾讯视频
+        - 爱奇艺
+        - 哔哩哔哩
+        - 优酷
+        - Music
+        - Podcasts
+        - LyricsX
+        - IINA
+        - Movist
+        - QuickTime Player
+        - iMovie
+        - GarageBand
+        - Downie
+        - Permute
+        - Loopback
+        - Logic Pro
+        - OBS
+        - Noizio
+        - Background Music
+    - number: 6
+      items:
+        - Discord
+        - Telegram
+        - WeChat
+        - Slack
+        - Twitter
+        - Spark Mail
+        - QQ
+        - Maipo
+        - Proton Mail
+        - Proton Mail Bridge
+        - Thunderbird
+    - number: 7
+      items:
+        - Arc
+        - Google Chrome Dev
+        - Google Chrome
+        - Firefox Developer Edition
+        - Firefox
+        - Safari
+    - number: 8
+      items:
+        - Hacknet
+        - Steam
+        - Battle.net
+        - Agent
+        - Chess
+    - number: 9
+      items:
+        - folder: Other
+          pages:
+            - number: 1
+              items:
+                - Boot Camp Assistant
+                - Digital Color Meter
+                - ColorSync Utility
+                - Screenshot
+                - Photos
+                - Preview
+                - Weather
+                - Voice Memos
+                - Videos
+                - Contacts
+                - Photo Booth
+                - Find My
+                - Maps
+                - Messages
+                - FaceTime
+                - Reminders
+                - Calendar
+                - AdobeIPCBroker
+                - Creative Cloud
+                - Creative Cloud Helper
+                - Creative Cloud Installer
+                - CC Troubleshooter
+                - Creative Cloud Desktop App
+                - Adobe Creative Cloud Diagnostics
+        - Bluetooth File Exchange
+        - Audio MIDI Setup
+        - Screen Sharing
+        - Print Center
+        - App Store
+        - Mail
+        - Home
+        - Stocks
+        - System Settings
+        - Siri
+        - Clock
+        - Calculator
+        - Dictionary
+        - Books
+        - Font Book
+        - Shortcuts
+        - TextEdit
+        - Grapher
+        - Time Machine
+        - Mission Control
+        - Stickies
+        - Image Capture
+        - VoiceOver Utility
+        - AirPort Utility
+        - Migration Assistant
+        - Activity Monitor
+        - Console
+        - Keychain Access
+        - System Information
+        - Automator
+        - Disk Utility
+widgets:
+  pages: []
+dock_items:
+  apps:
+    - /Applications/Arc.app
+    - /Applications/Visual Studio Code.app
+    - /Applications/Discord.app
+    - /Applications/WezTerm.app
+    - /Applications/Spotify.app
+    - /Applications/Setapp/Spark Mail.app
+    - /Applications/DockX.app
+    - /Applications/ChatGPT.app
+    - /Applications/WeChat.app
+  settings:
+    autohide: true
+    largesize: 75
+    magnification: true
+    minimize-to-application: false
+    mru-spaces: false
+    show-recents: false
+    tilesize: 64
+desktop: {}
