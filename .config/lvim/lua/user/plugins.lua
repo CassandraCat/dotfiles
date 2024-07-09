@@ -917,7 +917,7 @@ M.config = function()
       config = function()
         require("user.mini_animate").config()
       end,
-      enabled = lvim.builtin.mini.animate.active,
+      enabled = lvim.builtin.mini_animate.active,
     },
     {
       "echasnovski/mini.move",
@@ -925,7 +925,7 @@ M.config = function()
       config = function()
         require("user.mini_move").config()
       end,
-      enabled = lvim.builtin.mini.move.active,
+      enabled = lvim.builtin.mini_move.active,
     },
     {
       "echasnovski/mini.indentscope",
@@ -933,7 +933,7 @@ M.config = function()
       config = function()
         require("user.mini_indentscope").config()
       end,
-      enabled = lvim.builtin.mini.indentscope.active,
+      enabled = lvim.builtin.mini_indentscope.active,
     },
     {
       "echasnovski/mini.completion",
@@ -941,7 +941,15 @@ M.config = function()
       config = function()
         require("user.mini_completion").config()
       end,
-      enabled = lvim.builtin.mini.completion.active,
+      enabled = lvim.builtin.mini_completion.active,
+    },
+    {
+      "echasnovski/mini.icons",
+      version = false,
+      config = function()
+        require("mini.icons").setup()
+      end,
+      enabled = lvim.builtin.mini_icons.active,
     },
     {
       "kawre/leetcode.nvim",

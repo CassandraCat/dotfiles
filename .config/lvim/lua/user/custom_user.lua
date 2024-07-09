@@ -80,20 +80,8 @@ M.config = function()
   lvim.builtin.leetcode.active = true
   lvim.builtin.project.active = false
   lvim.builtin.project.mine = true
-  lvim.builtin.mini = {
-    animate = {
-      active = false,
-    },
-    move = {
-      active = true,
-    },
-    indentscope = {
-      active = true,
-    },
-    completion = {
-      active = false,
-    },
-  }
+  lvim.builtin.mini_indentscope.active = true
+  lvim.builtin.mini_move.active = true
 
   -- Custom keybindings
   lvim.lsp.buffer_mappings.normal_mode["K"] = { "5k" }

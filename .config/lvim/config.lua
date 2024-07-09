@@ -78,6 +78,11 @@ lvim.builtin.trouble = { active = false } -- enable/disable trouble.nvim
 lvim.builtin.leetcode = { active = false } -- enable/disable leetcode.nvim
 lvim.builtin.markdown = { active = false } -- enable/disable markdown.nvim
 lvim.builtin.project.mine = false -- enable/disable project.nvim
+lvim.builtin.mini_indentscope = { active = false } -- enable/disable mini.indentscope
+lvim.builtin.mini_move = { active = false } -- enable/disable mini.move
+lvim.builtin.mini_animate = { active = false } -- enable/disable mini.animate
+lvim.builtin.mini_completion = { active = false } -- enable/disable mini.completion
+lvim.builtin.mini_icons = { active = false } -- enable/disable mini.icons
 
 -- Custom User Config
 -- =========================================
