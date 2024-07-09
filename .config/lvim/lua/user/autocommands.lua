@@ -19,6 +19,7 @@ M.config = function()
   vim.api.nvim_clear_autocmds { pattern = "lir", group = "_filetype_settings" }
   vim.api.nvim_clear_autocmds { pattern = "*", group = "_lvim_colorscheme" }
   vim.api.nvim_create_augroup("_lvim_user", {})
+
   -- Autocommands
   if lvim.builtin.nonumber_unfocus then
     create_aucmd("WinEnter", { group = "_lvim_user", pattern = "*", command = "set relativenumber number cursorline" })
@@ -26,6 +27,23 @@ M.config = function()
       "WinLeave",
       { group = "_lvim_user", pattern = "*", command = "set norelativenumber nonumber nocursorline" }
     )
+  end
+
+  if lvim.transparent_window then
+    create_aucmd("VimEnter", {
+      group = "_lvim_user",
+      pattern = "*",
+      callback = function()
+        vim.schedule(function()
+          vim.cmd [[ highlight NormalFloat guibg=#1f1f27 ]]
+          vim.cmd [[ highlight CmpBorder guibg=#1f1f27 ]]
+          vim.cmd [[ highlight CmpPmenu guibg=#1f1f27 ]]
+          vim.cmd [[ highlight PmenuSbar guibg=#1f1f27 ]]
+          vim.cmd [[ highlight PmenuThumb guibg=#1f1f27 ]]
+          vim.cmd [[ highlight PmenuSel guifg=#6E6C7E guibg=#1f1f27 ]]
+        end)
+      end,
+    })
   end
 
   if lvim.builtin.bigfile.active == false then

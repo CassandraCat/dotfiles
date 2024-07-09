@@ -609,7 +609,7 @@ M.config = function()
 
   -- WhichKey
   -- =========================================
-  lvim.builtin.which_key.setup.window.winblend = 10
+  lvim.builtin.which_key.setup.window.winblend = 5
   lvim.builtin.which_key.setup.window.border = "none"
   lvim.builtin.which_key.setup.plugins.presets.z = true
   lvim.builtin.which_key.setup.plugins.presets.g = true
