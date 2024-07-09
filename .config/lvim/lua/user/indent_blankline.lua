@@ -5,6 +5,7 @@ M.setup = function()
   if not status_ok then
     return
   end
+  local hooks = require "ibl.hooks"
   ibl.setup {
     indent = {
       char = { "", "┊", "┆", "¦", "|", "¦", "┆", "┊", "" },
@@ -48,11 +49,10 @@ M.setup = function()
       },
     },
     scope = {
-      enabled = true,
+      enabled = false,
       show_start = true,
     },
   }
-  local hooks = require "ibl.hooks"
   hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
 end
 
