@@ -35,12 +35,15 @@ M.config = function()
       pattern = "*",
       callback = function()
         vim.schedule(function()
-          vim.cmd [[ highlight NormalFloat guibg=#1f1f27 ]]
-          vim.cmd [[ highlight CmpBorder guibg=#1f1f27 ]]
-          vim.cmd [[ highlight CmpPmenu guibg=#1f1f27 ]]
-          vim.cmd [[ highlight PmenuSbar guibg=#1f1f27 ]]
-          vim.cmd [[ highlight PmenuThumb guibg=#1f1f27 ]]
-          vim.cmd [[ highlight PmenuSel guifg=#6E6C7E guibg=#1f1f27 ]]
+          vim.cmd [[
+              highlight NormalFloat guibg=#191a24
+              highlight WhichKeyFloat guibg=#191a24
+              highlight CmpBorder guibg=#191a24
+              highlight CmpPmenu guibg=#191a24
+              highlight PmenuSbar guibg=#191a24
+              highlight PmenuThumb guibg=#191a24
+              highlight PmenuSel guifg=#565f89 guibg=#191a24
+            ]]
         end)
       end,
     })
