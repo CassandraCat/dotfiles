@@ -28,27 +28,10 @@ local mocha = {
    crust = '#11111b',
 }
 
-local function get_tab_bar_bg()
-	local _time = os.date("*t")
-	if _time.hour >= 1 and _time.hour < 9 then
-		return "#191724"
-	elseif _time.hour >= 9 and _time.hour < 17 then
-		return "#1A1B26"
-	elseif _time.hour >= 17 and _time.hour < 21 then
-		return "#1E1E2E"
-	elseif _time.hour >= 21 and _time.hour < 24 or _time.hour >= 0 and _time.hour < 1 then
-		return "#1F1F28"
-	end
-end
-
 local colorscheme = {
-   foreground = mocha.text,
-   background = mocha.base,
-   cursor_bg = "#1979c2",
-   cursor_border = "#1979c2",
+   cursor_bg = '#1979c2',
+   cursor_border = '#1979c2',
    cursor_fg = mocha.sapphire,
-   selection_bg = mocha.surface2,
-   selection_fg = mocha.text,
    ansi = {
       '#0C0C0C', -- black
       '#C50F1F', -- red
@@ -70,7 +53,7 @@ local colorscheme = {
       '#F2F2F2', -- white
    },
    tab_bar = {
-      background = get_tab_bar_bg(),
+      background = 'rgba(0, 0, 0, 0.0)',
       active_tab = {
          bg_color = mocha.surface2,
          fg_color = mocha.text,
@@ -84,7 +67,7 @@ local colorscheme = {
          fg_color = mocha.text,
       },
       new_tab = {
-         bg_color = mocha.base,
+         bg_color = 'rgba(0, 0, 0, 0.0)',
          fg_color = mocha.text,
       },
       new_tab_hover = {
@@ -93,14 +76,6 @@ local colorscheme = {
          italic = true,
       },
    },
-   visual_bell = mocha.surface0,
-   indexed = {
-      [16] = mocha.peach,
-      [17] = mocha.rosewater,
-   },
-   scrollbar_thumb = mocha.surface2,
-   split = mocha.overlay0,
-   compose_cursor = mocha.flamingo, -- nightbuild only
 }
 
 return colorscheme

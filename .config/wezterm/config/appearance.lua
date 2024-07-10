@@ -15,6 +15,10 @@ local function get_theme()
    end
 end
 
+local function getDefaultColors(theme)
+   return wezterm.color.get_builtin_schemes()[theme]
+end
+
 return {
    animation_fps = 60,
    max_fps = 60,
@@ -33,7 +37,7 @@ return {
          horizontal_align = 'Center',
       },
       {
-         source = { Color = colors.background },
+         source = { Color = getDefaultColors(get_theme()).background },
          height = '100%',
          width = '100%',
          opacity = 0.96,
@@ -57,13 +61,7 @@ return {
       bottom = 0,
    },
    window_close_confirmation = 'NeverPrompt',
-   window_frame = {
-      active_titlebar_bg = '#090909',
-      -- font = fonts.font,
-      -- font_size = fonts.font_size,
-   },
    window_decorations = 'RESIZE',
-   -- window_background_opacity = 0.8,
 
    inactive_pane_hsb = {
       saturation = 0.9,

@@ -29,7 +29,7 @@ local _set_title = function(process_name, base_title, max_width, inset)
    local title
    inset = inset or 4
 
-   local folder_name = base_title:match(".*/([^/]+)$")
+   local folder_name = base_title:match('.*/([^/]+)$')
 
    if folder_name then
       base_title = folder_name
@@ -97,7 +97,7 @@ M.setup = function()
       end
 
       -- Left semi-circle
-      _push('rgba(0, 0, 0, 0.4)', bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_LEFT)
+      _push('rgba(0, 0, 0, 0.0)', bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_LEFT)
 
       -- Admin Icon
       if is_admin then
@@ -116,7 +116,7 @@ M.setup = function()
       _push(bg, fg, { Intensity = 'Bold' }, ' ')
 
       -- Right semi-circle
-      _push('rgba(0, 0, 0, 0.4)', bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_RIGHT)
+      _push('rgba(0, 0, 0, 0.0)', bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_RIGHT)
 
       return __cells__
    end)
