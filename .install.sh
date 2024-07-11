@@ -79,8 +79,6 @@ install_brew_formulae() {
     exiftool
     fastfetch
     fd
-    sketchybar
-    svim
     ffmpegthumbnailer
     figlet
     fzf
@@ -92,8 +90,6 @@ install_brew_formulae() {
     go
     gopls
     hadolint
-    terraform
-    lazygit
     joshuto
     jq
     julia
@@ -102,6 +98,7 @@ install_brew_formulae() {
     lerna
     lporg
     lsd
+    lazygit
     lua-language-server
     luacheck
     luarocks
@@ -130,6 +127,11 @@ install_brew_formulae() {
     stylua
     superfile
     switchaudio-osx
+    silicon
+    sketchybar
+    svim
+    spicetify-cli
+    terraform
     task
     the_silver_searcher
     timewarrior
