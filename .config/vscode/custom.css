@@ -19,9 +19,13 @@
   width: 3px !important;
 }
 
+.monaco-editor .codelens-decoration {
+  color: #038ac7 !important;
+}
+
 .editor-container
   .editor-instance
   .monaco-editor
-  [class*="ced-2-TextEditorDecorationType"]::after {
-  color: #74c7ec80 !important;
+  [class*="TextEditorDecorationType7"]::after {
+  color: #0269b3 !important;
 }
