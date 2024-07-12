@@ -34,17 +34,43 @@ M.config = function()
       group = "_lvim_user",
       pattern = "*",
       callback = function()
-        vim.schedule(function()
-          vim.cmd [[
-              highlight NormalFloat guibg=#191a24
-              highlight WhichKeyFloat guibg=#191a24
-              highlight CmpBorder guibg=#191a24
-              highlight CmpPmenu guibg=#191a24
-              highlight PmenuSbar guibg=#191a24
-              highlight PmenuThumb guibg=#191a24
-              highlight PmenuSel guifg=#565f89 guibg=#191a24
-            ]]
-        end)
+        local colorScheme = lvim.colorscheme
+        local highlight_groups = {
+          NormalFloat = "",
+          WhichKeyFloat = "",
+          CmpBorder = "",
+          CmpPmenu = "",
+          PmenuSbar = "",
+          PmenuThumb = "",
+          PmenuSel = "",
+        }
+
+        local function apply_highlights(groups, guibg, guifg)
+          for group, fg in pairs(groups) do
+            if fg ~= "" then
+              vim.cmd(string.format("highlight %s guifg=%s guibg=%s", group, fg, guibg))
+            else
+              vim.cmd(string.format("highlight %s guibg=%s", group, guibg))
+            end
+          end
+        end
+
+        if colorScheme == "rose-pine" then
+          vim.schedule(function()
+            highlight_groups.PmenuSel = "#84Cee4"
+            apply_highlights(highlight_groups, "#181622")
+          end)
+        elseif colorScheme == "tokyonight-moon" then
+          vim.schedule(function()
+            highlight_groups.PmenuSel = "#565f89"
+            apply_highlights(highlight_groups, "#191a24")
+          end)
+        elseif colorScheme == "catppuccin-mocha" then
+          vim.schedule(function()
+            highlight_groups.PmenuSel = "#6E6C7E"
+            apply_highlights(highlight_groups, "#1f1f27")
+          end)
+        end
       end,
     })
   end
