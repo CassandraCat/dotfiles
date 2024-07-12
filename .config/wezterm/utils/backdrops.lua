@@ -1,6 +1,22 @@
 local wezterm = require('wezterm')
 local platform = require('utils.platform')()
-local colors = require('colors.custom')
+
+local function get_theme()
+   local _time = os.date('*t')
+   if _time.hour >= 1 and _time.hour < 9 then
+      return 'Rosé Pine (base16)'
+   elseif _time.hour >= 9 and _time.hour < 17 then
+      return 'tokyonight_night'
+   elseif _time.hour >= 17 and _time.hour < 21 then
+      return 'Catppuccin Mocha'
+   elseif _time.hour >= 21 and _time.hour < 24 or _time.hour >= 0 and _time.hour < 1 then
+      return 'kanagawabones'
+   end
+end
+
+local function getDefaultColors(theme)
+   return wezterm.color.get_builtin_schemes()[theme]
+end
 
 -- Seeding random numbers before generating for use
 -- Known issue with lua math library
@@ -27,8 +43,8 @@ function BackDrops:init()
    local inital = {
       current_idx = 1,
       files = {},
-      timer_started = false,  -- Initialize the flag
-      keep_running = false,   -- Initialize the flag
+      timer_started = false, -- Initialize the flag
+      keep_running = false, -- Initialize the flag
    }
    local backdrops = setmetatable(inital, self)
    wezterm.GLOBAL.background = nil
@@ -65,14 +81,14 @@ function BackDrops:_set_opt(window)
             horizontal_align = 'Center',
          },
          {
-            source = { Color = colors.background },
+            source = { Color = getDefaultColors(get_theme()).background },
             height = '100%',
             width = '100%',
             opacity = 0.96,
          },
       }
       window:set_config_overrides(overrides)
-      wezterm.log_info("Background set to: " .. wezterm.GLOBAL.background)
+      wezterm.log_info('Background set to: ' .. wezterm.GLOBAL.background)
    else
       wezterm.log_error('window object or set_config_overrides method not available')
    end
@@ -103,7 +119,7 @@ function BackDrops:random(window)
    self.current_idx = math.random(#self.files)
    wezterm.GLOBAL.background = self.files[self.current_idx]
 
-   wezterm.log_info("Randomly selected background: " .. wezterm.GLOBAL.background)
+   wezterm.log_info('Randomly selected background: ' .. wezterm.GLOBAL.background)
 
    if window ~= nil then
       self:_set_opt(window)
@@ -152,27 +168,27 @@ end
 ---@param window any WezTerm `Window` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
 function BackDrops:start_timer(window)
    if self.timer_started then
-      wezterm.log_info("Timer already started")
+      wezterm.log_info('Timer already started')
       return
    end
-   self.timer_started = true  -- Set the flag to true to indicate the timer has started
-   self.keep_running = true   -- Flag to indicate whether the timer should keep running
+   self.timer_started = true -- Set the flag to true to indicate the timer has started
+   self.keep_running = true -- Flag to indicate whether the timer should keep running
 
    local function timer_callback()
       if not self.keep_running then
-         wezterm.log_info("Timer stopped")
+         wezterm.log_info('Timer stopped')
          return
       end
-      wezterm.log_info("Timer callback triggered")
+      wezterm.log_info('Timer callback triggered')
       self:random(window)
       wezterm.time.call_after(3600, timer_callback)
    end
-   wezterm.log_info("Starting timer")
+   wezterm.log_info('Starting timer')
    wezterm.time.call_after(0, timer_callback)
 end
 
 function BackDrops:stop_timer()
-   self.keep_running = false   -- Set flag to false to stop the timer
+   self.keep_running = false -- Set flag to false to stop the timer
 end
 
 return BackDrops:init()
