@@ -1,0 +1,17 @@
+{
+    "version": "1.10.2",
+    "addonlistControls": {
+        "theme": {
+            "view": "list"
+        }
+    },
+    "drawerStates": {
+        "settings": {
+            "editor": false,
+            "customcss": false,
+            "addons": false,
+            "developer": false,
+            "window": true
+        }
+    }
+}
