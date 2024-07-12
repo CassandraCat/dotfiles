@@ -21,7 +21,7 @@ local cal = sbar.add("item", {
 		padding_left = 10,
 		color = colors.seezalt_smoke,
 		font = {
-			style = settings.font.style_map["Regular"],
+			style = settings.font.style_map["Bold"],
 			size = 12,
 		},
 	},

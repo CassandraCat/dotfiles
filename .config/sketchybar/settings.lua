@@ -13,8 +13,8 @@ return {
 		style_map = {
 			["Regular"] = "Regular",
 			["Semibold"] = "Medium",
-			["Bold"] = "Bold",
-			["Heavy"] = "Bold",
+			["Bold"] = "Bold Italic",
+			["Heavy"] = "Bold Italic",
 			["Black"] = "ExtraBold",
 		},
 	},

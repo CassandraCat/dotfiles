@@ -10,6 +10,7 @@ local front_app = sbar.add("item", "front_app", {
 		font = {
 			family = settings.font.text,
 			size = 12,
+      style = settings.font.style_map["Bold"]
 		},
 	},
 	position = "left",
