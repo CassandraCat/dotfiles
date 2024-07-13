@@ -51,7 +51,7 @@ yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
 yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
 yabai -m rule --add label="mpv" app="^mpv$" manage=off
 
-yabai -m rule --add app="^(System Settings|Calculator|Karabiner-Elements|QuickTime Player|Snipaste|AppCleaner|CleanMyMac X|kitty|WeChat|ClearVPN|Raycast|Bartender 5|Keka|WezTerm|Quantumult X|Clash Verge|ToDesk|Surge|Spark Mail)$" manage=off
+yabai -m rule --add app="^(System Settings|Calculator|Karabiner-Elements|QuickTime Player|Snipaste|AppCleaner|CleanMyMac X|kitty|WeChat|ClearVPN|Raycast|Bartender 5|Keka|WezTerm|Quantumult X|Clash Verge|ToDesk|Surge|Spark Mail|Notion)$" manage=off
 
 yabai -m rule --add title="Preferences$" manage=off
 yabai -m rule --add title="Settings$" manage=off
