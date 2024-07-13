@@ -105,6 +105,7 @@ install_brew_formulae() {
     markdownlint-cli
     mas
     maven
+    macchina
     neovim
     nvm
     opencv
