@@ -971,6 +971,7 @@ M.config = function()
       "abzcoding/markdown.nvim",
       branch = "feature/fancy",
       name = "render-markdown",
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
       config = function()
         require("user.markd").config()
       end,
