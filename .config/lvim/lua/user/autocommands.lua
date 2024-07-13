@@ -55,22 +55,19 @@ M.config = function()
           end
         end
 
-        if colorScheme == "rose-pine" then
-          vim.schedule(function()
-            highlight_groups.PmenuSel = "#84Cee4"
-            apply_highlights(highlight_groups, "#181622")
-          end)
-        elseif colorScheme == "tokyonight-moon" then
-          vim.schedule(function()
-            highlight_groups.PmenuSel = "#565f89"
-            apply_highlights(highlight_groups, "#191a24")
-          end)
-        elseif colorScheme == "catppuccin-mocha" then
-          vim.schedule(function()
-            highlight_groups.PmenuSel = "#6E6C7E"
-            apply_highlights(highlight_groups, "#1f1f27")
-          end)
-        end
+        local color_schemes = {
+          ["rose-pine"] = { PmenuSel = "#84Cee4", guibg = "#191723" },
+          ["tokyonight-moon"] = { PmenuSel = "#565f89", guibg = "#181622" },
+          ["catppuccin-mocha"] = { PmenuSel = "#6E6C7E", guibg = "#181622" },
+          ["kanagawa"] = { PmenuSel = "#938AA9", guibg = "#1e1e26" },
+        }
+
+        local selected_scheme = color_schemes[colorScheme] or color_schemes.default
+
+        vim.schedule(function()
+          highlight_groups.PmenuSel = selected_scheme.PmenuSel
+          apply_highlights(highlight_groups, selected_scheme.guibg)
+        end)
       end,
     })
   end
