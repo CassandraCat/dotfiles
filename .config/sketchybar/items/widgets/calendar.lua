@@ -11,7 +11,7 @@ local cal = sbar.add("item", {
 	label = {
 		padding_right = 20,
 		position = "center",
-		color = colors.platinum,
+		color = colors.fontColor,
 		font = {
 			style = settings.font.style_map["Bold"],
 			size = 12,
@@ -39,9 +39,8 @@ sbar.add("item", {})
 
 cal:subscribe({ "forced", "routine", "system_woke" }, function(env)
 	cal:set({
-		icon = os.date("􀒏 %A %b.%d /"),
-		label = os.date(" 􀐬 %H:%M"),
-		-- icon = os.date("%a.%d %b. %H"),
+		icon = os.date("􀉉 %A %b.%d /"),
+		label = os.date(" 􁙆 %H:%M"),
 	})
 end)
 
