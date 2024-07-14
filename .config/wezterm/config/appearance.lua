@@ -1,23 +1,22 @@
 local wezterm = require('wezterm')
 local gpu_adapters = require('utils.gpu_adapter')
+local theme_utils = require('utils.theme_utils')
 local colors = require('colors.custom')
 
-local function get_theme()
-   local _time = os.date('*t')
-   if _time.hour >= 1 and _time.hour < 9 then
-      return 'Rosé Pine (base16)'
-   elseif _time.hour >= 9 and _time.hour < 17 then
-      return 'tokyonight_night'
-   elseif _time.hour >= 17 and _time.hour < 21 then
-      return 'Catppuccin Mocha'
-   elseif _time.hour >= 21 and _time.hour < 24 or _time.hour >= 0 and _time.hour < 1 then
-      return 'kanagawabones'
-   end
-end
+local get_theme = theme_utils.get_theme
+local getDefaultColors = theme_utils.getDefaultColors
 
-local function getDefaultColors(theme)
-   return wezterm.color.get_builtin_schemes()[theme]
-end
+wezterm.on('update-right-status', function(window, pane)
+   local theme = get_theme()
+   if window:get_config_overrides().color_scheme ~= theme then
+      window:set_config_overrides({ color_scheme = theme })
+      wezterm.log_info('Theme changed to: ' .. theme)
+   end
+end)
+
+wezterm.on('timer', function(window, pane)
+   wezterm.reload_configuration()
+end)
 
 return {
    animation_fps = 60,
