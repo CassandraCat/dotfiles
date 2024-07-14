@@ -131,7 +131,7 @@ sbar.add("item", {
 		color = colors.bar.foreground,
 		string = icons.media.play_pause,
 		font = {
-			size = 15,
+			size = 12,
 		},
 	},
 
@@ -146,7 +146,7 @@ sbar.add("item", {
 		color = colors.bar.foreground,
 		string = icons.media.forward,
 		font = {
-			size = 15,
+			size = 12,
 		},
 	},
 	label = {

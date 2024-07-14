@@ -33,7 +33,7 @@ add_space:subscribe("mouse.entered", function(env)
 				padding_right = 10,
 				padding_left = 10,
 				string = "Add 􀅼",
-				color = colors.orange,
+				color = colors.cyan,
 				font = {
 					size = 12,
 				},

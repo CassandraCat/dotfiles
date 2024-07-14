@@ -16,6 +16,7 @@ return {
 	inactive = 0xfffb8e3f,
 	active = 0xffaeaeae,
 	hover = 0xff292f31,
+	text = 0xff495a63,
 	text_active = 0xffb9bdc1,
 	shadow_blue = 0xff698ba2,
 	frost_blue1 = 0xff8FBCBB,
@@ -24,8 +25,9 @@ return {
 	frost_blue4 = 0xff5E81AC,
 	frost_light = 0xff9fa29f,
 	seezalt_dark = 0xff45566a,
-	seezalt_smoke = 0xff737c73,
+	seezalt_smoke = 0xff495a63,
 	seesalt_spanishgrey = 0xff8f969e,
+	cyan = 0xff038ac7,
 	platinum = 0xffe5e5e5,
 	bar = {
 		bg = 0xff181818,

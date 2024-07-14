@@ -29,7 +29,7 @@ for i = 1, max_items, 1 do
 			padding_right = 5,
 			color = colors.se,
 			font = {
-				color = colors.white,
+				color = colors.text,
 				size = 12,
 				style = settings.font.style_map[i == 1 and "Bold" or "SemiBold"],
 			},
@@ -169,7 +169,7 @@ menu_indicator:subscribe("mouse.entered", function(env)
 						},
 					},
 					label = {
-						color = colors.white,
+						color = colors.text,
 						font = {
 							size = 12,
 							style = settings.font.style_map.SemiBold,
@@ -209,7 +209,7 @@ menu_indicator:subscribe("mouse.exited", function(env)
 						},
 					},
 					label = {
-						color = colors.white,
+						color = colors.text,
 						font = {
 							size = 12,
 							style = settings.font.style_map.SemiBold,

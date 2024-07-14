@@ -34,7 +34,7 @@ apple:subscribe("mouse.entered", function(env)
 			},
 			icon = {
 				string = "Menu",
-				color = colors.white,
+				color = colors.text,
 				font = {
 					size = 12,
 				},

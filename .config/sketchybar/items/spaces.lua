@@ -1,34 +1,11 @@
 local colors = require("colors")
 local settings = require("settings")
 
-local sf_icons_active = {
-	"􀃋",
-	"􀃍",
-	"􀃏",
-	"􀃑",
-	"􀃓",
-	"􀃕",
-	"􀃗",
-	"􀃙",
-	"􀃛",
-}
-local sf_icons_inactive = {
-	"􀂓",
-	"􀂓",
-	"􀂓",
-	"􀂓",
-	"􀂓",
-	"􀂓",
-	"􀂓",
-	"􀂓",
-	"􀂓",
-}
-
 local function getSpaceIcon(space, active)
 	if active then
-		return sf_icons_active[space]
+		return "􀥳"
 	else
-		return sf_icons_inactive[space] or "􀂓"
+		return "􀥲"
 	end
 end
 
@@ -66,7 +43,7 @@ for i = 1, 10 do
 		icon = {
 			string = getSpaceIcon(i, false),
 			size = 20,
-			color = colors.red,
+			color = colors.cyan,
 		},
 		background = {
 			drawing = true,
@@ -88,9 +65,9 @@ for i = 1, 10 do
 					padding_right = selected and 10 or 0,
 					style = settings.font.style_map.SemiBold,
 					string = selected and getSpaceIcon(i, true) or getSpaceIcon(i, false),
-					color = selected and colors.red or colors.bg1,
+					color = selected and colors.cyan or colors.text,
 					font = {
-						size = selected and 14 or 18,
+						size = selected and 14 or 16,
 					},
 				},
 				background = {
@@ -110,9 +87,9 @@ for i = 1, 10 do
 					},
 				},
 				icon = {
-					string = selected and "􁻻 Spaces" or getSpaceIcon(i, true),
+					string = selected and "􀥠 Spaces" or getSpaceIcon(i, true),
 					style = settings.font.style_map.Regular,
-					color = selected and colors.red or colors.bg1,
+					color = selected and colors.cyan or colors.bg1,
 					font = {
 						size = selected and 14 or 25,
 					},
@@ -120,7 +97,7 @@ for i = 1, 10 do
 				label = {
 					drawing = false,
 					string = selected and "Spaces" or env.INFO,
-					color = colors.red,
+					color = colors.text,
 					font = {
 						size = selected and 14 or 14,
 					},
@@ -140,13 +117,13 @@ for i = 1, 10 do
 						size = selected and 14 or 18,
 					},
 					string = selected and getSpaceIcon(i, true) or getSpaceIcon(i, false),
-					color = selected and colors.red or colors.bg2,
+					color = selected and colors.cyan or colors.bg2,
 				},
 				label = {
 					padding_right = right_padding,
 					drawing = true,
 					style = settings.font.style_map.Regular,
-					color = colors.seezalt_smoke,
+					color = colors.cyan,
 					font = {
 						size = selected and 12 or 0,
 					},
@@ -164,12 +141,12 @@ for i = 1, 10 do
 					size = selected and 12 or 18,
 				},
 				string = selected and getSpaceIcon(i, true) or getSpaceIcon(i, false),
-				color = selected and colors.red or colors.bg2,
+				color = selected and colors.cyan or colors.bg2,
 			},
 			label = {
 				drawing = true,
 				style = settings.font.style_map.Regular,
-				color = colors.white,
+				color = colors.text,
 				font = {
 					size = selected and 12 or 0,
 				},
