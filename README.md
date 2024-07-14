@@ -38,6 +38,10 @@ curl -L https://raw.githubusercontent.com/CrazyCatZhang/dotfiles/main/.install.s
 
 ![discord screenshot](./.config/images/discord-screenshot.png)
 
+### sketchybar
+![sketchybar screenshot1](./.config/images/sketchybar-screenshot1.png)
+![sketchybar-screenshot2](./.config/images/sketchybar-screenshot2.png)
+
 ### surge
 
 ![surgent screenshot](./.config/images/surge-screenshot.png)
