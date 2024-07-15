@@ -17,14 +17,14 @@
 􂅿 CMedia = select, 􀷎 Direct, 􁐇 Movie Proxies@HK, 􁐇 Movie Proxies@TW, hidden=false, no-alert=false
 􂆀 GMedia = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
 􀑑 GGame = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
-􁍎 OpenAI = select, 􁝯 AI Proxies, 􀈟 ShadowSocket@US, 􁹧 CornSS@US, 􀥠 OutSide, hidden=false, no-alert=false
+􁍎 OpenAI = select, 􁝯 AI Proxies, 􁞴 Nexitally@US, 􁋴 WestData@US, 􀈟 ShadowSocket@US, 􀥠 OutSide, hidden=false, no-alert=false
 􀬗 Speedtest = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
 􀫎 Others = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
 
 # -----------------------------------
 # -------- Policy Group(Extra)
 # -----------------------------------
-􀇥 Blizzard = select, 􁹧 CornSS@US, 􁹧 CornSS@SG, 􀓎 Rabbit@US, 􀈟 ShadowSocket@US, 􀈟 ShadowSocket@SG, 􀷎 Direct, hidden=true, no-alert=false
+􀇥 Blizzard = select, 􀓎 Rabbit@US, 􀈟 ShadowSocket@US, 􁞴 Nexitally@US, 􁋴 WestData@US, 􀷎 Direct, hidden=true, no-alert=false
 􀺧 Discord = select, 􀬚 Airplane, hidden=true, no-alert=false
 􀈠 Telegram = select, 􀬚 Airplane, hidden=true, no-alert=false
 􀚅 Slack = select, 􀬚 Airplane, hidden=true, no-alert=false
@@ -45,33 +45,33 @@
 # -------- Airport Policy
 # -----------------------------------
 􀈟 ShadowSocket = smart, policy-path=https://sub.store/download/ShadowSocks, update-interval=172800, hidden=true
+􁞴 Nexitally = smart, policy-path=https://sub.store/download/Nexitally, update-interval=172800, hidden=true
+􁋴 WestData = smart, policy-path=https://sub.store/download/WestData, update-interval=172800, hidden=true
 􀓎 Rabbit = smart, policy-path=https://sub.store/download/naughty_rabbit, update-interval=172800, hidden=true
-􁹧 CornSS = smart, policy-path=https://sub.store/download/CornSS, update-interval=172800, hidden=true
 
 # -----------------------------------
 # -------- Airport Group
 # -----------------------------------
 􀋑 Proxy = select, 􀬚 Airplane, hidden=true
-􀷰 All_Proxy = select, include-other-group="􀈟 ShadowSocket, 􀓎 Rabbit, 􁹧 CornSS", hidden=true
-􀷰 Special_Proxy = select, include-other-group="􀈟 ShadowSocket, 􁹧 CornSS", policy-regex-filter=IEPL|IPLC, hidden=true
+􀷰 All_Proxy = select, include-other-group="􁞴 Nexitally, 􀈟 ShadowSocket, 􀓎 Rabbit, 􁋴 WestData", hidden=true
+􀷰 Special_Proxy = select, include-other-group="􁞴 Nexitally, 􀈟 ShadowSocket, 􁋴 WestData", policy-regex-filter=IEPL|IPLC, hidden=true
 
 # -----------------------------------
 # -------- Proxy Group
 # -----------------------------------
-􀵵 Aisa Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(香港|HK|台湾|TW|新加坡|SG|日本|JP), hidden=true, no-alert=false, evaluate-before-use=true
-􀵵 Aisa Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(香港|HK|台湾|TW|新加坡|SG|日本|JP), hidden=true, no-alert=false, evaluate-before-use=true
-􀵳 Europe Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(英国|UK|爱沙尼亚|EE|德国|DE|荷兰|NL), hidden=true, no-alert=false, evaluate-before-use=true
-􀵳 Europe Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(英国|UK|爱沙尼亚|EE|德国|DE|荷兰|NL), hidden=true, no-alert=false, evaluate-before-use=true
-􀵱 Americas Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(美国|US), hidden=true, no-alert=false, evaluate-before-use=true
-􀵱 Americas Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(美国|US), hidden=true, no-alert=false, evaluate-before-use=true
-􁇲 Central Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(澳大利亚|AU), hidden=true, no-alert=false, evaluate-before-use=true
-􁇲 Central Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(澳大利亚|AU), hidden=true, no-alert=false, evaluate-before-use=true
-􁝯 AI Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(美国|US).*GPT, hidden=true, no-alert=false, evaluate-before-use=true
-􁐇 Movie Proxies@HK = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(香港|HK), hidden=true, no-alert=false, evaluate-before-use=true
-􁐇 Movie Proxies@TW = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(台湾|TW), hidden=true, no-alert=false, evaluate-before-use=true
-􀈟 ShadowSocket@US = smart, include-other-group=􀈟 ShadowSocket, policy-regex-filter=(美国|US), hidden=true, no-alert=false, evaluate-before-use=true
-􀈟 ShadowSocket@SG = smart, include-other-group=􀈟 ShadowSocket, policy-regex-filter=(新加坡|SG), hidden=true, no-alert=false, evaluate-before-use=true
-􁹧 CornSS@US = smart, include-other-group=􁹧 CornSS, policy-regex-filter=(美国|US), hidden=true, no-alert=false, evaluate-before-use=true
-􁹧 CornSS@SG = smart, include-other-group=􁹧 CornSS, policy-regex-filter=(新加坡|SG), hidden=true, no-alert=false, evaluate-before-use=true
-􀓎 Rabbit@US = smart, include-other-group=􀓎 Rabbit, policy-regex-filter=(美国|US), hidden=true, no-alert=false, evaluate-before-use=true
+􀵵 Aisa Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(HK|Hong Kong|TW|Taiwan|SG|Singapore|JP|Japan|Korea|United Arab Emirates|India|Indonesia), hidden=true, no-alert=false, evaluate-before-use=true
+􀵵 Aisa Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(HK|Hong Kong|TW|Taiwan|SG|Singapore|JP|Japan|Korea|United Arab Emirates|India|Indonesia), hidden=true, no-alert=false, evaluate-before-use=true
+􀵳 Europe Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(UK|Netherlands|Germany|France|Switzerland|Sweden|Bulgaria|Austria|Ireland|Turkey|Hungary|Russia|EE|DE|NL), hidden=true, no-alert=false, evaluate-before-use=true
+􀵳 Europe Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(UK|Netherlands|Germany|France|Switzerland|Sweden|Bulgaria|Austria|Ireland|Turkey|Hungary|Russia|EE|DE|NL), hidden=true, no-alert=false, evaluate-before-use=true
+􀵱 Americas Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(US|USA|Canada|Brazil|Argentina|Chile), hidden=true, no-alert=false, evaluate-before-use=true
+􀵱 Americas Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(US|USA|Canada|Brazil|Argentina|Chile), hidden=true, no-alert=false, evaluate-before-use=true
+􁇲 Central Proxies(DL) = smart, include-other-group=􀷰 Special_Proxy, policy-regex-filter=(AU|Australia), hidden=true, no-alert=false, evaluate-before-use=true
+􁇲 Central Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(AU|Australia), hidden=true, no-alert=false, evaluate-before-use=true
+􁝯 AI Proxies = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(US|USA).*GPT, hidden=true, no-alert=false, evaluate-before-use=true
+􁐇 Movie Proxies@HK = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(HK|Hong Kong), hidden=true, no-alert=false, evaluate-before-use=true
+􁐇 Movie Proxies@TW = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(TW|Taiwan), hidden=true, no-alert=false, evaluate-before-use=true
+􀈟 ShadowSocket@US = smart, include-other-group=􀈟 ShadowSocket, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
+􁞴 Nexitally@US = smart, include-other-group=􁞴 Nexitally, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
+􁋴 WestData@US = smart, include-other-group=􁋴 WestData, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
+􀓎 Rabbit@US = smart, include-other-group=􀓎 Rabbit, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
 􀥠 OutSide = fallback, 􀵵 Aisa Proxies(DL), 􀵱 Americas Proxies(DL), 􀵳 Europe Proxies(DL), 􁇲 Central Proxies(DL), 􀵵 Aisa Proxies, 􀵱 Americas Proxies, 􀵳 Europe Proxies, 􁇲 Central Proxies, hidden=true, no-alert=false, interval=1800, timeout=2, evaluate-before-use=true
