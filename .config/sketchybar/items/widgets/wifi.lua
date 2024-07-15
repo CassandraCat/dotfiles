@@ -12,7 +12,7 @@ local wifi_up = sbar.add("item", "widgets.wifi_up", {
 	position = "right",
 	align = "left",
 	padding_left = -10,
-	padding_right = 10,
+	padding_right = -2,
 	width = 0,
 	icon = {
 		padding_right = 10,
@@ -39,7 +39,7 @@ local wifi_down = sbar.add("item", "widgets.wifi_down", {
 	position = "right",
 	align = "left",
 	padding_left = -10,
-	padding_right = 10,
+	padding_right = -2,
 	icon = {
 		padding_right = 10,
 		font = {
@@ -68,6 +68,7 @@ local wifi_icon = sbar.add("item", "wifi.icon", {
 		font = {
 			size = 12,
 		},
+    y_offset = 1
 	},
 	label = {
 		font = {
@@ -85,7 +86,7 @@ local wifi_bracket = sbar.add("bracket", "widgets.wifi_bracket", {
 	background = {
 		padding_left = 10,
 		padding_right = 10,
-		color = colors.bg1,
+		color = colors.transparent,
 	},
 	popup = {
 		align = "left",

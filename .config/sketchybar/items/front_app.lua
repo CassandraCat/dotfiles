@@ -9,15 +9,14 @@ local front_app = sbar.add("item", "front_app", {
 		align = "center",
 		font = {
 			family = settings.font.text,
-			size = 12,
+			size = 13,
       style = settings.font.style_map["Bold"]
 		},
 	},
 	position = "left",
 	update_freq = 30,
 	background = {
-		color = colors.bg1,
-		height = 20,
+		color = colors.transparent,
 	},
 })
 

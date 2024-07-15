@@ -47,7 +47,7 @@ for i = 1, 10 do
 		},
 		background = {
 			drawing = true,
-			color = colors.bg1,
+      color = colors.transparent
 		},
 	})
 	spaces[i] = space
@@ -61,13 +61,11 @@ for i = 1, 10 do
 					string = selected and env.INFO or "",
 				},
 				icon = {
-					padding_left = selected and 10 or 0,
-					padding_right = selected and 10 or 0,
 					style = settings.font.style_map.SemiBold,
 					string = selected and getSpaceIcon(i, true) or getSpaceIcon(i, false),
 					color = selected and colors.cyan or colors.text,
 					font = {
-						size = selected and 14 or 16,
+						size = selected and 18 or 16,
 					},
 				},
 				background = {

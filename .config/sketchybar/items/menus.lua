@@ -43,7 +43,7 @@ end
 sbar.add("bracket", { "/menu\\..*/" }, {
 	background = {
 		alpha = 0,
-		color = colors.bg1,
+		color = colors.transparent,
 	},
 })
 
@@ -130,11 +130,11 @@ local menu_indicator = sbar.add("item", {
 		color = colors.yellow,
 		string = icons.swap,
 		font = {
-			size = 12,
+			size = 16,
 		},
 	},
 	background = {
-		color = colors.bg1,
+		color = colors.transparent,
 	},
 })
 

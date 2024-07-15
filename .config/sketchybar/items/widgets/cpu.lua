@@ -12,7 +12,7 @@ local cpu = sbar.add("graph", "widgets.cpu", 42, {
 		color = colors.blue,
 	},
 	background = {
-		color = colors.bg1,
+		color = colors.transparent,
 		border_color = {
 			alpha = 0,
 		},
@@ -20,13 +20,14 @@ local cpu = sbar.add("graph", "widgets.cpu", 42, {
 	},
 	icon = {
 		padding_left = 10,
-		padding_right = 20,
+		padding_right = 15,
 		string = "􀼣",
 		align = "left",
 		color = colors.seezalt_dark,
 		font = {
 			size = 12,
 		},
+		y_offset = 1,
 	},
 	label = {
 		position = "left",
@@ -77,12 +78,3 @@ sbar.add("bracket", "widgets.cpu.bracket", { cpu.name }, {
 		border_width = 0,
 	},
 })
-
--- -- Background around the cpu item
--- sbar.add(
---     "item",
---     "widgets.cpu.padding",
---     {
---         position = "right"
---     }
--- )

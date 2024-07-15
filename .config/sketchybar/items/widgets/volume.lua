@@ -6,6 +6,7 @@ local popup_width = 140
 
 local volume_percent = sbar.add("item", "widgets.volume1", {
 	position = "right",
+  padding_right = -5,
 	icon = {
 		drawing = false,
 	},
@@ -36,15 +37,15 @@ local volume_icon = sbar.add("item", "widgets.volume2", {
 		font = {
 			size = 12,
 		},
+    y_offset = 1
 	},
-	-- click_script = "osascript $CONFIG_DIR/items/scripts/openSoundMenu.scpt"
 })
 
 local volume_bracket = sbar.add("bracket", "widgets.volume.bracket", { volume_icon.name, volume_percent.name }, {
 	padding_left = 10,
 	padding_right = 10,
 	background = {
-		color = colors.bg1,
+		color = colors.transparent,
 	},
 	popup = {
 		align = "left",

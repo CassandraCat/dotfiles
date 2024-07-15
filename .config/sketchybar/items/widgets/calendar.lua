@@ -28,7 +28,7 @@ local cal = sbar.add("item", {
 	position = "center",
 	update_freq = 30,
 	background = {
-		color = colors.bg1,
+		color = colors.transparent,
 		border_width = 0,
 	},
 	width = "dynamic",

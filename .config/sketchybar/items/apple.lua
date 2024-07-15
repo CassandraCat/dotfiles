@@ -1,22 +1,23 @@
 local colors = require("colors")
 local icons = require("icons")
-local settings = require("settings")
+
 sbar.add("item", {
 	width = 0,
 })
+
 local apple = sbar.add("item", {
 	icon = {
 		padding_left = 10,
 		padding_right = 10,
 		align = "center",
 		font = {
-			size = 14,
+			size = 16,
 		},
-		string = icons.apple,
+		string = "􀬚",
 		color = colors.seezalt_dark,
 	},
 	background = {
-		color = colors.bg1,
+		color = colors.transparent,
 	},
 	click_script = "$CONFIG_DIR/helpers/menus/bin/menus -s 0",
 })
@@ -36,7 +37,7 @@ apple:subscribe("mouse.entered", function(env)
 				string = "Menu",
 				color = colors.text,
 				font = {
-					size = 12,
+					size = 16,
 				},
 			},
 		})
@@ -54,7 +55,7 @@ apple:subscribe("mouse.exited", function(env)
 				string = icons.apple,
 				color = colors.seezalt_dark,
 				font = {
-					size = 12,
+					size = 16,
 				},
 			},
 		})

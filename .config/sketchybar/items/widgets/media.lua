@@ -1,156 +1,101 @@
-local colors = require("colors")
 local icons = require("icons")
+local colors = require("colors")
 
 local whitelist = {
 	["Spotify"] = true,
+	["Music"] = true,
 }
 
-local function setup_media_items()
-	local media_cover = sbar.add("item", {
-		display = 1,
-		bar = "right_bar",
-		background = {
-			color = colors.bar.bg,
-		},
-		position = "right",
-		align = "left",
-    padding_right = -15,
-		label = {
-			padding_left = 10,
-			padding_right = 5,
-			drawing = false,
-		},
-		icon = {
-			padding_left = 10,
-			padding_right = 10,
-			drawing = true,
-			string = "",
-			color = colors.green,
-		},
-		drawing = true,
-		updates = true,
-		popup = {
-			align = "lefz",
-			horizontal = true,
-			height = 45,
-		},
-	})
-
-	local media_artist = sbar.add("item", {
-		position = "popup." .. media_cover.name,
-		drawing = true,
-		width = 0,
-		icon = {
-			drawing = false,
-		},
-		label = {
-			align = "right",
-			padding_right = 10,
-			padding_left = 10,
-			width = "dynamic",
-			font = {
-				size = 12,
-			},
-			color = colors.lightgray,
-			max_chars = 25,
-			y_offset = 7,
-		},
-	})
-
-	local media_title = sbar.add("item", {
-		position = "popup." .. media_cover.name,
-		drawing = true,
-		icon = {
-			drawing = false,
-		},
-		label = {
-			align = "right",
-			padding_right = 10,
-
-			width = "dynamic",
-
-			color = colors.seezalt_smoke,
-			max_chars = 25,
-			font = {
-				size = 12,
-			},
-			y_offset = -6,
-		},
-	})
-
-	return media_cover, media_artist, media_title
-end
-
-local media_cover, media_artist, media_title = setup_media_items()
-
-local media_bracket = sbar.add("bracket", "media.bracket", { media_title.name, media_artist.name }, {
-	label = {
-		position = "left",
-		align = "left",
-		padding_left = 10,
-		padding_right = 10,
-	},
-
+local media_cover = sbar.add("item", {
+	position = "right",
+	padding_right = -15,
 	background = {
-		height = 45,
-		color = colors.bar.bg,
+		image = {
+			string = "media.artwork",
+			scale = 0.7,
+		},
+		color = colors.transparent,
 	},
+	label = {
+		drawing = false,
+	},
+	icon = {
+		drawing = false,
+	},
+	drawing = false,
+	updates = true,
 	popup = {
-		padding_left = 20,
-		padding_right = 20,
-		align = "right",
+		align = "center",
+		horizontal = true,
 	},
 })
 
-local media_container = sbar.add("bracket", "media_bracket", { media_title.name }, {
-	background = {
-		position = "popup." .. media_bracket.name,
+local media_artist = sbar.add("item", {
+	position = "right",
+	drawing = false,
+	padding_left = 3,
+	padding_right = 0,
+	width = 0,
+	icon = {
+		drawing = false,
+	},
+	label = {
+		width = 0,
+		font = {
+			size = 10,
+		},
+		color = colors.cyan,
+		max_chars = 18,
+		y_offset = 6,
+	},
+})
+
+local media_title = sbar.add("item", {
+	position = "right",
+	drawing = false,
+	padding_left = 3,
+	padding_right = 0,
+	icon = {
+		drawing = false,
+	},
+	label = {
+		font = {
+			size = 10,
+		},
+		width = 0,
+		max_chars = 16,
+		y_offset = -5,
+		color = 0x99ffffff,
 	},
 })
 
 sbar.add("item", {
 	position = "popup." .. media_cover.name,
-	padding_left = 20,
-
 	icon = {
-		color = colors.bar.foreground,
 		string = icons.media.back,
-		font = {
-			size = 15,
-		},
 	},
 	label = {
-
-		drawing = true,
+		drawing = false,
 	},
 	click_script = "nowplaying-cli previous",
 })
 sbar.add("item", {
 	position = "popup." .. media_cover.name,
 	icon = {
-		color = colors.bar.foreground,
 		string = icons.media.play_pause,
-		font = {
-			size = 12,
-		},
 	},
-
 	label = {
-		drawing = true,
+		drawing = false,
 	},
 	click_script = "nowplaying-cli togglePlayPause",
 })
 sbar.add("item", {
 	position = "popup." .. media_cover.name,
 	icon = {
-		color = colors.bar.foreground,
 		string = icons.media.forward,
-		font = {
-			size = 12,
-		},
 	},
 	label = {
-		drawing = true,
+		drawing = false,
 	},
 	click_script = "nowplaying-cli next",
 })
@@ -167,12 +112,12 @@ local function animate_detail(detail)
 	sbar.animate("tanh", 30, function()
 		media_artist:set({
 			label = {
-				width = "dynamic",
+				width = detail and "dynamic" or 0,
 			},
 		})
 		media_title:set({
 			label = {
-				width = "dynamic",
+				width = detail and "dynamic" or 0,
 			},
 		})
 	end)
@@ -183,7 +128,9 @@ media_cover:subscribe("media_change", function(env)
 		local drawing = (env.INFO.state == "playing")
 		media_artist:set({
 			drawing = drawing,
-			label = env.INFO.artist,
+			label = {
+				string = env.INFO.artist,
+			},
 		})
 		media_title:set({
 			drawing = drawing,
@@ -197,20 +144,6 @@ media_cover:subscribe("media_change", function(env)
 			animate_detail(true)
 			interrupt = interrupt + 1
 			sbar.delay(5, animate_detail)
-
-			-- Show popup for 10 seconds
-			media_cover:set({
-				popup = {
-					drawing = true,
-				},
-			})
-			sbar.delay(10, function()
-				media_cover:set({
-					popup = {
-						drawing = false,
-					},
-				})
-			end)
 		else
 			media_cover:set({
 				popup = {
@@ -245,5 +178,3 @@ media_title:subscribe("mouse.exited.global", function(env)
 		},
 	})
 end)
-
-return media_container

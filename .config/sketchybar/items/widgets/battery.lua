@@ -4,20 +4,21 @@ local settings = require("settings")
 
 local battery = sbar.add("item", "widgets.battery", {
 	background = {
-		color = colors.bg1,
+		color = colors.transprent,
 	},
 	position = "right",
 	icon = {
 		font = {
 			style = settings.font.style_map["Regular"],
-			size = 19.0,
+			size = 16,
 		},
 		padding_left = 10,
+    y_offset = 1
 	},
 	label = { font = { family = settings.font.numbers }, padding_right = 10 },
 	update_freq = 180,
 	popup = { align = "center" },
-	padding_right = 0,
+	padding_right = -12,
 })
 
 local remaining_time = sbar.add("item", {
