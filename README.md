@@ -7,7 +7,7 @@ My macOS configuration files playground...
 Most setup steps are in .install.sh
 
 ```bash
-curl -L https://raw.githubusercontent.com/CrazyCatZhang/dotfiles/main/.install.sh | sh
+curl -L https://raw.githubusercontent.com/CassandraCat/dotfiles/main/.install.sh | sh
 ```
 
 ## Screenshot
