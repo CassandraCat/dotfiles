@@ -57,7 +57,7 @@ M.config = function()
 
         local color_schemes = {
           ["rose-pine"] = { PmenuSel = "#84Cee4", guibg = "#191723" },
-          ["tokyonight-moon"] = { PmenuSel = "#565f89", guibg = "#181622" },
+          ["tokyonight-moon"] = { PmenuSel = "#565f89", guibg = "#191a24" },
           ["catppuccin-mocha"] = { PmenuSel = "#6E6C7E", guibg = "#181622" },
           ["kanagawa"] = { PmenuSel = "#938AA9", guibg = "#1e1e26" },
         }
