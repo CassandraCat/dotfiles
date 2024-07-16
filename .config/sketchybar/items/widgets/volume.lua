@@ -37,7 +37,8 @@ local volume_icon = sbar.add("item", "widgets.volume2", {
 		font = {
 			size = 12,
 		},
-    y_offset = 1
+    y_offset = 1,
+    padding_right = 1
 	},
 })
 
