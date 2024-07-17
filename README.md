@@ -30,6 +30,11 @@ curl -L https://raw.githubusercontent.com/CassandraCat/dotfiles/main/.install.sh
 
 ![nvim screenshot](./.config/images/nvim-screenshot.png)
 
+### sketchybar
+
+![sketchybar screenshot1](./.config/images/sketchybar-screenshot1.png)
+![sketchybar-screenshot2](./.config/images/sketchybar-screenshot2.png)
+
 ### spotify
 
 ![spotify screenshot](./.config/images/spotify-screenshot.png)
@@ -37,10 +42,6 @@ curl -L https://raw.githubusercontent.com/CassandraCat/dotfiles/main/.install.sh
 ### discord
 
 ![discord screenshot](./.config/images/discord-screenshot.png)
-
-### sketchybar
-![sketchybar screenshot1](./.config/images/sketchybar-screenshot1.png)
-![sketchybar-screenshot2](./.config/images/sketchybar-screenshot2.png)
 
 ### surge
 
