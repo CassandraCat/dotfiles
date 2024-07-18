@@ -266,6 +266,7 @@ local kanagawa_opts = {
       NvimTreeFolderIcon = { fg = "#7e9cd8" },
       CmpItemKindEnum = { fg = "#957FB8" },
       ["@parameter"] = { fg = "#DCA561" },
+      ColorColumn = { bg = "#181820" },
       rainbow1 = { fg = "#C34043", bg = "#21212A" },
       rainbow2 = { fg = "#FFA066", bg = "#21212A" },
       rainbow3 = { fg = "#DCA561", bg = "#21212A" },
