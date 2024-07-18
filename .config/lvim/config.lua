@@ -83,6 +83,8 @@ lvim.builtin.mini_move = { active = false } -- enable/disable mini.move
 lvim.builtin.mini_animate = { active = false } -- enable/disable mini.animate
 lvim.builtin.mini_completion = { active = false } -- enable/disable mini.completion
 lvim.builtin.mini_icons = { active = false } -- enable/disable mini.icons
+lvim.builtin.which_key.active = false -- pin which-key to v2.0.1
+lvim.builtin.which_key.mine = true -- pin which-key to v2.0.1
 
 -- Custom User Config
 -- =========================================
