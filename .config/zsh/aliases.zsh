@@ -16,4 +16,4 @@ alias bca="brew cu -a"
 alias bcl="brew cleanup"	
 alias vim="lvim"
 alias ra="ya"
-
+alias g++='g++ -std=c++17'
