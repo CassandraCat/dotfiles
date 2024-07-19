@@ -26,6 +26,6 @@
 .editor-container
   .editor-instance
   .monaco-editor
-  [class*="TextEditorDecorationType7"]::after {
+  [class*="TextEditorDecorationType"]::after {
   color: #0269b3 !important;
 }
