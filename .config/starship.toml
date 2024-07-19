@@ -49,7 +49,7 @@ deleted = '[󰍶 ${count}](red) '
 
 [custom.emoji]
 description = "Displays a (pseudo) random emoji for each prompt"
-command = "EMOJIS=(⛵️ 🪐 🚀 🛸 🌑 🫧 🐳 🌖 🌔); EMOJI_INDEX=$(( $RANDOM % 9 + 0 )); echo -n ${EMOJIS[$EMOJI_INDEX]}"
+command = "EMOJIS=(⛵️ 🪐 🚀 🛸 🌑 🐳 🌖 🌔); EMOJI_INDEX=$(( $RANDOM % 8 + 0 )); echo -n ${EMOJIS[$EMOJI_INDEX]}"
 when = "true"
 shell = ["bash", "--noprofile", "--norc"]
 format = "$output"
