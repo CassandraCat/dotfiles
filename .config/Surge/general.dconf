@@ -148,6 +148,6 @@ vif-mode = auto
 # Follow local DNS mapping items in `/etc/hosts`.
 read-etc-hosts = false
 # HTTP/HTTPS proxy server for Surge to use.
-# http-listen = 0.0.0.0:6152
+http-listen = 0.0.0.0:6152
 # Socks5 proxy server for Surge to use.
-# socks5-listen = 0.0.0.0:6153
+socks5-listen = 0.0.0.0:6153
