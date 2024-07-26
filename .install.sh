@@ -343,6 +343,12 @@ clone_dotfiles() {
   git --git-dir=$HOME/dotfiles/ --work-tree=$HOME checkout main
 }
 
+sync_config() {
+  log_message "Syncing config..."
+  rm -rf $HOME/.hammerspoon $HOME/.tmux.conf $HOME/.zshrc $HOME/.gitconfig $HOME/.gitignore_global
+  cd $HOME/dotfiles && stow .
+}
+
 install_fonts() {
   log_message "Installing Fonts..."
   curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.5/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
@@ -445,6 +451,7 @@ main() {
     install_mac_app_store_apps
     change_macos_defaults
     clone_dotfiles
+    sync_config
     install_fonts
     install_sbarlua
     refresh_zsh_config
