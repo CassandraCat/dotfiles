@@ -4,7 +4,7 @@
   name = CassandraCat
   email = CassandraCat@proton.me
 [core]
-  excludesfile = ~/.config/git/gitignore_global
+  excludesfile = ~/.gitignore_global
   editor = lvim
   ignorecase = false
   repositoryformatversion = 0
