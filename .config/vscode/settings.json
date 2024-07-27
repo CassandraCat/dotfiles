@@ -3,7 +3,7 @@
    * Workbench settings
    */
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorTheme": "Catppuccin Mocha Darker Bordered",
   "workbench.editor.tabSizing": "shrink",
   "workbench.iconTheme": "catppuccin-mocha",
   "workbench.list.smoothScrolling": true,
@@ -47,15 +47,15 @@
     "icon.foreground": "#29B6F6",
 
     "list.focusOutline": "#191923",
-    "list.focusBackground": "#191923",
+    "list.focusBackground": "#010201",
     "list.focusForeground": "#29B6F6",
     "list.hoverForeground": "#29B6F6",
-    "list.hoverBackground": "#1e1e1e00",
+    "list.hoverBackground": "#010201",
     "list.focusAndSelectionOutline": "#00000000",
     "list.activeSelectionForeground": "#29B6F6",
-    "list.activeSelectionBackground": "#191923",
+    "list.activeSelectionBackground": "#010201",
     "list.inactiveSelectionForeground": "#29B6F6",
-    "list.inactiveSelectionBackground": "#191923",
+    "list.inactiveSelectionBackground": "#010201",
 
     "panelTitle.activeBorder": "#29B6F6",
     "panelTitle.activeForeground": "#29B6F6",
@@ -328,7 +328,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 7/19/2024, 9:29:19 AM",
+    "//": "Last update at 7/27/2024, 5:04:35 PM",
     ".clang-tidy": ".clang-format, .clangd, compile_commands.json",
     ".env": "*.env, .env.*, .envrc, env.d.ts",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
@@ -930,14 +930,12 @@
 
   // ----------- Animations Settings -----------
   "animations.Enabled": true,
-  "animations.Command-Palette": "Scale",
   "animations.Install-Method": "Apc Customize UI++",
   "animations.CursorAnimation": true,
   "animations.CursorAnimationOptions": {
     "Color": "#1979c2",
     "CursorStyle": "line"
   },
-  "animations.Default-Duration": 200,
 
   // ----------- Git Settings -----------
   "git.autofetch": true,
@@ -996,7 +994,6 @@
   "github.copilot.editor.enableAutoCompletions": true,
   "breadcrumbs.enabled": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "animations.Smooth-Mode": false,
   "editor.fontVariations": false,
   "vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
   "[java]": {
