@@ -345,7 +345,7 @@ clone_dotfiles() {
 
 sync_config() {
   log_message "Syncing config..."
-  rm -rf $HOME/.hammerspoon $HOME/.tmux.conf $HOME/.zshrc $HOME/.gitconfig $HOME/.gitignore_global
+  rm -rf $HOME/.hammerspoon $HOME/.tmux.conf $HOME/.zshrc $HOME/.gitconfig $HOME/.gitignore_global $HOME/.config/*
   cd $HOME/dotfiles && stow .
 }
 
