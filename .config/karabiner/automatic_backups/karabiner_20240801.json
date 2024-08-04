@@ -38,7 +38,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "right_command"
+                                    "key_code": "caps_lock"
                                 },
                                 "parameters": {
                                     "basic.to_if_alone_threshold_milliseconds": 0,
@@ -101,7 +101,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "right_command"
+                                    "key_code": "caps_lock"
                                 },
                                 "to": [
                                     {
