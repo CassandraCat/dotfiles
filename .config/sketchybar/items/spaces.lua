@@ -45,10 +45,6 @@ for i = 1, 10 do
 			size = 20,
 			color = colors.cyan,
 		},
-		background = {
-			drawing = true,
-      color = colors.transparent
-		},
 	})
 	spaces[i] = space
 
