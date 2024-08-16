@@ -17,14 +17,14 @@
 􂅿 CMedia = select, 􀷎 Direct, 􁐇 Movie Proxies@HK, 􁐇 Movie Proxies@TW, hidden=false, no-alert=false
 􂆀 GMedia = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
 􀑑 GGame = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
-􁍎 OpenAI = select, 􁝯 AI Proxies, 􁞴 Nexitally@US, 􁋴 WestData@US, 􀈟 ShadowSocket@US, 􀥠 OutSide, hidden=false, no-alert=false
+􁍎 OpenAI = select, 􁝯 AI Proxies, 􁞴 Nexitally@US, 􀈟 ShadowSocket@US, 􀥠 OutSide, hidden=false, no-alert=false
 􀬗 Speedtest = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
 􀫎 Others = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
 
 # -----------------------------------
 # -------- Policy Group(Extra)
 # -----------------------------------
-􀇥 Blizzard = select, 􀓎 Rabbit@US, 􀈟 ShadowSocket@US, 􁞴 Nexitally@US, 􁋴 WestData@US, 􀷎 Direct, hidden=true, no-alert=false
+􀇥 Blizzard = select, 􀓎 Rabbit@US, 􀈟 ShadowSocket@US, 􁞴 Nexitally@US, 􀷎 Direct, hidden=true, no-alert=false
 􀺧 Discord = select, 􀬚 Airplane, hidden=true, no-alert=false
 􀈠 Telegram = select, 􀬚 Airplane, hidden=true, no-alert=false
 􀚅 Slack = select, 􀬚 Airplane, hidden=true, no-alert=false
@@ -46,15 +46,14 @@
 # -----------------------------------
 􀈟 ShadowSocket = smart, policy-path=https://sub.store/download/ShadowSocks, update-interval=172800, hidden=true
 􁞴 Nexitally = smart, policy-path=https://sub.store/download/Nexitally, update-interval=172800, hidden=true
-􁋴 WestData = smart, policy-path=https://sub.store/download/WestData, update-interval=172800, hidden=true
 􀓎 Rabbit = smart, policy-path=https://sub.store/download/naughty_rabbit, update-interval=172800, hidden=true
 
 # -----------------------------------
 # -------- Airport Group
 # -----------------------------------
 􀋑 Proxy = select, 􀬚 Airplane, hidden=true
-􀷰 All_Proxy = select, include-other-group="􁞴 Nexitally, 􀈟 ShadowSocket, 􀓎 Rabbit, 􁋴 WestData", hidden=true
-􀷰 Special_Proxy = select, include-other-group="􁞴 Nexitally, 􀈟 ShadowSocket, 􁋴 WestData", policy-regex-filter=IEPL|IPLC, hidden=true
+􀷰 All_Proxy = select, include-other-group="􁞴 Nexitally, 􀈟 ShadowSocket, 􀓎 Rabbit", hidden=true
+􀷰 Special_Proxy = select, include-other-group="􁞴 Nexitally, 􀈟 ShadowSocket", policy-regex-filter=IEPL|IPLC, hidden=true
 
 # -----------------------------------
 # -------- Proxy Group
@@ -72,6 +71,5 @@
 􁐇 Movie Proxies@TW = smart, include-other-group=􀷰 All_Proxy, policy-regex-filter=(TW|Taiwan), hidden=true, no-alert=false, evaluate-before-use=true
 􀈟 ShadowSocket@US = smart, include-other-group=􀈟 ShadowSocket, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
 􁞴 Nexitally@US = smart, include-other-group=􁞴 Nexitally, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
-􁋴 WestData@US = smart, include-other-group=􁋴 WestData, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
 􀓎 Rabbit@US = smart, include-other-group=􀓎 Rabbit, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
 􀥠 OutSide = fallback, 􀵵 Aisa Proxies(DL), 􀵱 Americas Proxies(DL), 􀵳 Europe Proxies(DL), 􁇲 Central Proxies(DL), 􀵵 Aisa Proxies, 􀵱 Americas Proxies, 􀵳 Europe Proxies, 􁇲 Central Proxies, hidden=true, no-alert=false, interval=1800, timeout=2, evaluate-before-use=true
