@@ -12,40 +12,18 @@ local function font_with_fallback(name, params)
 end
 
 return {
-   font = font_with_fallback('MonaspiceRn Nerd Font Propo', {
+   font = font_with_fallback('CaskaydiaCove Nerd Font Mono', {
       weight = 'Bold',
       style = 'Italic',
-      -- harfbuzz_features = {
-      --    'zero',
-      --    'liga',
-      -- },
    }),
-   font_size = platform().is_mac and 16 or 14,
+   font_size = platform().is_mac and 17.5 or 14,
 
    font_rules = {
       {
-         intensity = 'Bold',
-         font = font_with_fallback({
-            family = 'MonaspiceRn Nerd Font Propo',
-            weight = 'Medium',
-         }),
-      },
-      {
-         italic = true,
-         intensity = 'Bold',
-         font = font_with_fallback({
-            family = 'Iosevka NF',
-            -- family = "Dank Mono",
-            weight = 'Medium',
-            italic = true,
-         }),
-      },
-      {
          italic = true,
          font = font_with_fallback({
-            -- family = "Dank Mono",
-            family = 'Iosevka NF',
-            weight = 'Regular',
+            family = 'CaskaydiaCove Nerd Font Mono',
+            weight = 'Bold',
             italic = true,
          }),
       },
