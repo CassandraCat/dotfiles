@@ -36,7 +36,7 @@ return {
          horizontal_align = 'Center',
       },
       {
-         source = { Color = getDefaultColors(get_theme()).background },
+         source = { Color = "#03080f" },
          height = '100%',
          width = '100%',
          opacity = 0.96,
