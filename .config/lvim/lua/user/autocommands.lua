@@ -56,10 +56,10 @@ M.config = function()
         end
 
         local color_schemes = {
-          ["rose-pine"] = { PmenuSel = "#84Cee4", guibg = "#191723" },
-          ["tokyonight-moon"] = { PmenuSel = "#565f89", guibg = "#191a24" },
-          ["catppuccin-mocha"] = { PmenuSel = "#6E6C7E", guibg = "#1d1d2c" },
-          ["kanagawa"] = { PmenuSel = "#938AA9", guibg = "#1e1e26" },
+          ["rose-pine"] = { PmenuSel = "#84Cee4", guibg = "#03080f" },
+          ["tokyonight-moon"] = { PmenuSel = "#565f89", guibg = "#03080f" },
+          ["catppuccin-mocha"] = { PmenuSel = "#6E6C7E", guibg = "#03080f" },
+          ["kanagawa"] = { PmenuSel = "#938AA9", guibg = "#03080f" },
         }
 
         local selected_scheme = color_schemes[colorScheme] or color_schemes.default
