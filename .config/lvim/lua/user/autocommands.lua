@@ -45,6 +45,16 @@ M.config = function()
           PmenuSel = "",
         }
 
+        local telescope_highlights = {
+          TelescopeBorder = "#03080f",
+          TelescopeResultsBorder = "#03080f",
+          TelescopePromptBorder = "#03080f",
+          TelescopeSelection = "",
+          TelescopePromptPrefix = "",
+          TelescopeNormal = "",
+          TelescopePromptNormal = "",
+        }
+
         local function apply_highlights(groups, guibg, guifg)
           for group, fg in pairs(groups) do
             if fg ~= "" then
@@ -67,6 +77,7 @@ M.config = function()
         vim.schedule(function()
           highlight_groups.PmenuSel = selected_scheme.PmenuSel
           apply_highlights(highlight_groups, selected_scheme.guibg)
+          apply_highlights(telescope_highlights, "#020202")
         end)
       end,
     })
