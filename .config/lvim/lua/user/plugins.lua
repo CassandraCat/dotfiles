@@ -958,13 +958,12 @@ M.config = function()
       enabled = lvim.builtin.leetcode.active,
     },
     {
-      "abzcoding/markdown.nvim",
-      branch = "feature/fancy",
-      name = "render-markdown",
-      dependencies = { "nvim-treesitter/nvim-treesitter" },
-      config = function()
-        require("user.markd").config()
-      end,
+      "OXY2DEV/markview.nvim",
+      lazy = false,
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons",
+      },
       enabled = lvim.builtin.markdown.active,
     },
     {

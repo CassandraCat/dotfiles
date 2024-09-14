@@ -1,6 +1,5 @@
 local M = {}
 local kind = require "user.lsp_kind"
--- local navic = require "nvim-navic"
 
 local function clock()
   return kind.icons.clock .. os.date "%H:%M"
@@ -197,34 +196,16 @@ M.config = function()
       globalstatus = lvim.builtin.global_statusline and not lvim.builtin.tmux_lualine,
     },
     sections = {
-      -- these are to remove the defaults
       lualine_a = {},
-
       lualine_b = {},
-      lualine_y = {},
-      lualine_z = {},
-      -- These will be filled later
       lualine_c = {},
       lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
     },
-    -- winbar = {
-    --   lualine_c = {
-    --     {
-    --       function()
-    --         return navic.get_location()
-    --       end,
-    --       cond = function()
-    --         return navic.is_available()
-    --       end,
-    --     },
-    --   },
-    -- },
     inactive_sections = {
       -- these are to remove the defaults
       lualine_a = {},
-      lualine_v = {},
-      lualine_y = {},
-      lualine_z = {},
       lualine_c = {
         {
           function()
@@ -243,12 +224,14 @@ M.config = function()
         },
         {
           "filename",
-          path = 0,
           cond = conditions.buffer_not_empty and conditions.hide_in_width,
           color = { fg = colors.blue, gui = "bold" },
         },
       },
+      lualine_v = {},
       lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
     },
   }
 
@@ -344,9 +327,9 @@ M.config = function()
         end
       end
       local show_name = vim.fn.expand "%:t"
-      -- if #cwd > 0 and #ftype > 0 then
-      --   show_name = fname:sub(#cwd + 2)
-      -- end
+      if #cwd > 0 and #ftype > 0 then
+        show_name = fname:sub(#cwd + 2)
+      end
       local readonly = ""
       local modified = ""
       if vim.bo.readonly then
@@ -417,7 +400,7 @@ M.config = function()
       return ""
     end,
     padding = { left = 0, right = 0 },
-    color = { fg = colors.bg, bg = colors.none },
+    color = { fg = colors.bg },
     cond = nil,
   }
 
@@ -426,7 +409,7 @@ M.config = function()
       return ""
     end,
     padding = { left = 0, right = 0 },
-    color = { fg = colors.bg, bg = colors.none },
+    color = { fg = colors.bg },
     cond = nil,
   }
 
@@ -487,15 +470,15 @@ M.config = function()
       end
       vim.list_extend(buf_client_names, supported_formatters)
 
-      -- -- add linter
-      -- local linters = require "lvim.lsp.null-ls.linters"
-      -- local supported_linters = {}
-      -- for _, lnt in pairs(linters.list_registered(buf_ft)) do
-      --   local _added_linter = lnt
-      --   _added_linter = string.sub(lnt, 1, 4)
-      --   table.insert(supported_linters, _added_linter)
-      -- end
-      -- vim.list_extend(buf_client_names, supported_linters)
+      -- add linter
+      local linters = require "lvim.lsp.null-ls.linters"
+      local supported_linters = {}
+      for _, lnt in pairs(linters.list_registered(buf_ft)) do
+        local _added_linter = lnt
+        _added_linter = string.sub(lnt, 1, 4)
+        table.insert(supported_linters, _added_linter)
+      end
+      vim.list_extend(buf_client_names, supported_linters)
 
       if conditions.hide_small() then
         return lsp_icon .. table.concat(buf_client_names, ", ")
@@ -515,31 +498,31 @@ M.config = function()
     color = { fg = colors.orange, bg = colors.bg },
   }
 
-  -- ins_right {
-  --   function()
-  --     local function format_file_size(file)
-  --       local size = vim.fn.getfsize(file)
-  --       if size <= 0 then
-  --         return ""
-  --       end
-  --       local sufixes = { "b", "k", "m", "g" }
-  --       local i = 1
-  --       while size > 1024 do
-  --         size = size / 1024
-  --         i = i + 1
-  --       end
-  --       return string.format("%.1f%s", size, sufixes[i])
-  --     end
+  ins_right {
+    function()
+      local function format_file_size(file)
+        local size = vim.fn.getfsize(file)
+        if size <= 0 then
+          return ""
+        end
+        local sufixes = { "b", "k", "m", "g" }
+        local i = 1
+        while size > 1024 do
+          size = size / 1024
+          i = i + 1
+        end
+        return string.format("%.1f%s", size, sufixes[i])
+      end
 
-  --     local file = vim.fn.expand "%:p"
-  --     if string.len(file) == 0 then
-  --       return ""
-  --     end
-  --     return format_file_size(file)
-  --   end,
-  --   color = { fg = colors.fg, bg = colors.bg },
-  --   cond = conditions.buffer_not_empty and conditions.hide_small,
-  -- }
+      local file = vim.fn.expand "%:p"
+      if string.len(file) == 0 then
+        return ""
+      end
+      return format_file_size(file)
+    end,
+    color = { fg = colors.fg, bg = colors.bg },
+    cond = conditions.buffer_not_empty and conditions.hide_small,
+  }
   table.insert(config.sections.lualine_y, {
     "fileformat",
     fmt = string.upper,
@@ -563,6 +546,7 @@ M.config = function()
       local index = math.ceil(line_ratio * #chars)
       return chars[index]
     end,
+    fmt = string.lower,
     padding = 0,
     color = { fg = colors.yellow, bg = colors.bg },
     cond = nil,

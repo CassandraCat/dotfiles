@@ -49,7 +49,7 @@ local tokyonight_opts = {
     hl.NormalNC = { fg = current_colors.fg_dark, bg = "#1c1d28" }
     hl.Normal = { fg = current_colors.fg, bg = "#1f2335" }
     hl.CursorLineNr = { fg = current_colors.orange }
-    hl.SymbolUsage = { bg = current_colors.bg }
+    hl.SymbolUsage = { bg = "#020202" }
     hl["rainbow1"] = { fg = c.red, bg = "#24283b" }
     hl["rainbow2"] = { fg = c.orange, bg = "#24283b" }
     hl["rainbow3"] = { fg = c.yellow, bg = "#24283b" }
@@ -95,7 +95,7 @@ local rose_pine_opts = {
     Boolean = { fg = "love" },
     Cursor = { fg = "#232136", bg = "text" },
     NormalFloat = { bg = "base" },
-    SymbolUsage = { bg = "base" },
+    SymbolUsage = { bg = "#020202" },
     MsgArea = { fg = "text" },
     VertSplit = { fg = "highlight_low", bg = "highlight_low" },
     SignColumn = { fg = "text", bg = "none" },
@@ -215,7 +215,7 @@ local catppuccin_opts = {
   },
   highlight_overrides = {
     mocha = {
-      SymbolUsage = { bg = "#151521" },
+      SymbolUsage = { bg = "#020202" },
       NormalFloat = { fg = "#CDD6F4", bg = "#151521" },
       CmpItemKindEnum = { fg = "#B4BEFE" },
       CmpItemKindEnumMember = { fg = "#F5C2E7" },
@@ -261,7 +261,7 @@ local kanagawa_opts = {
   overrides = function(_)
     return {
       CursorLine = { bg = "NONE" },
-      SymbolUsage = { bg = "#1b1b23" },
+      SymbolUsage = { bg = "#020202" },
       diffRemoved = { fg = "#E46876" },
       NvimTreeFolderIcon = { fg = "#7e9cd8" },
       CmpItemKindEnum = { fg = "#957FB8" },
@@ -658,6 +658,16 @@ M.telescope_theme = function(colorset)
     vim.api.nvim_set_hl(0, "SymbolUsageRef", { fg = h("Function").fg, bg = h("SymbolUsage").bg, italic = true })
     vim.api.nvim_set_hl(0, "SymbolUsageDef", { fg = h("Type").fg, bg = h("SymbolUsage").bg, italic = true })
     vim.api.nvim_set_hl(0, "SymbolUsageImpl", { fg = h("@keyword").fg, bg = h("SymbolUsage").bg, italic = true })
+  end
+  if lvim.builtin.markdown.active then
+    link("MarkviewHeading1", "rainbow1")
+    link("MarkviewHeading1Sign", "rainbow1")
+    link("MarkviewHeading2", "rainbow2")
+    link("MarkviewHeading2Sign", "rainbow2")
+    link("MarkviewHeading3", "rainbow3")
+    link("MarkviewHeading4", "rainbow4")
+    link("MarkviewHeading5", "rainbow5")
+    link("MarkviewHeading6", "rainbow6")
   end
 end
 
