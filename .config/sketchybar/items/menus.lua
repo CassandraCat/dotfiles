@@ -143,11 +143,6 @@ menu_indicator:subscribe("mouse.entered", function(env)
 	local selected = env.SELECTED == "true"
 	sbar.animate("elastic", 15, function()
 		menu_indicator:set({
-			background = {
-				color = {
-					alpha = 1,
-				},
-			},
 			icon = {
 				color = colors.orange,
 				font = {
@@ -163,11 +158,6 @@ menu_indicator:subscribe("mouse.entered", function(env)
 			sbar.animate("elastic", 15, function()
 				menu_item:set({
 					width = "dynamic",
-					background = {
-						color = {
-							alpha = 1,
-						},
-					},
 					label = {
 						color = colors.text,
 						font = {
@@ -184,11 +174,6 @@ menu_indicator:subscribe("mouse.exited", function(env)
 	local selected = env.SELECTED == "true"
 	sbar.animate("elastic", 15, function()
 		menu_indicator:set({
-			background = {
-				color = {
-					alpha = 1,
-				},
-			},
 			label = {
 				color = colors.gray,
 				font = {

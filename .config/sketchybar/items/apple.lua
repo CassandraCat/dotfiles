@@ -28,11 +28,6 @@ sbar.add("bracket", {
 apple:subscribe("mouse.entered", function(env)
 	sbar.animate("elastic", 15, function()
 		apple:set({
-			background = {
-				color = {
-					alpha = 1,
-				},
-			},
 			icon = {
 				string = "Menu",
 				color = colors.text,
@@ -46,11 +41,6 @@ end)
 apple:subscribe("mouse.exited", function(env)
 	sbar.animate("elastic", 15, function()
 		apple:set({
-			background = {
-				color = {
-					alpha = 1,
-				},
-			},
 			icon = {
 				string = icons.apple,
 				color = colors.seezalt_dark,
