@@ -20,10 +20,10 @@ vimcmd_symbol = "[➺](bold #29B6F6)(maroon)"
 # # configure directory
 [directory]
 read_only = " "
-format = "[](#252526)[ $path ]($style)[$lock_symbol]($lock_style )[ ](bold #252526) "
+format = "[](#020202)[ $path ]($style)[$lock_symbol]($lock_style )[ ](bold #020202) "
 truncation_length = 10
 truncate_to_repo = true
-style = "bold italic fg:#737c73 bg:#252526"
+style = "bold italic fg:#737c73 bg:#020202"
 
 [git_branch]
 symbol = " "
