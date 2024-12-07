@@ -15,7 +15,7 @@ yabai -m config window_topmost off
 yabai -m config window_shadow float
 
 yabai -m config window_opacity on
-yabai -m config active_window_opacity 0.8
+yabai -m config active_window_opacity 1
 yabai -m config normal_window_opacity 0.6
 yabai -m config split_ratio 0.50
 yabai -m config auto_balance off
@@ -51,7 +51,7 @@ yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
 yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
 yabai -m rule --add label="mpv" app="^mpv$" manage=off
 
-yabai -m rule --add app="^(System Settings|Calculator|Karabiner-Elements|QuickTime Player|Snipaste|AppCleaner|CleanMyMac X|kitty|WeChat|ClearVPN|Raycast|Bartender 5|Keka|WezTerm|Quantumult X|Clash Verge|ToDesk|Surge|Spark Mail|Notion)$" manage=off
+yabai -m rule --add app="^(System Settings|Calculator|Karabiner-Elements|QuickTime Player|Snipaste|AppCleaner|CleanMyMac|kitty|WeChat|ClearVPN|Raycast|Bartender 5|Keka|WezTerm|Quantumult X|Clash Verge|ToDesk|Surge|Spark Mail|Notion|DingTalk|Claude)$" manage=off
 
 yabai -m rule --add title="Preferences$" manage=off
 yabai -m rule --add title="Settings$" manage=off

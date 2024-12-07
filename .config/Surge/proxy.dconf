@@ -9,37 +9,37 @@
 # -----------------------------------
 # -------- Policy Group
 # -----------------------------------
-􀬚 Airplane = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
-􀥲 Mainland = select, 􀷎 Direct, 􀥠 OutSide, hidden=false, no-alert=false
-􀪱 Apple = select, 􀷎 Direct, 􀥠 OutSide, hidden=false, no-alert=false
-􀍟 Apple Update = select, 􀥠 OutSide, 􀷎 Direct, 􀍼 Reject, hidden=false, no-alert=false
-􀇼 AdBlock = select, 􀥠 OutSide, 􀍼 Reject, 􀷎 Direct, hidden=false, no-alert=false
-􂅿 CMedia = select, 􀷎 Direct, 􁐇 Movie Proxies@HK, 􁐇 Movie Proxies@TW, hidden=false, no-alert=false
-􂆀 GMedia = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
-􀑑 GGame = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
-􁍎 OpenAI = select, 􁝯 AI Proxies, 􁞴 Nexitally@US, 􀈟 ShadowSocket@US, 􀥠 OutSide, hidden=false, no-alert=false
-􀬗 Speedtest = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
-􀫎 Others = select, 􀥠 OutSide, 􀷎 Direct, hidden=false, no-alert=false
+􀬚 Airplane = select, "􀥠 OutSide", "􀷎 Direct", hidden=false, no-alert=false
+􀥲 Mainland = select, "􀷎 Direct", "􀥠 OutSide", hidden=false, no-alert=false
+􀪱 Apple = select, "􀷎 Direct", "􀥠 OutSide", hidden=false, no-alert=false
+􀍟 Apple Update = select, "􀥠 OutSide", "􀷎 Direct", "􀍼 Reject", hidden=false, no-alert=false
+􀇼 AdBlock = select, "􀥠 OutSide", "􀍼 Reject", "􀷎 Direct", hidden=false, no-alert=false
+􂅿 CMedia = select, "􀷎 Direct", "􁐇 Movie Proxies@HK", "􁐇 Movie Proxies@TW", hidden=false, no-alert=false
+􂆀 GMedia = select, "􀥠 OutSide", "􀷎 Direct", hidden=false, no-alert=false
+􀑑 GGame = select, "􀥠 OutSide", "􀷎 Direct", hidden=false, no-alert=false
+􁍎 OpenAI = select, "􁝯 AI Proxies", "􁞴 Nexitally@US", "􀈟 ShadowSocket@US", "􀥠 OutSide", hidden=false, no-alert=false
+􀬗 Speedtest = select, "􀥠 OutSide", "􀷎 Direct", hidden=false, no-alert=false
+􀫎 Others = select, "􀥠 OutSide", "􀷎 Direct", hidden=false, no-alert=false
 
 # -----------------------------------
 # -------- Policy Group(Extra)
 # -----------------------------------
-􀇥 Blizzard = select, 􀓎 Rabbit@US, 􀈟 ShadowSocket@US, 􁞴 Nexitally@US, 􀷎 Direct, hidden=true, no-alert=false
-􀺧 Discord = select, 􀬚 Airplane, hidden=true, no-alert=false
-􀈠 Telegram = select, 􀬚 Airplane, hidden=true, no-alert=false
-􀚅 Slack = select, 􀬚 Airplane, hidden=true, no-alert=false
-􀧍 Microsoft = select, 􀬚 Airplane, hidden=true, no-alert=false
-􀍯 PayPal = select, 􀬚 Airplane, hidden=true, no-alert=false
-􀺭 NeteaseMusic = select, 􂅿 CMedia, hidden=true, no-alert=false
-􀺹 Spotify = select, 􂆀 GMedia, hidden=true, no-alert=false
-􁖐 Douyu = select, 􂅿 CMedia, hidden=true, no-alert=false
-􁢙 Huya = select, 􂅿 CMedia, hidden=true, no-alert=false
-􁓵 BiliBili = select, 􂅿 CMedia, hidden=true, no-alert=false
-􀜤 IQiYi = select, 􂅿 CMedia, hidden=true, no-alert=false
-􁐈 TencentVideo = select, 􂅿 CMedia, hidden=true, no-alert=false
-􀊚 Youtube = select, 􂆀 GMedia, hidden=true, no-alert=false
-􀾞 Baidu = select, 􀥲 Mainland, hidden=true, no-alert=false
-􀀑 Google = select, 􀬚 Airplane, hidden=true, no-alert=false
+􀇥 Blizzard = select, "􀓎 Rabbit@US", "􀈟 ShadowSocket@US", "􁞴 Nexitally@US", "􀷎 Direct", hidden=true, no-alert=false
+􀺧 Discord = select, "􀬚 Airplane", hidden=true, no-alert=false
+􀈠 Telegram = select, "􀬚 Airplane", hidden=true, no-alert=false
+􀚅 Slack = select, "􀬚 Airplane", hidden=true, no-alert=false
+􀧍 Microsoft = select, "􀬚 Airplane", hidden=true, no-alert=false
+􀍯 PayPal = select, "􀬚 Airplane", hidden=true, no-alert=false
+􀺭 NeteaseMusic = select, "􂅿 CMedia", hidden=true, no-alert=false
+􀺹 Spotify = select, "􂆀 GMedia", hidden=true, no-alert=false
+􁖐 Douyu = select, "􂅿 CMedia", hidden=true, no-alert=false
+􁢙 Huya = select, "􂅿 CMedia", hidden=true, no-alert=false
+􁓵 BiliBili = select, "􂅿 CMedia", hidden=true, no-alert=false
+􀜤 IQiYi = select, "􂅿 CMedia", hidden=true, no-alert=false
+􁐈 TencentVideo = select, "􂅿 CMedia", hidden=true, no-alert=false
+􀊚 Youtube = select, "􂆀 GMedia", hidden=true, no-alert=false
+􀾞 Baidu = select, "􀥲 Mainland", hidden=true, no-alert=false
+􀀑 Google = select, "􀬚 Airplane", hidden=true, no-alert=false
 
 # -----------------------------------
 # -------- Airport Policy
@@ -51,7 +51,7 @@
 # -----------------------------------
 # -------- Airport Group
 # -----------------------------------
-􀋑 Proxy = select, 􀬚 Airplane, hidden=true
+􀋑 Proxy = select, "􀬚 Airplane", hidden=true
 􀷰 All_Proxy = select, include-other-group="􁞴 Nexitally, 􀈟 ShadowSocket, 􀓎 Rabbit", hidden=true
 􀷰 Special_Proxy = select, include-other-group="􁞴 Nexitally, 􀈟 ShadowSocket", policy-regex-filter=IEPL|IPLC, hidden=true
 
@@ -72,4 +72,4 @@
 􀈟 ShadowSocket@US = smart, include-other-group=􀈟 ShadowSocket, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
 􁞴 Nexitally@US = smart, include-other-group=􁞴 Nexitally, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
 􀓎 Rabbit@US = smart, include-other-group=􀓎 Rabbit, policy-regex-filter=(US|USA), hidden=true, no-alert=false, evaluate-before-use=true
-􀥠 OutSide = fallback, 􀵵 Aisa Proxies(DL), 􀵱 Americas Proxies(DL), 􀵳 Europe Proxies(DL), 􁇲 Central Proxies(DL), 􀵵 Aisa Proxies, 􀵱 Americas Proxies, 􀵳 Europe Proxies, 􁇲 Central Proxies, hidden=true, no-alert=false, interval=1800, timeout=2, evaluate-before-use=true
+􀥠 OutSide = fallback, "􀵵 Aisa Proxies(DL)", "􀵱 Americas Proxies(DL)", "􀵳 Europe Proxies(DL)", "􁇲 Central Proxies(DL)", "􀵵 Aisa Proxies", "􀵱 Americas Proxies", "􀵳 Europe Proxies", "􁇲 Central Proxies", hidden=true, no-alert=false, interval=1800, timeout=2, evaluate-before-use=true

@@ -1,74 +1,78 @@
 [Rule]
-DOMAIN-SUFFIX,openxlab.org.cn,􀷎 Direct // Overwrite AD Block
-DOMAIN-SUFFIX,google-analytics.com,􀍼 Reject
-DOMAIN-SUFFIX,hm.baidu.com,􀍼 Reject
-DOMAIN-SUFFIX,cpro.baidu.com,􀍼 Reject
-DOMAIN-SUFFIX,p.tanx.com,􀍼 Reject
-DOMAIN-SUFFIX,s5.cnzz.com,􀍼 Reject
-DOMAIN-SUFFIX,hzs19.cnzz.com,􀍼 Reject
-DOMAIN-SUFFIX,c.cnzz.com,􀍼 Reject
-DOMAIN-SUFFIX,w.cnzz.com,􀍼 Reject
-DOMAIN-SUFFIX,tcss.qq.com,􀍼 Reject
+DOMAIN-SUFFIX,tunnelblick.net,"􀷎 Direct"
+DOMAIN-SUFFIX,openxlab.org.cn,"􀷎 Direct"
+DOMAIN-SUFFIX,google-analytics.com,"􀍼 Reject"
+DOMAIN-SUFFIX,hm.baidu.com,"􀍼 Reject"
+DOMAIN-SUFFIX,cpro.baidu.com,"􀍼 Reject"
+DOMAIN-SUFFIX,p.tanx.com,"􀍼 Reject"
+DOMAIN-SUFFIX,s5.cnzz.com,"􀍼 Reject"
+DOMAIN-SUFFIX,hzs19.cnzz.com,"􀍼 Reject"
+DOMAIN-SUFFIX,c.cnzz.com,"􀍼 Reject"
+DOMAIN-SUFFIX,w.cnzz.com,"􀍼 Reject"
+DOMAIN-SUFFIX,tcss.qq.com,"􀍼 Reject"
+IP-CIDR,172.16.0.0/12,"􀷎 Direct"
+IP-CIDR,119.45.33.216/32,"􀷎 Direct"
+IP-CIDR,47.111.139.140/32,"􀷎 Direct"
 # *********************************** TEST END ***********************************
 
 # ========================= No Resolve Rule Set =========================
 # Common
-RULE-SET,SYSTEM,􀷎 Direct,no-resolve,extended-matching
-RULE-SET,https://s1.trojanflare.one/Surge/Basic/Apple-direct.list,􀪱 Apple
-RULE-SET,https://s1.trojanflare.one/Surge/Basic/CN.list,􀥲 Mainland
-RULE-SET,https://s1.trojanflare.one/Surge/Basic/common-ad-keyword.list,􀠱 Reject-TingGif
-RULE-SET,https://s1.trojanflare.one/Surge/Basic/foreign.list,􀋑 Proxy
+RULE-SET,SYSTEM,"􀷎 Direct",extended-matching,no-resolve
+RULE-SET,https://s1.trojanflare.one/Surge/Basic/Apple-direct.list,"􀪱 Apple"
+RULE-SET,https://s1.trojanflare.one/Surge/Basic/CN.list,"􀥲 Mainland"
+RULE-SET,https://s1.trojanflare.one/Surge/Basic/common-ad-keyword.list,"􀠱 Reject-TingGif"
+RULE-SET,https://s1.trojanflare.one/Surge/Basic/foreign.list,"􀋑 Proxy"
 
 # Communication
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list,􀈠 Telegram,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Discord/Discord.list,􀺧 Discord,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Slack/Slack.list,􀚅 Slack,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GitHub/GitHub.list,􀋑 Proxy,no-resolve,extended-matching
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list,"􀈠 Telegram",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Discord/Discord.list,"􀺧 Discord",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Slack/Slack.list,"􀚅 Slack",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GitHub/GitHub.list,"􀋑 Proxy",extended-matching,no-resolve
 
 # Media
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/BiliBili/BiliBili.list,􁓵 BiliBili,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/iQIYI/iQIYI.list,􀜤 IQiYi,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TencentVideo/TencentVideo.list,􁐈 TencentVideo,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list,􀊚 Youtube,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Netflix/Netflix.list,􂆀 GMedia,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/NetEaseMusic/NetEaseMusic.list,􀺭 NeteaseMusic,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Spotify/Spotify.list,􀺹 Spotify,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Douyu/Douyu.list,􁖐 Douyu,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/HuYa/HuYa.list,􁢙 Huya,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia_All_No_Resolve.list,􂆀 GMedia,update-interval=172800,no-resolve,extended-matching
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/BiliBili/BiliBili.list,"􁓵 BiliBili",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/iQIYI/iQIYI.list,"􀜤 IQiYi",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TencentVideo/TencentVideo.list,"􁐈 TencentVideo",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list,"􀊚 Youtube",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Netflix/Netflix.list,"􂆀 GMedia",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/NetEaseMusic/NetEaseMusic.list,"􀺭 NeteaseMusic",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Spotify/Spotify.list,"􀺹 Spotify",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Douyu/Douyu.list,"􁖐 Douyu",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/HuYa/HuYa.list,"􁢙 Huya",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia_All_No_Resolve.list,"􂆀 GMedia",extended-matching,"update-interval=172800",no-resolve
 
 # Search
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Baidu/Baidu.list,􀾞 Baidu,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list,􀀑 Google,no-resolve,extended-matching
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Baidu/Baidu.list,"􀾞 Baidu",extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list,"􀀑 Google",extended-matching,no-resolve
 
 # AI
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Claude/Claude.list,􁍎 OpenAI,update-interval=172800,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list,􁍎 OpenAI,update-interval=172800,no-resolve,extended-matching
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Claude/Claude.list,"􁍎 OpenAI",extended-matching,"update-interval=172800",no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list,"􁍎 OpenAI",extended-matching,"update-interval=172800",no-resolve
 
 # Game
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Blizzard/Blizzard.list,􀇥 Blizzard,update-interval=172800,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Steam/Steam.list,􀑑 GGame,update-interval=172800,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/SteamCN/SteamCN.list,􀷎 Direct,update-interval=172800,no-resolve,extended-matching
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Blizzard/Blizzard.list,"􀇥 Blizzard",extended-matching,"update-interval=172800",no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Steam/Steam.list,"􀑑 GGame",extended-matching,"update-interval=172800",no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/SteamCN/SteamCN.list,"􀷎 Direct",extended-matching,"update-interval=172800",no-resolve
 
 # Pay
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list,􀍯 PayPal,update-interval=172800,no-resolve,extended-matching
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list,"􀍯 PayPal",extended-matching,"update-interval=172800",no-resolve
 
 # Bonjour
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Cloudflare/Cloudflare.list,􀋑 Proxy,update-interval=172800,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_All_No_Resolve.list,􀥲 Mainland,update-interval=172800,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Global/Global_All_No_Resolve.list,􀋑 Proxy,update-interval=172800,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/ASN.China.list,􀷎 Direct
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Cloudflare/Cloudflare.list,"􀋑 Proxy",extended-matching,"update-interval=172800",no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_All_No_Resolve.list,"􀥲 Mainland",extended-matching,"update-interval=172800",no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Global/Global_All_No_Resolve.list,"􀋑 Proxy",extended-matching,"update-interval=172800",no-resolve
+RULE-SET,https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/ASN.China.list,"􀷎 Direct"
 
 # Others
-RULE-SET,https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/HTTPDNS.Block.list,􀇼 AdBlock,update-interval=172800,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list,􀧍 Microsoft,update-interval=172800,no-resolve,extended-matching
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Speedtest/Speedtest.list,􀬗 Speedtest,update-interval=172800,no-resolve,extended-matching
-RULE-SET,LAN,􀷎 Direct,extended-matching
+RULE-SET,https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/HTTPDNS.Block.list,"􀇼 AdBlock",extended-matching,"update-interval=172800",no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list,"􀧍 Microsoft",extended-matching,"update-interval=172800",no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Speedtest/Speedtest.list,"􀬗 Speedtest",extended-matching,"update-interval=172800",no-resolve
+RULE-SET,LAN,"􀷎 Direct",extended-matching
 
 # ========================= Process Rule Set =========================
 # Fulters by Application
-PROCESS-NAME,/Applications/Syncthing.app/Contents/Resources/syncthing/syncthing,􀷎 Direct
+PROCESS-NAME,/Applications/Syncthing.app/Contents/Resources/syncthing/syncthing,"􀷎 Direct"
 
 # ========================= Not Hit or DNS failed =========================
-# GEOIP,CN,􀷎 Direct
+# GEOIP,CN,"􀷎 Direct"
 FINAL,􀫎 Others,dns-failed

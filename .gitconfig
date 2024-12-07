@@ -1,8 +1,8 @@
 [init]
   defaultBranch = main
 [user]
-  name = CassandraCat
-  email = CassandraCat@proton.me
+	name = CassandraCat
+	email = cassandracat@proton.me
 [core]
   excludesfile = ~/.gitignore_global
   editor = lvim
