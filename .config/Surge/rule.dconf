@@ -2,6 +2,7 @@
 DOMAIN-SUFFIX,tunnelblick.net,"􀷎 Direct"
 DOMAIN-SUFFIX,openxlab.org.cn,"􀷎 Direct"
 DOMAIN-SUFFIX,google-analytics.com,"􀍼 Reject"
+DOMAIN-SUFFIX,googleadservices.com,"􀀑 Google"
 DOMAIN-SUFFIX,hm.baidu.com,"􀍼 Reject"
 DOMAIN-SUFFIX,cpro.baidu.com,"􀍼 Reject"
 DOMAIN-SUFFIX,p.tanx.com,"􀍼 Reject"
