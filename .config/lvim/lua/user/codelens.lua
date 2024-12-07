@@ -24,7 +24,7 @@ M.show_line_sign = function()
 
   local context = { diagnostics = vim.lsp.diagnostic.get_line_diagnostics() }
   local params = require("vim.lsp.util").make_range_params()
-  params.context = context
+  params.context = { diagnostics = vim.diagnostic.get(0, { lnum = params.range.start.line }) }
   local bufnr = vim.api.nvim_get_current_buf()
   vim.lsp.buf_request_all(0, "textDocument/codeAction", params, M.handler_factory(params.range.start.line, bufnr))
 end
