@@ -4,11 +4,14 @@ Simple lualine-like status line for yazi.
 
 Read more about features and configuration [here](#features).
 
+> ⚠️ **Note**:
+> If you experience any issues after updating, please refer to the latest release notes. This repository is continuously synced with the upstream Yazi source code, which is actively maintained and frequently updated.
+
 ![preview](https://github.com/llanosrocas/yaziline.yazi/blob/master/.github/images/preview.png)
 
 ## Requirements
 
-- yazi version >= 0.3.0
+- yazi version >= [25.4.8](https://github.com/sxyazi/yazi/releases/tag/v25.4.8)
 - Font with symbol support. For example [Nerd Fonts](https://www.nerdfonts.com/).
 
 ## Installation
@@ -31,15 +34,26 @@ Optionally, configure line:
 
 ```lua
 require("yaziline"):setup({
-  separator_style = "angly" -- "angly" | "curvy" | "liney" | "empty"
+  color = "#98c379", -- main theme color
+  default_files_color = "darkgray", -- color of the file counter when it's inactive
+  selected_files_color = "white",
+  yanked_files_color = "green",
+  cut_files_color = "red",
+
+  separator_style = "angly", -- "angly" | "curvy" | "liney" | "empty"
   separator_open = "",
   separator_close = "",
   separator_open_thin = "",
   separator_close_thin = "",
+  separator_head = "",
+  separator_tail = "",
+
   select_symbol = "",
   yank_symbol = "󰆐",
-  filename_max_length = 24, -- trim when filename > 24
-  filename_trim_length = 6 -- trim 6 chars from both ends
+
+  filename_max_length = 24, -- truncate when filename > 24
+  filename_truncate_length = 6, -- leave 6 chars on both sides
+  filename_truncate_separator = "..." -- the separator of the truncated filename
 })
 ```
 
@@ -70,6 +84,8 @@ require("yaziline"):setup({
   separator_close = "", -- instead of 
   separator_open_thin = "", -- change to anything
   separator_close_thin = "", -- change to anything
+  separator_head = "", -- to match the style
+  separator_tail = "" -- to match the style
 })
 ```
 
@@ -85,7 +101,7 @@ You can provide your own symbols for `select` and `yank`. For example:
 require("yaziline"):setup({
   -- Optinal config
   select_symbol = "", -- "S" by default
-  yank_symbol = "󰆐", -- "Y" by default
+  yank_symbol = "󰆐" -- "Y" by default
 })
 ```
 
@@ -95,10 +111,16 @@ _You can find more symbols [here](https://www.nerdfonts.com/cheat-sheet)_
 
 ### Colors and font weight
 
-You can change background and font weight in your `yazi/flavors/flavor.toml`.
+By default yaziline uses color values from your `theme.toml` (or flavor) but you can set custom colors in the `init.lua`:
 
-```toml
-mode_normal = { bg = "#98c379", bold = false }
+```lua
+require("yaziline"):setup({
+  color = "#98c379",
+  default_files_color = "darkgray",
+  selected_files_color = "white",
+  yanked_files_color = "green",
+  cut_files_color = "red",
+})
 ```
 
 For example, here is how my line looks like:
@@ -109,14 +131,15 @@ For example, here is how my line looks like:
 
 Displays the number of selected ('S') and yanked ('Y') files on the left. If files are cut, the yank counter changes color, since its `yank --cut` under the hood.
 
-### Trimmed Filename
+### Truncated filename
 
-Displays the trimmed filename on the left, which is useful for smaller screens or long filenames. By default, it's 24 characters with trimming to 12. Adjust in the `setup`.
+Displays the truncated filename on the left, which is useful for smaller windows or long filenames. By default, it's 24 characters with trimming to 12 (6 + 6). Adjust in the `setup`.
 
 ```lua
 require("yaziline"):setup({
-  filename_max_length = 24, -- trim when filename > 24
-  filename_trim_length = 6 -- trim 6 chars from both ends
+  filename_max_length = 24, -- truncate when filename > 24
+  filename_truncate_length = 6, -- leave 6 chars on both sides
+  filename_truncate_separator = "..." -- the separator of the truncated filename
 })
 ```
 

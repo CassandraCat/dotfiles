@@ -9,6 +9,7 @@ require("starship"):setup {
 	config_file = "~/.config/yazi/starship.toml",
 }
 require("git"):setup {}
+require("no-status"):setup()
 
 Status:children_add(function()
 	local h = cx.active.current.hovered

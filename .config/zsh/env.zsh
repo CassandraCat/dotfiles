@@ -29,7 +29,7 @@ fi
 
 # export TERM=xterm-256color
 
-export EDITOR=lvim
+export EDITOR=nvim
 
 if [[ ":$PATH:" != *":/Users/crazycatzhang/.local/bin:"* ]]; then
     export PATH="/Users/crazycatzhang/.local/bin:$PATH"
@@ -62,3 +62,5 @@ export PATH="$PATH:/Users/crazycatzhang/Library/Application Support/Coursier/bin
 export PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!seen[$0]++' | sed 's/:$//')
 
 export LVIM_DEV_MODE=1
+
+export GOOGLE_API_KEY=AIzaSyAHWdQXbMB4oUtI_H1AJl7tIbD1aVrLNtU

@@ -1,4 +1,5 @@
 [Rule]
+PROCESS-NAME,/Applications/SunloginClient.app/Contents/MacOS/SunloginClient,DIRECT
 PROCESS-NAME,/Applications/Claude.app/Contents/MacOS/Claude,"􁍎 OpenAI"
 DOMAIN-SUFFIX,tunnelblick.net,"􀷎 Direct"
 DOMAIN-SUFFIX,openxlab.org.cn,"􀷎 Direct"
