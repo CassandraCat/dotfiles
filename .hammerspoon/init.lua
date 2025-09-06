@@ -67,7 +67,7 @@ hs.hotkey.bind({ "command" }, "escape", function()
 			appWatcher = hs.application.watcher.new(function(_, event, app)
 				local win = app:mainWindow()
 				if event == hs.application.watcher.launched and app:bundleID() == BUNDLE_ID then
-					win:setFrame(hs.geometry.rect(8, 40, 1776, 1075))
+					win:setFrame(hs.geometry.rect(8, 40, 1904, 1035))
 					moveAppToCurrentSpace(win)
 					appWatcher:stop()
 				end

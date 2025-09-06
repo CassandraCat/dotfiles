@@ -5,7 +5,7 @@
 	email = cassandracat@proton.me
 [core]
   excludesfile = ~/.gitignore_global
-  editor = lvim
+  editor = nvim
   ignorecase = false
   repositoryformatversion = 0
   filemode = true
